@@ -1,0 +1,7 @@
+k_x3uEl68J dimakasyanyuk 807
+k_lya88m8j dimasikas 807
+k_mG08ynzB qwerty1234 807
+flutter packages pub run build_runner build --delete-conflicting-outputs
+
+
+
