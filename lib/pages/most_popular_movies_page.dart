@@ -7,15 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:kinopoisk/models/list_move_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:kinopoisk/models/move_model.dart';
+import 'package:kinopoisk/widgets/app_bar_widget.dart';
 import 'package:kinopoisk/widgets/bottombar_widget.dart';
-import 'package:kinopoisk/widgets/drawer_widget.dart';
+//import 'package:kinopoisk/widgets/drawer_widget.dart';
+
 import 'package:kinopoisk/widgets/most_popular_movies_widget.dart';
 
 import 'move_info_page.dart';
 
 Future<ListMoveModel> getMostPopularMovies() async {
   final response = await http
-      .get('https://imdb-api.com/en/API/MostPopularMovies/k_r6cCR4og');
+      .get('https://imdb-api.com/en/API/MostPopularMovies/k_x3uEl68J');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -45,13 +47,7 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: Text(
-            'kinopoisk'.toUpperCase(),
-          ),
-          backgroundColor: Colors.grey[600],
-        ),
+        appBar: AppBarWidget(),
         body: FutureBuilder<ListMoveModel>(
           builder: (context, snapshot) {
             if (snapshot.hasData) {
@@ -60,17 +56,17 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
                   CarouselSlider.builder(
                     itemCount: countMoviesOnMainPage,
                     options: CarouselOptions(
-                        autoPlay: true,
-                        enlargeCenterPage: true,
-                        aspectRatio: 2.0,
-                        height: 600.0,
-                        onPageChanged: (index, reason) {
+                      autoPlay: true,
+                      enlargeCenterPage: true,
+                      aspectRatio: 2.0,
+                      height: 600.0,
+                      /*onPageChanged: (index, reason) {
                           setState(() {
                             _current = index;
                           });
-                        }
-                        //reverse: true,
-                        ),
+                        }*/
+                      //reverse: true,
+                    ),
                     itemBuilder: (ctx, index) {
                       MoveModel move = snapshot.data.items[index];
                       moviesList[index] = move;
@@ -85,7 +81,7 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
                       );
                     },
                   ),
-                  Row(
+                  /*Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: moviesList.map((url) {
                       int index = moviesList.indexOf(url);
@@ -102,7 +98,7 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
                         ),
                       );
                     }).toList(),
-                  ),
+                  ),*/
                 ],
               );
             } else if (snapshot.hasError) {

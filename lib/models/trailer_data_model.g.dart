@@ -14,7 +14,7 @@ TrailerDataModel _$TrailerDataModelFromJson(Map<String, dynamic> json) {
     type: json['type'] as String,
     year: json['year'] as String,
     videoId: json['videoId'] as String,
-    videoUrl: json['videoUrl'] as String,
+    thumbnailUrl: json['thumbnailUrl'] as String,
     errorMessage: json['errorMessage'] as String,
   );
 }
@@ -27,6 +27,6 @@ Map<String, dynamic> _$TrailerDataModelToJson(TrailerDataModel instance) =>
       'type': instance.type,
       'year': instance.year,
       'videoId': instance.videoId,
-      'videoUrl': instance.videoUrl,
+      'thumbnailUrl': instance.thumbnailUrl,
       'errorMessage': instance.errorMessage,
     };

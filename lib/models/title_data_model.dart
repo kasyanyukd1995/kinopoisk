@@ -12,6 +12,7 @@ class TitleDataModel {
   final String runtimeStr;
   final String plot;
   final String stars;
+
   final List<ActorModel> actorList;
   final String countries;
 

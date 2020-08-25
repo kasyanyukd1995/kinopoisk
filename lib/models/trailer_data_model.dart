@@ -9,7 +9,7 @@ class TrailerDataModel {
   final String type;
   final String year;
   final String videoId;
-  final String videoUrl;
+  final String thumbnailUrl;
   final String errorMessage;
 
   const TrailerDataModel({
@@ -19,7 +19,7 @@ class TrailerDataModel {
     this.type,
     this.year,
     this.videoId,
-    this.videoUrl,
+    this.thumbnailUrl,
     this.errorMessage,
   });
 
