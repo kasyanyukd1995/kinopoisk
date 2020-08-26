@@ -11,6 +11,8 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
 
+import 'actor_info_page.dart';
+
 String apikey = 'k_kG4L6Vrj';
 //import 'package:kinopoisk/widgets/video_play.dart';
 double setSizeFont(String item) {
@@ -164,12 +166,15 @@ class MoveInfoPage extends StatelessWidget {
                                           titleDataItem.actorList[index];
                                       return ActorWidget(
                                         actorItem: actorItem,
-                                        /* onTapCityFunction: (cityobj) => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => CityInfoPage(
-                            cityModel: itemModel,
-                          ))),*/
+                                        onTapActorFunction: (actorobj) =>
+                                            Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (BuildContext
+                                                            context) =>
+                                                        ActorInfoPage(
+                                                          actorModel: actorItem,
+                                                        ))),
                                       );
                                     },
                                     itemCount: titleDataItem.actorList.length,

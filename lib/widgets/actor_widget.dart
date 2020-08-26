@@ -4,10 +4,10 @@ import 'package:kinopoisk/models/actor_model.dart';
 
 class ActorWidget extends StatelessWidget {
   final ActorModel actorItem;
-  //final Function(MoveModel moveobj) onTapCityFunction;
+  final Function(ActorModel obj) onTapActorFunction;
   const ActorWidget({
     this.actorItem,
-    //this.onTapCityFunction,
+    this.onTapActorFunction,
   });
 
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class ActorWidget extends StatelessWidget {
           SizedBox(width: 8.0),
         ],
       ),
-      // onTap: () => onTapCityFunction(moveModel),
+      onTap: () => onTapActorFunction(actorItem),
     );
   }
 }
