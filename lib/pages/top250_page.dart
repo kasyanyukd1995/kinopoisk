@@ -11,9 +11,7 @@ class Top250Page extends StatelessWidget {
       child: Scaffold(
         appBar: AppBarWidget(),
         body: Text('top250page'),
-        bottomNavigationBar: BottomBarWidget(
-          currentIconindex: 2,
-        ),
+        bottomNavigationBar: BottomAppBarWidget(),
       ),
     );
   }

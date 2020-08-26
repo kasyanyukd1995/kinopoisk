@@ -11,7 +11,7 @@ class MoviesPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBarWidget(),
         body: Text('MoviesPage'),
-        bottomNavigationBar: BottomBarWidget(),
+        bottomNavigationBar: BottomAppBarWidget(),
       ),
     );
   }

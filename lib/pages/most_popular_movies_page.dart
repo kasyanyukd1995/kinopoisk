@@ -17,7 +17,7 @@ import 'move_info_page.dart';
 
 Future<ListMoveModel> getMostPopularMovies() async {
   final response = await http
-      .get('https://imdb-api.com/en/API/MostPopularMovies/k_x3uEl68J');
+      .get('https://imdb-api.com/en/API/MostPopularMovies/k_kG4L6Vrj');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,

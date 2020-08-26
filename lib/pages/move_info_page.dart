@@ -11,7 +11,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
 
-String apikey = 'k_x3uEl68J';
+String apikey = 'k_kG4L6Vrj';
 //import 'package:kinopoisk/widgets/video_play.dart';
 double setSizeFont(String item) {
   if (item.length > 25)
