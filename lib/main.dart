@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kinopoisk/pages/home_page.dart';
 import 'package:kinopoisk/pages/most_popular_movies_page.dart';
 
 void main() {
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'MovieSearch',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MostPopularMoviesPage(),
+      home: HomePage(),
     );
   }
 }

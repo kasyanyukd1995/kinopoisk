@@ -6,14 +6,13 @@ import 'package:kinopoisk/models/trailer_data_model.dart';
 import 'package:kinopoisk/models/youtube_trailer_data_model.dart';
 import 'package:kinopoisk/widgets/actor_widget.dart';
 import 'package:kinopoisk/widgets/app_bar_widget.dart';
-import 'package:kinopoisk/widgets/bottombar_widget.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
 
 import 'actor_info_page.dart';
 
-String apikey = 'k_kG4L6Vrj';
+String apikey = 'k_mG08ynzB';
 //import 'package:kinopoisk/widgets/video_play.dart';
 double setSizeFont(String item) {
   if (item.length > 25)
@@ -62,6 +61,10 @@ Future<TrailerDataModel> getTrailerDataModel(
     // If the server did return a 200 OK response,
     // then parse the JSON.
     return TrailerDataModel.fromJson(jsonDecode(response.body));
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load');
   }
 }
 
@@ -89,7 +92,7 @@ class MoveInfoPage extends StatelessWidget {
                       color: Colors.indigo[100],
                       child: FutureBuilder<TrailerDataModel>(
                         builder: (cxt, snpsh) {
-                          if (snapshot.hasData) {
+                          if (snpsh.hasData) {
                             TrailerDataModel trailerDataItem = snpsh.data;
                             if (trailerDataItem.thumbnailUrl != null)
                               return Image.network(
@@ -112,6 +115,24 @@ class MoveInfoPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
+                          Text(
+                            'RAITING: ' + moveItem.imDbRating,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontStyle: FontStyle.normal,
+                              fontWeight: FontWeight.w100,
+                            ),
+                          ),
+                          Text(
+                            'STARS: ' + titleDataItem.stars,
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontStyle: FontStyle.normal,
+                              fontWeight: FontWeight.w100,
+                            ),
+                          ),
                           Text(
                             'YEAR: ' + titleDataItem.year,
                             style: TextStyle(
@@ -191,7 +212,7 @@ class MoveInfoPage extends StatelessWidget {
                       child: Text(
                         titleDataItem.title,
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.white,
                           fontSize: setSizeFont(titleDataItem.title),
                           fontStyle: FontStyle.normal,
                           fontWeight: FontWeight.w700,
@@ -240,7 +261,7 @@ class MoveInfoPage extends StatelessWidget {
             future: getTitleDataModel(moveItem.id, apikey),
           ),
         ),
-        bottomNavigationBar: BottomAppBarWidget(),
+        //bottomNavigationBar: BottomAppBarWidget(),
       ),
     );
   }

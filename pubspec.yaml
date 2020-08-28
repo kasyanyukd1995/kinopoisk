@@ -33,6 +33,7 @@ dependencies:
   #video_player: ^0.10
   cached_network_image: ^2.2.1
   meet_network_image: ^0.1.2
+  flutter_slidable: ^0.5.4
   #youtube_player_flutter: ^7.0.0+7
 
 dev_dependencies:

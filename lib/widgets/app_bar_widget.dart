@@ -5,7 +5,7 @@ Widget AppBarWidget() {
   return AppBar(
     centerTitle: true,
     title: Text(
-      'kinopoisk'.toUpperCase(),
+      'MovieSearch'.toUpperCase(),
     ),
     backgroundColor: Colors.grey[600],
   );
