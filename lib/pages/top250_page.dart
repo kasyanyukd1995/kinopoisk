@@ -34,7 +34,7 @@ class _Top250PageState extends State<Top250Page> {
                     context,
                     MaterialPageRoute(
                         builder: (BuildContext context) => MoveInfoPage(
-                              moveItem: movieItem,
+                              titleId: movieItem.id,
                             ))),
               );
             },

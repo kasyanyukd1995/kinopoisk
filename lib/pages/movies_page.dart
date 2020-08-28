@@ -57,7 +57,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
                                           MoveInfoPage(
-                                            moveItem: movieItem,
+                                            titleId: movieItem.id,
                                           ))),
                             );
                           },
@@ -112,7 +112,7 @@ class _MoviesPageState extends State<MoviesPage> {
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
                                           MoveInfoPage(
-                                            moveItem: movieItem,
+                                            titleId: movieItem.id,
                                           ))),
                             );
                           },

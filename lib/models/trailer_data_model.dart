@@ -10,6 +10,7 @@ class TrailerDataModel {
   final String year;
   final String videoId;
   final String thumbnailUrl;
+  final String linkEmbed;
   final String errorMessage;
 
   const TrailerDataModel({
@@ -20,6 +21,7 @@ class TrailerDataModel {
     this.year,
     this.videoId,
     this.thumbnailUrl,
+    this.linkEmbed,
     this.errorMessage,
   });
 

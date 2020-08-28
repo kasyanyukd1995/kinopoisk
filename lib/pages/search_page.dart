@@ -1,10 +1,11 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:kinopoisk/models/result_search_list_model.dart';
 
 import 'package:kinopoisk/models/search_result_model.dart';
 import 'package:kinopoisk/pages/move_info_page.dart';
-import 'package:kinopoisk/widgets/list_view_for_search.dart';
+import 'package:kinopoisk/widgets/item_for_search.dart';
 
 // Define a custom Form widget.
 class SearchPage extends StatefulWidget {
@@ -62,20 +63,37 @@ class _SearchPageState extends State<SearchPage> {
       children: <Widget>[
         TextField(
           controller: myController,
-          //onChanged: (index, reason) {},
         ),
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: FutureBuilder<SearchResultModel>(
-            builder: (cxt, snapshot) {
-              if (snapshot.hasData) {
-                return ListViewForSearchWidget(searchList: snapshot.data);
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
-              return Center(child: CircularProgressIndicator());
-            },
-            future: getResultSearch(valueSearch),
+        Expanded(
+          child: SizedBox(
+            //width: 400,
+            child: FutureBuilder<SearchResultModel>(
+              builder: (cxt, snapshot) {
+                if (snapshot.hasData) {
+                  return ListView.builder(
+                    itemBuilder: (context, index) {
+                      ResultSearchListModel item = snapshot.data.results[index];
+                      return ItemForSearchWidget(
+                        searchItem: item,
+                        onTapItemFunction: (obj) => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (BuildContext context) => MoveInfoPage(
+                              titleId: item.id,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
+                    itemCount: snapshot.data.results.length,
+                  );
+                } else if (snapshot.hasError) {
+                  return Text('${snapshot.error}');
+                }
+                return Center(child: CircularProgressIndicator());
+              },
+              future: getResultSearch(valueSearch),
+            ),
           ),
         ),
       ],

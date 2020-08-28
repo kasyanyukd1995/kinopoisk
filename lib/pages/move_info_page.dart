@@ -12,7 +12,7 @@ import 'dart:async';
 
 import 'actor_info_page.dart';
 
-String apikey = 'k_mG08ynzB';
+String apikey = 'k_lya88m8j';
 //import 'package:kinopoisk/widgets/video_play.dart';
 double setSizeFont(String item) {
   if (item.length > 25)
@@ -22,8 +22,11 @@ double setSizeFont(String item) {
 }
 
 Future<TitleDataModel> getTitleDataModel(String title, String apikey) async {
-  final response = await http
-      .get('https://imdb-api.com/en/API/Title/' + apikey + '/' + title);
+  final response = await http.get('https://imdb-api.com/en/API/Title/' +
+      apikey +
+      '/' +
+      title +
+      '/Images,Trailer,');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,
@@ -69,9 +72,9 @@ Future<TrailerDataModel> getTrailerDataModel(
 }
 
 class MoveInfoPage extends StatelessWidget {
-  final MoveModel moveItem;
+  final String titleId;
   const MoveInfoPage({
-    this.moveItem,
+    this.titleId,
   });
 
   Widget build(BuildContext context) {
@@ -106,7 +109,7 @@ class MoveInfoPage extends StatelessWidget {
                           // By default, show a loading spinner.
                           return Center(child: CircularProgressIndicator());
                         },
-                        future: getTrailerDataModel(moveItem.id, apikey),
+                        future: getTrailerDataModel(titleId, apikey),
                       ),
                     ),
 
@@ -116,7 +119,7 @@ class MoveInfoPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
                           Text(
-                            'RAITING: ' + moveItem.imDbRating,
+                            'RAITING: ' + titleDataItem.imDbRating,
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 20,
@@ -241,7 +244,7 @@ class MoveInfoPage extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(25.0),
                             child: Image.network(
-                              moveItem.image,
+                              titleDataItem.image,
                               height: 200,
                               fit: BoxFit.fill,
                             ),
@@ -258,7 +261,7 @@ class MoveInfoPage extends StatelessWidget {
               // By default, show a loading spinner.
               return Center(child: CircularProgressIndicator());
             },
-            future: getTitleDataModel(moveItem.id, apikey),
+            future: getTitleDataModel(titleId, apikey),
           ),
         ),
         //bottomNavigationBar: BottomAppBarWidget(),

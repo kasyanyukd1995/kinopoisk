@@ -10,11 +10,16 @@ class TitleDataModel {
   final String year;
   final String image;
   final String runtimeStr;
+  final String releaseDate;
   final String plot;
+  final String directors;
+  final String writers;
   final String stars;
-
   final List<ActorModel> actorList;
+  final String genres;
   final String countries;
+  final String imDbRating;
+  final TitleDataModel trailer;
 
   const TitleDataModel({
     this.id,
@@ -22,10 +27,16 @@ class TitleDataModel {
     this.year,
     this.image,
     this.runtimeStr,
+    this.releaseDate,
     this.plot,
+    this.directors,
+    this.writers,
     this.stars,
     this.actorList,
+    this.genres,
     this.countries,
+    this.imDbRating,
+    this.trailer,
   });
 
   static const fromJsonFactory = _$TitleDataModelFromJson;
