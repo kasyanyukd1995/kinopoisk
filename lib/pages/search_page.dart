@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/models/result_search_list_model.dart';
-
 import 'package:kinopoisk/models/search_result_model.dart';
 import 'package:kinopoisk/pages/move_info_page.dart';
 import 'package:kinopoisk/widgets/item_for_search.dart';
@@ -35,25 +34,29 @@ class _SearchPageState extends State<SearchPage> {
     super.dispose();
   }
 
-  String valueSearch = 'Vikings';
+  String valueSearch = '';
   void viewResult() {
-    setState(() {
-      valueSearch = myController.text;
-    });
+    if (myController.text.length > 3)
+      setState(() {
+        valueSearch = myController.text;
+      });
   }
 
+  // ignore: missing_return
   Future<SearchResultModel> getResultSearch(String value) async {
-    final response = await http
-        .get('https://imdb-api.com/en/API/SearchMovie/' + apikey + '/' + value);
+    if (myController.text.length > 3) {
+      final response = await http.get(
+          'https://imdb-api.com/en/API/SearchMovie/' + apikey + '/' + value);
 
-    if (response.statusCode == 200) {
-      // If the server did return a 200 OK response,
-      // then parse the JSON.
-      return SearchResultModel.fromJson(jsonDecode(response.body));
-    } else {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
-      throw Exception('Failed to load album');
+      if (response.statusCode == 200) {
+        // If the server did return a 200 OK response,
+        // then parse the JSON.
+        return SearchResultModel.fromJson(jsonDecode(response.body));
+      } else {
+        // If the server did not return a 200 OK response,
+        // then throw an exception.
+        throw Exception('Failed to load album');
+      }
     }
   }
 

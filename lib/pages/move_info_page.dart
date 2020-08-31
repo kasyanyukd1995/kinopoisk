@@ -12,7 +12,7 @@ import 'dart:async';
 
 import 'actor_info_page.dart';
 
-String apikey = 'k_lya88m8j';
+String apikey = 'k_mG08ynzB';
 //import 'package:kinopoisk/widgets/video_play.dart';
 double setSizeFont(String item) {
   if (item.length > 25)
@@ -88,6 +88,18 @@ class MoveInfoPage extends StatelessWidget {
               if (snapshot.hasData) {
                 return Stack(
                   children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(350, 250, 0, 0),
+                      child: Text(
+                        titleDataItem.imDbRating,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 25,
+                          fontStyle: FontStyle.normal,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
                     //Image.network(moveItem.image),
                     Container(
                       height: 360,
@@ -118,15 +130,6 @@ class MoveInfoPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          Text(
-                            'RAITING: ' + titleDataItem.imDbRating,
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 20,
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.w100,
-                            ),
-                          ),
                           Text(
                             'STARS: ' + titleDataItem.stars,
                             style: TextStyle(
@@ -222,35 +225,30 @@ class MoveInfoPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Row(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.only(
-                              left: 20, top: 180, right: 5, bottom: 20),
-                          decoration: BoxDecoration(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(20.0)),
-                            //color: Colors.white10,
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.blue.withOpacity(0.5),
-                                spreadRadius: 10,
-                                blurRadius: 30,
-                                offset:
-                                    Offset(1, 4), // changes position of shadow
-                              ),
-                            ],
+
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: 20, top: 180, right: 5, bottom: 20),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        //color: Colors.white10,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.blue.withOpacity(0.5),
+                            spreadRadius: 10,
+                            blurRadius: 30,
+                            offset: Offset(1, 4), // changes position of shadow
                           ),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(25.0),
-                            child: Image.network(
-                              titleDataItem.image,
-                              height: 200,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(25.0),
+                        child: Image.network(
+                          titleDataItem.image,
+                          height: 200,
+                          fit: BoxFit.fill,
                         ),
-                      ],
+                      ),
                     ),
                   ],
                 );
