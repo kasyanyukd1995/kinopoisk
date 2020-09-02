@@ -46,7 +46,7 @@ class _SearchPageState extends State<SearchPage> {
   Future<SearchResultModel> getResultSearch(String value) async {
     if (myController.text.length > 3) {
       final response = await http.get(
-          'https://imdb-api.com/en/API/SearchMovie/' + apikey + '/' + value);
+          'https://imdb-api.com/en/API/SearchTitle/' + apikey + '/' + value);
 
       if (response.statusCode == 200) {
         // If the server did return a 200 OK response,

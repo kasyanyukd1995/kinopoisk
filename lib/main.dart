@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/pages/home_page.dart';
-import 'package:kinopoisk/pages/most_popular_movies_page.dart';
 
 void main() {
   runApp(MyApp());

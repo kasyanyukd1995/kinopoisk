@@ -7,8 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:kinopoisk/models/list_move_model.dart';
 import 'package:http/http.dart' as http;
 import 'package:kinopoisk/models/move_model.dart';
-import 'package:kinopoisk/widgets/app_bar_widget.dart';
-import 'package:kinopoisk/widgets/bottombar_widget.dart';
+
 //import 'package:kinopoisk/widgets/drawer_widget.dart';
 
 import 'package:kinopoisk/widgets/most_popular_movies_widget.dart';

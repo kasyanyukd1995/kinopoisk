@@ -27,7 +27,7 @@ TitleDataModel _$TitleDataModelFromJson(Map<String, dynamic> json) {
     imDbRating: json['imDbRating'] as String,
     trailer: json['trailer'] == null
         ? null
-        : TitleDataModel.fromJson(json['trailer'] as Map<String, dynamic>),
+        : TrailerDataModel.fromJson(json['trailer'] as Map<String, dynamic>),
   );
 }
 

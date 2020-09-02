@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/models/list_move_model.dart';
 import 'package:kinopoisk/models/move_model.dart';
-import 'package:kinopoisk/widgets/app_bar_widget.dart';
 import 'package:kinopoisk/widgets/movie_item_widget.dart';
-
 import 'most_popular_movies_page.dart';
 import 'move_info_page.dart';
 //import 'package:kinopoisk/widgets/bottombar_widget.dart';
@@ -24,7 +22,7 @@ class _MoviesPageState extends State<MoviesPage> {
           Text(
             'Most Popular Movies Now',
             style: TextStyle(
-              color: Colors.black54,
+              color: Colors.white,
               fontSize: 26,
               fontStyle: FontStyle.normal,
               fontWeight: FontWeight.w400,
@@ -79,7 +77,7 @@ class _MoviesPageState extends State<MoviesPage> {
           Text(
             'Most Popular TVs Now',
             style: TextStyle(
-              color: Colors.black54,
+              color: Colors.white,
               fontSize: 26,
               fontStyle: FontStyle.normal,
               fontWeight: FontWeight.w400,

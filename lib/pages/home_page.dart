@@ -34,59 +34,63 @@ class _HomePageState extends State<HomePage> {
     }
 
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBarWidget(),
       body: SizedBox.expand(child: child),
       bottomNavigationBar: BottomNavigationBar(
         iconSize: 25,
-        selectedItemColor: Colors.blueGrey,
+        selectedItemColor: Colors.amber,
         onTap: (newIndex) => setState(() => _index = newIndex),
         currentIndex: _index,
+        backgroundColor: Colors.black,
+
+        //fixedColor: Colors.black,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
-              color: Colors.grey,
+              color: Colors.white54,
             ),
             title: Text(
               'Home',
               style: TextStyle(
-                color: Colors.grey,
+                color: Colors.white54,
               ),
             ),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.movie,
-              color: Colors.grey,
+              color: Colors.white54,
             ),
             title: Text(
               'Movies',
               style: TextStyle(
-                color: Colors.grey,
+                color: Colors.white54,
               ),
             ),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.movie_filter,
-              color: Colors.grey,
+              color: Colors.white54,
             ),
             title: Text(
               'Top 250',
               style: TextStyle(
-                color: Colors.grey,
+                color: Colors.white54,
               ),
             ),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.search,
-              color: Colors.grey,
+              color: Colors.white54,
             ),
             title: Text(
               'Search',
               style: TextStyle(
-                color: Colors.grey,
+                color: Colors.white54,
               ),
             ),
           ),

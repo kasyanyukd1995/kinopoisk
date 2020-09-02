@@ -7,6 +7,6 @@ Widget AppBarWidget() {
     title: Text(
       'MovieSearch'.toUpperCase(),
     ),
-    backgroundColor: Colors.grey[600],
+    backgroundColor: Colors.black,
   );
 }
