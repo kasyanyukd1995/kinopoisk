@@ -25,10 +25,10 @@ class _HomePageState extends State<HomePage> {
       case 1:
         child = MoviesPage();
         break;
-      case 2:
+      /*case 2:
         child = Top250Page();
-        break;
-      case 3:
+        break;*/
+      case 2:
         child = SearchPage();
         break;
     }
@@ -38,39 +38,39 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBarWidget(),
       body: SizedBox.expand(child: child),
       bottomNavigationBar: BottomNavigationBar(
-        iconSize: 25,
+        backgroundColor: Colors.black,
+        iconSize: 23,
         selectedItemColor: Colors.amber,
         onTap: (newIndex) => setState(() => _index = newIndex),
         currentIndex: _index,
-        backgroundColor: Colors.black,
 
         //fixedColor: Colors.black,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
-              color: Colors.white54,
+              color: Colors.white,
             ),
             title: Text(
               'Home',
               style: TextStyle(
-                color: Colors.white54,
+                color: Colors.white,
               ),
             ),
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.movie,
-              color: Colors.white54,
+              color: Colors.white,
             ),
             title: Text(
               'Movies',
               style: TextStyle(
-                color: Colors.white54,
+                color: Colors.white,
               ),
             ),
           ),
-          BottomNavigationBarItem(
+          /*BottomNavigationBarItem(
             icon: Icon(
               Icons.movie_filter,
               color: Colors.white54,
@@ -81,16 +81,16 @@ class _HomePageState extends State<HomePage> {
                 color: Colors.white54,
               ),
             ),
-          ),
+          ),*/
           BottomNavigationBarItem(
             icon: Icon(
               Icons.search,
-              color: Colors.white54,
+              color: Colors.white,
             ),
             title: Text(
               'Search',
               style: TextStyle(
-                color: Colors.white54,
+                color: Colors.white,
               ),
             ),
           ),

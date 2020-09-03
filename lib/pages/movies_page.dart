@@ -129,6 +129,61 @@ class _MoviesPageState extends State<MoviesPage> {
               ),
             ],
           ),
+          Text(
+            'Top 250 Movies',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 26,
+              fontStyle: FontStyle.normal,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: SizedBox(
+                  height: 380,
+                  child: FutureBuilder<ListMoveModel>(
+                    builder: (context, snp) {
+                      if (snp.hasData) {
+                        return GridView.builder(
+                          scrollDirection: Axis.horizontal,
+                          gridDelegate:
+                              SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 0.0,
+                          ),
+                          itemBuilder: (context, index) {
+                            MoveModel movieItem = snp.data.items[index];
+                            return MoveiItemWidget(
+                              movieItem: movieItem,
+                              onTapMovieFunction: (movieobj) => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          MoveInfoPage(
+                                            titleId: movieItem.id,
+                                          ))),
+                            );
+                          },
+                          itemCount: snp.data.items.length,
+                        );
+                      } else if (snp.hasError) {
+                        return Text('${snp.error}');
+                      }
+
+                      // By default, show a loading spinner.
+                      return Center(child: CircularProgressIndicator());
+                    },
+                    future: getMostPopularMovies(),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

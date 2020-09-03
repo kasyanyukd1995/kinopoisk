@@ -25,6 +25,9 @@ TitleDataModel _$TitleDataModelFromJson(Map<String, dynamic> json) {
     genres: json['genres'] as String,
     countries: json['countries'] as String,
     imDbRating: json['imDbRating'] as String,
+    images: json['images'] == null
+        ? null
+        : ImagesModel.fromJson(json['images'] as Map<String, dynamic>),
     trailer: json['trailer'] == null
         ? null
         : TrailerDataModel.fromJson(json['trailer'] as Map<String, dynamic>),
@@ -47,5 +50,6 @@ Map<String, dynamic> _$TitleDataModelToJson(TitleDataModel instance) =>
       'genres': instance.genres,
       'countries': instance.countries,
       'imDbRating': instance.imDbRating,
+      'images': instance.images,
       'trailer': instance.trailer,
     };
