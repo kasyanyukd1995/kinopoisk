@@ -56,10 +56,15 @@ class _MoviesPageState extends State<MoviesPage> {
                                       builder: (BuildContext context) =>
                                           MoveInfoPage(
                                             titleId: movieItem.id,
+                                            rating: movieItem.imDbRating != ''
+                                                ? movieItem.imDbRating
+                                                : null,
                                           ))),
                             );
                           },
-                          itemCount: snp.data.items.length,
+                          itemCount: snp.data.items.length > 30
+                              ? 30
+                              : snp.data.items.length,
                         );
                       } else if (snp.hasError) {
                         return Text('${snp.error}');
@@ -111,10 +116,15 @@ class _MoviesPageState extends State<MoviesPage> {
                                       builder: (BuildContext context) =>
                                           MoveInfoPage(
                                             titleId: movieItem.id,
+                                            rating: movieItem.imDbRating != ''
+                                                ? movieItem.imDbRating
+                                                : null,
                                           ))),
                             );
                           },
-                          itemCount: snp.data.items.length,
+                          itemCount: snp.data.items.length > 30
+                              ? 30
+                              : snp.data.items.length,
                         );
                       } else if (snp.hasError) {
                         return Text('${snp.error}');
@@ -166,6 +176,9 @@ class _MoviesPageState extends State<MoviesPage> {
                                       builder: (BuildContext context) =>
                                           MoveInfoPage(
                                             titleId: movieItem.id,
+                                            rating: movieItem.imDbRating != ''
+                                                ? movieItem.imDbRating
+                                                : null,
                                           ))),
                             );
                           },

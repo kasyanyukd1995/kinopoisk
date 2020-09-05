@@ -88,6 +88,9 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
                         MaterialPageRoute(
                             builder: (BuildContext context) => MoveInfoPage(
                                   titleId: move.id,
+                                  rating: move.imDbRating != ''
+                                      ? move.imDbRating
+                                      : null,
                                 ))),
                   );
                 },

@@ -66,6 +66,11 @@ class _SearchPageState extends State<SearchPage> {
       children: <Widget>[
         TextField(
           controller: myController,
+          cursorColor: Colors.white,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+          showCursor: true,
         ),
         Expanded(
           child: SizedBox(

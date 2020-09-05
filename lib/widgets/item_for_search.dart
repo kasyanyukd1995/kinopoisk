@@ -19,8 +19,13 @@ class ItemForSearchWidget extends StatelessWidget {
             width: 60,
             height: 60,
           ),
-          Text(
-            searchItem.title,
+          Container(
+            child: Text(
+              searchItem.title,
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
         ],
       ),

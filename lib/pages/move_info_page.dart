@@ -10,12 +10,13 @@ import 'package:http/http.dart' as http;
 import 'package:kinopoisk/widgets/director_and%20writerrs_info_widget.dart';
 import 'package:kinopoisk/widgets/image_widget.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'dart:convert';
 import 'dart:async';
 
 import 'actor_info_page.dart';
 
-String apikey = 'k_AkH52o3p';
+String apikey = 'k_5L4Q67F4';
 //import 'package:kinopoisk/widgets/video_play.dart';
 double setSizeFont(String item) {
   if (item.length > 25)
@@ -76,8 +77,10 @@ Future<TrailerDataModel> getTrailerDataModel(
 
 class MoveInfoPage extends StatelessWidget {
   final String titleId;
+  final String rating;
   const MoveInfoPage({
     this.titleId,
+    this.rating,
   });
 
   Widget build(BuildContext context) {
@@ -96,7 +99,11 @@ class MoveInfoPage extends StatelessWidget {
                       //height: 360,
                       //width: 600,
                       //color: Colors.indigo[100],
-                      child: Image.network(titleDataItem.trailer.thumbnailUrl),
+                      child: titleDataItem.trailer.thumbnailUrl != null
+                          ? Image.network(titleDataItem.trailer.thumbnailUrl)
+                          : SizedBox(
+                              height: 1,
+                            ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
@@ -148,35 +155,83 @@ class MoveInfoPage extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Flexible(
-                          flex: 2,
-                          fit: FlexFit.tight,
-                          child: Container(
-                            margin: const EdgeInsets.all(15.0),
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(13.0)),
-                              color: Colors.white10,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.white10.withOpacity(0.4),
-                                  spreadRadius: 10,
-                                  blurRadius: 10,
-                                  //offset: Offset(
-                                  //    1, 4), // changes position of shadow
+                        titleDataItem.image != null
+                            ? Flexible(
+                                flex: 2,
+                                fit: FlexFit.tight,
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.all(15.0),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(13.0)),
+                                        color: Colors.white10,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.white10.withOpacity(0.4),
+                                            spreadRadius: 10,
+                                            blurRadius: 10,
+                                            //offset: Offset(
+                                            //    1, 4), // changes position of shadow
+                                          ),
+                                        ],
+                                      ),
+                                      child: ClipRRect(
+                                        borderRadius:
+                                            BorderRadius.circular(13.0),
+                                        child: Image.network(
+                                          titleDataItem.image,
+                                          //height: 205,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                    ),
+                                    rating != null
+                                        ? RatingBar(
+                                            initialRating:
+                                                double.parse(rating) / 2,
+                                            minRating: 1,
+                                            direction: Axis.horizontal,
+                                            allowHalfRating: true,
+                                            itemCount: 5,
+                                            itemSize: 13.0,
+                                            itemPadding: EdgeInsets.symmetric(
+                                                horizontal: 4.0),
+                                            itemBuilder: (context, _) => Icon(
+                                              Icons.star,
+                                              color: Colors.amber,
+                                            ),
+                                            onRatingUpdate: (rating) {
+                                              print(rating);
+                                            },
+                                          )
+                                        : SizedBox(height: 1),
+                                  ],
                                 ),
-                              ],
-                            ),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(13.0),
-                              child: Image.network(
-                                titleDataItem.image,
-                                //height: 205,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                          ),
-                        ),
+                              )
+                            : titleDataItem.imDbRating != ''
+                                ? RatingBar(
+                                    initialRating:
+                                        double.parse(titleDataItem.imDbRating) /
+                                            2,
+                                    minRating: 1,
+                                    direction: Axis.horizontal,
+                                    allowHalfRating: true,
+                                    itemCount: 5,
+                                    itemSize: 13.0,
+                                    itemPadding:
+                                        EdgeInsets.symmetric(horizontal: 4.0),
+                                    itemBuilder: (context, _) => Icon(
+                                      Icons.star,
+                                      color: Colors.amber,
+                                    ),
+                                    onRatingUpdate: (rating) {
+                                      print(rating);
+                                    },
+                                  )
+                                : SizedBox(height: 1),
                         Flexible(
                           flex: 4,
                           child: Column(
@@ -288,7 +343,9 @@ class MoveInfoPage extends StatelessWidget {
                                                   ))),
                                 );
                               },
-                              itemCount: titleDataItem.actorList.length,
+                              itemCount: titleDataItem.actorList.length > 8
+                                  ? 8
+                                  : titleDataItem.actorList.length,
                             ),
                           ),
                         ),
@@ -297,7 +354,7 @@ class MoveInfoPage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    Text(
+                    /*Text(
                       'Images'.toUpperCase(),
                       style: TextStyle(
                         color: Colors.white,
@@ -309,25 +366,28 @@ class MoveInfoPage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    Center(
-                      child: CarouselSlider.builder(
-                        itemCount: titleDataItem.images.items.length,
-                        options: CarouselOptions(
-                          autoPlay: true,
-                          enlargeCenterPage: true,
-                          aspectRatio: 2.0,
-                          //height: 200.0,
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: SizedBox(
+                            height: 240.0,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                final imageItem =
+                                    titleDataItem.images.items[index];
+                                return ImageWidget(
+                                  imageItem: imageItem,
+                                );
+                              },
+                              itemCount: titleDataItem.images.items.length > 5
+                                  ? 5
+                                  : titleDataItem.images.items.length,
+                            ),
+                          ),
                         ),
-                        itemBuilder: (ctx, index) {
-                          ImageModel itemImages =
-                              titleDataItem.images.items[index];
-
-                          return ImageWidget(
-                            imageItem: itemImages,
-                          );
-                        },
-                      ),
-                    ),
+                      ],
+                    ),*/
                   ],
                 );
                 //Image.network(moveItem.image),
