@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/pages/movies_page.dart';
 import 'package:kinopoisk/pages/search_page.dart';
+import 'package:kinopoisk/pages/search_page.dart';
 import 'package:kinopoisk/pages/top250_page.dart';
 import 'package:kinopoisk/widgets/app_bar_widget.dart';
 import 'most_popular_movies_page.dart';

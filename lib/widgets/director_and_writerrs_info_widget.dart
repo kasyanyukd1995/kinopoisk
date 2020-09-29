@@ -31,7 +31,7 @@ class DirectorAndWritersinfoWidget extends StatelessWidget {
               child: Text(
                 titleItem.directors,
                 style: TextStyle(
-                  color: Colors.white38,
+                  color: Colors.white54,
                   fontSize: 20,
                   fontStyle: FontStyle.normal,
                   fontWeight: FontWeight.w200,

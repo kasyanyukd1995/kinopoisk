@@ -62,58 +62,40 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
     return FutureBuilder<ListMoveModel>(
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Column(
-            children: <Widget>[
-              CarouselSlider.builder(
-                itemCount: countMoviesOnMainPage,
-                options: CarouselOptions(
-                  autoPlay: true,
-                  enlargeCenterPage: true,
-                  aspectRatio: 2.0,
-                  height: 600.0,
-                  /*onPageChanged: (index, reason) {
-                        setState(() {
-                          _current = index;
-                        });
-                      }*/
-                  //reverse: true,
-                ),
-                itemBuilder: (ctx, index) {
-                  MoveModel move = snapshot.data.items[index];
-                  moviesList[index] = move;
-                  return MostPopularMoviesWidget(
-                    moveModel: move,
-                    onTapCityFunction: (move) => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) => MoveInfoPage(
-                                  titleId: move.id,
-                                  rating: move.imDbRating != ''
-                                      ? move.imDbRating
-                                      : null,
-                                ))),
-                  );
-                },
+          return Container(
+            constraints: BoxConstraints.expand(),
+            child: CarouselSlider.builder(
+              itemCount: countMoviesOnMainPage,
+              options: CarouselOptions(
+                autoPlay: true,
+                enlargeCenterPage: true,
+                aspectRatio: 2.0,
+                height: double.infinity,
+
+                /*onPageChanged: (index, reason) {
+                      setState(() {
+                        _current = index;
+                      });
+                    }*/
+                //reverse: true,
               ),
-              /*Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: moviesList.map((url) {
-                    int index = moviesList.indexOf(url);
-                    return Container(
-                      width: 8.0,
-                      height: 8.0,
-                      margin: EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 2.0),
-                      decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: _current == index
-                            ? Color.fromRGBO(0, 0, 0, 0.9)
-                            : Color.fromRGBO(0, 0, 0, 0.4),
-                      ),
-                    );
-                  }).toList(),
-                ),*/
-            ],
+              itemBuilder: (ctx, index) {
+                MoveModel move = snapshot.data.items[index];
+                moviesList[index] = move;
+                return MostPopularMoviesWidget(
+                  moveModel: move,
+                  onTapCityFunction: (move) => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => MoveInfoPage(
+                                titleId: move.id,
+                                rating: move.imDbRating != ''
+                                    ? move.imDbRating
+                                    : null,
+                              ))),
+                );
+              },
+            ),
           );
         } else if (snapshot.hasError) {
           return Text('${snapshot.error}');

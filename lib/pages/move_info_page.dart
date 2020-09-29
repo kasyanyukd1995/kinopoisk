@@ -1,6 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/models/image_model.dart';
+
 import 'package:kinopoisk/models/title_data_model.dart';
 import 'package:kinopoisk/models/trailer_data_model.dart';
 import 'package:kinopoisk/models/youtube_trailer_data_model.dart';
@@ -8,16 +9,19 @@ import 'package:kinopoisk/pages/play_trailer_page.dart';
 import 'package:kinopoisk/widgets/actor_widget.dart';
 import 'package:kinopoisk/widgets/app_bar_widget.dart';
 import 'package:http/http.dart' as http;
-import 'package:kinopoisk/widgets/director_and_writers_info_widget.dart';
+import 'package:kinopoisk/widgets/director_and_writerrs_info_widget.dart';
+
 import 'package:kinopoisk/widgets/image_widget.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:kinopoisk/widgets/movie_item_widget.dart';
+import 'package:kinopoisk/widgets/similar_item_widget.dart';
 import 'dart:convert';
 import 'dart:async';
 
 import 'actor_info_page.dart';
 
-String apikey = 'k_x3uEl68J';
+String apikey = 'k_kG4L6Vrj';
 //import 'package:kinopoisk/widgets/video_play.dart';
 double setSizeFont(String item) {
   if (item.length > 25)
@@ -97,33 +101,56 @@ class MoveInfoPage extends StatelessWidget {
                 return Column(
                   children: <Widget>[
                     Container(
-                      //height: 360,
+                      height: 250,
+
                       //width: 600,
-                      //color: Colors.indigo[100],
-                      child: titleDataItem.trailer.thumbnailUrl != null
+                      color: Colors.white12,
+                      child: titleDataItem.trailer.linkEmbed != null
                           ? Stack(
                               children: <Widget>[
-                                Image.network(
-                                    titleDataItem.trailer.thumbnailUrl),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.fromLTRB(0, 50, 0, 0),
-                                  child: Center(
-                                    child: IconButton(
-                                      icon: Icon(
-                                        Icons.play_circle_filled,
-                                        color: Colors.white70,
-                                        size: 40,
+                                titleDataItem.trailer.thumbnailUrl != null
+                                    ? Center(
+                                        child: Image.network(
+                                          titleDataItem.trailer.thumbnailUrl,
+                                          loadingBuilder: (BuildContext context,
+                                              Widget child,
+                                              ImageChunkEvent loadingProgress) {
+                                            if (loadingProgress == null)
+                                              return child;
+                                            return Center(
+                                              child: CircularProgressIndicator(
+                                                value: loadingProgress
+                                                            .expectedTotalBytes !=
+                                                        null
+                                                    ? loadingProgress
+                                                            .cumulativeBytesLoaded /
+                                                        loadingProgress
+                                                            .expectedTotalBytes
+                                                    : null,
+                                              ),
+                                            );
+                                          },
+                                        ),
+                                      )
+                                    : Center(
+                                        child: Image.network(titleDataItem
+                                            .images.items[0].image),
                                       ),
-                                      tooltip: 'Play oficial trailer',
-                                      onPressed: () => Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                          builder: (BuildContext context) =>
-                                              PlayTrailerPage(
-                                            urlTrailer:
-                                                titleDataItem.trailer.linkEmbed,
-                                          ),
+                                Center(
+                                  child: IconButton(
+                                    icon: Icon(
+                                      Icons.play_circle_filled,
+                                      color: Colors.white70,
+                                      size: 40,
+                                    ),
+                                    tooltip: 'Play oficial trailer',
+                                    onPressed: () => Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (BuildContext context) =>
+                                            PlayTrailerPage(
+                                          urlTrailer:
+                                              titleDataItem.trailer.linkEmbed,
                                         ),
                                       ),
                                     ),
@@ -211,10 +238,18 @@ class MoveInfoPage extends StatelessWidget {
                                       child: ClipRRect(
                                         borderRadius:
                                             BorderRadius.circular(13.0),
-                                        child: Image.network(
-                                          titleDataItem.image,
-                                          //height: 205,
-                                          fit: BoxFit.cover,
+                                        child: CachedNetworkImage(
+                                          imageUrl: titleDataItem.image,
+                                          placeholder: (context, url) => Center(
+                                              child:
+                                                  CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) =>
+                                              Icon(Icons.error),
+                                          fit: BoxFit.fill,
+                                          fadeInCurve: Curves.easeIn,
+                                          fadeInDuration: Duration(seconds: 2),
+                                          fadeOutCurve: Curves.easeOut,
+                                          fadeOutDuration: Duration(seconds: 2),
                                         ),
                                       ),
                                     ),
@@ -332,6 +367,34 @@ class MoveInfoPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Contries',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                              fontStyle: FontStyle.normal,
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            titleDataItem.countries,
+                            style: TextStyle(
+                              color: Colors.white54,
+                              fontSize: 20,
+                              fontStyle: FontStyle.normal,
+                              fontWeight: FontWeight.w200,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                     Container(
                       color: Colors.white24,
                       height: 1,
@@ -381,8 +444,59 @@ class MoveInfoPage extends StatelessWidget {
                         ),
                       ],
                     ),
+                    Container(
+                      color: Colors.white24,
+                      height: 1,
+                    ),
                     SizedBox(
                       height: 10,
+                    ),
+                    /*Text(
+                      'Similars'.toUpperCase(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: SizedBox(
+                            height: 200.0,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                final similarItem =
+                                    titleDataItem.similars[index];
+                                return SimilarItemWidget(
+                                  similarItem: similarItem,
+                                  onTapMovieFunction: (movieobj) =>
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (BuildContext context) =>
+                                                  MoveInfoPage(
+                                                    titleId: similarItem.id,
+                                                    rating: similarItem
+                                                                .imDbRating !=
+                                                            ''
+                                                        ? similarItem.imDbRating
+                                                        : null,
+                                                  ))),
+                                );
+                              },
+                              itemCount: titleDataItem.similars.length > 8
+                                  ? 8
+                                  : titleDataItem.similars.length,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     Text(
                       'Images'.toUpperCase(),
@@ -396,7 +510,7 @@ class MoveInfoPage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    /*Row(
+                    Row(
                       children: <Widget>[
                         Expanded(
                           child: SizedBox(
@@ -406,6 +520,7 @@ class MoveInfoPage extends StatelessWidget {
                               itemBuilder: (context, index) {
                                 final imageItem =
                                     titleDataItem.images.items[index];
+
                                 return ImageWidget(
                                   imageItem: imageItem,
                                 );
@@ -514,7 +629,9 @@ class MoveInfoPage extends StatelessWidget {
               }
 
               // By default, show a loading spinner.
-              return Center(child: CircularProgressIndicator());
+              return SizedBox(
+                  height: 600,
+                  child: Center(child: CircularProgressIndicator()));
             },
             future: getTitleDataModel(titleId, apikey),
           ),

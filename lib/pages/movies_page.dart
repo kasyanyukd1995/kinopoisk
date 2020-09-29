@@ -43,7 +43,8 @@ class _MoviesPageState extends State<MoviesPage> {
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            crossAxisSpacing: 8.0,
+                            crossAxisSpacing: 20.0,
+                            childAspectRatio: 1.3,
                           ),
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
@@ -104,7 +105,8 @@ class _MoviesPageState extends State<MoviesPage> {
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            crossAxisSpacing: 0.0,
+                            crossAxisSpacing: 20.0,
+                            childAspectRatio: 1.3,
                           ),
                           itemBuilder: (context, index) {
                             MoveModel movieItem = snp.data.items[index];
@@ -164,7 +166,8 @@ class _MoviesPageState extends State<MoviesPage> {
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
-                            crossAxisSpacing: 0.0,
+                            crossAxisSpacing: 20.0,
+                            childAspectRatio: 1.3,
                           ),
                           itemBuilder: (context, index) {
                             MoveModel movieItem = snp.data.items[index];

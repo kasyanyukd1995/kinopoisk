@@ -14,16 +14,27 @@ class ItemForSearchWidget extends StatelessWidget {
     return InkWell(
       child: Row(
         children: <Widget>[
-          Image.network(
-            searchItem.image,
-            width: 60,
-            height: 60,
+          Flexible(
+            flex: 1,
+            fit: FlexFit.tight,
+            child: Image.network(
+              searchItem.image,
+              width: 60,
+              height: 60,
+            ),
           ),
-          Container(
-            child: Text(
-              searchItem.title,
-              style: TextStyle(
-                color: Colors.white,
+          Flexible(
+            flex: 5,
+            child: Container(
+              child: ListTile(
+                title: Text(
+                  searchItem.title,
+                  style: TextStyle(color: Colors.white),
+                ),
+                subtitle: Text(
+                  searchItem.description,
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ),
           ),

@@ -31,6 +31,10 @@ TitleDataModel _$TitleDataModelFromJson(Map<String, dynamic> json) {
     trailer: json['trailer'] == null
         ? null
         : TrailerDataModel.fromJson(json['trailer'] as Map<String, dynamic>),
+    similars: (json['similars'] as List)
+        ?.map((e) =>
+            e == null ? null : SimilarModel.fromJson(e as Map<String, dynamic>))
+        ?.toList(),
   );
 }
 
@@ -52,4 +56,5 @@ Map<String, dynamic> _$TitleDataModelToJson(TitleDataModel instance) =>
       'imDbRating': instance.imDbRating,
       'images': instance.images,
       'trailer': instance.trailer,
+      'similars': instance.similars,
     };

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/models/move_model.dart';
@@ -28,9 +29,16 @@ class MostPopularMoviesWidget extends StatelessWidget {
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(25.0),
-          child: Image.network(
-            moveModel.image,
+          child: CachedNetworkImage(
+            imageUrl: moveModel.image,
+            placeholder: (context, url) =>
+                Center(child: CircularProgressIndicator()),
+            errorWidget: (context, url, error) => Icon(Icons.error),
             fit: BoxFit.fill,
+            fadeInCurve: Curves.easeIn,
+            fadeInDuration: Duration(seconds: 2),
+            fadeOutCurve: Curves.easeOut,
+            fadeOutDuration: Duration(seconds: 2),
           ),
         ),
       ),

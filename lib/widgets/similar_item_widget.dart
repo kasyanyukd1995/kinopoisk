@@ -2,13 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:kinopoisk/models/move_model.dart';
 
-class MoveiItemWidget extends StatelessWidget {
-  final MoveModel movieItem;
-  final Function(MoveModel obj) onTapMovieFunction;
-  const MoveiItemWidget({
-    this.movieItem,
+import 'package:kinopoisk/models/similar_model.dart';
+
+class SimilarItemWidget extends StatelessWidget {
+  final SimilarModel similarItem;
+  final Function(SimilarModel obj) onTapMovieFunction;
+  const SimilarItemWidget({
+    this.similarItem,
     this.onTapMovieFunction,
   });
 
@@ -28,7 +29,7 @@ class MoveiItemWidget extends StatelessWidget {
                   height: 140,
                   child: Center(
                     child: CachedNetworkImage(
-                      imageUrl: movieItem.image,
+                      imageUrl: similarItem.image,
                       height: 145,
                       placeholder: (context, url) =>
                           Center(child: CircularProgressIndicator()),
@@ -45,9 +46,9 @@ class MoveiItemWidget extends StatelessWidget {
                   width: 130,
                   padding: EdgeInsets.fromLTRB(2, 0, 2, 0),
                   child: Center(
-                    child: movieItem.title.length > 16
+                    child: similarItem.title.length > 16
                         ? Text(
-                            movieItem.title,
+                            similarItem.title,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white70,
@@ -56,7 +57,7 @@ class MoveiItemWidget extends StatelessWidget {
                             ),
                           )
                         : Text(
-                            movieItem.title,
+                            similarItem.title,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.white70,
@@ -66,7 +67,7 @@ class MoveiItemWidget extends StatelessWidget {
                           ),
                   ),
                 ),
-                movieItem.imDbRating != ''
+                similarItem.imDbRating != ''
                     ? Center(
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -74,7 +75,7 @@ class MoveiItemWidget extends StatelessWidget {
                           children: [
                             RatingBar(
                               initialRating:
-                                  double.parse(movieItem.imDbRating) / 2,
+                                  double.parse(similarItem.imDbRating) / 2,
                               minRating: 1,
                               direction: Axis.horizontal,
                               allowHalfRating: true,
@@ -91,7 +92,7 @@ class MoveiItemWidget extends StatelessWidget {
                               },
                             ),
                             Text(
-                              movieItem.imDbRating,
+                              similarItem.imDbRating,
                               style: TextStyle(
                                 fontSize: 15.0,
                                 color: Colors.white,
@@ -113,7 +114,7 @@ class MoveiItemWidget extends StatelessWidget {
           ),
         ],
       ),
-      onTap: () => onTapMovieFunction(movieItem),
+      onTap: () => onTapMovieFunction(similarItem),
     );
   }
 }

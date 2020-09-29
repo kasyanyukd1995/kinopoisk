@@ -1,5 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kinopoisk/models/actor_model.dart';
+import 'package:kinopoisk/models/similar_model.dart';
 import 'package:kinopoisk/models/trailer_data_model.dart';
 
 import 'images_model.dart';
@@ -24,6 +25,7 @@ class TitleDataModel {
   final String imDbRating;
   final ImagesModel images;
   final TrailerDataModel trailer;
+  final List<SimilarModel> similars;
 
   const TitleDataModel({
     this.id,
@@ -42,6 +44,7 @@ class TitleDataModel {
     this.imDbRating,
     this.images,
     this.trailer,
+    this.similars,
   });
 
   static const fromJsonFactory = _$TitleDataModelFromJson;
