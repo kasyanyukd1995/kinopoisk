@@ -21,7 +21,7 @@ import 'dart:async';
 
 import 'actor_info_page.dart';
 
-String apikey = 'k_mG08ynzB';
+String apikey = 'k_lya88m8j';
 //import 'package:kinopoisk/widgets/video_play.dart';
 double setSizeFont(String item) {
   if (item.length > 25)
@@ -110,26 +110,19 @@ class MoveInfoPage extends StatelessWidget {
                               children: <Widget>[
                                 titleDataItem.trailer.thumbnailUrl != null
                                     ? Center(
-                                        child: Image.network(
-                                          titleDataItem.trailer.thumbnailUrl,
-                                          loadingBuilder: (BuildContext context,
-                                              Widget child,
-                                              ImageChunkEvent loadingProgress) {
-                                            if (loadingProgress == null)
-                                              return child;
-                                            return Center(
-                                              child: CircularProgressIndicator(
-                                                value: loadingProgress
-                                                            .expectedTotalBytes !=
-                                                        null
-                                                    ? loadingProgress
-                                                            .cumulativeBytesLoaded /
-                                                        loadingProgress
-                                                            .expectedTotalBytes
-                                                    : null,
-                                              ),
-                                            );
-                                          },
+                                        child: CachedNetworkImage(
+                                          imageUrl: titleDataItem
+                                              .trailer.thumbnailUrl,
+                                          placeholder: (context, url) => Center(
+                                              child:
+                                                  CircularProgressIndicator()),
+                                          errorWidget: (context, url, error) =>
+                                              Icon(Icons.error),
+                                          fit: BoxFit.fill,
+                                          fadeInCurve: Curves.easeIn,
+                                          fadeInDuration: Duration(seconds: 2),
+                                          fadeOutCurve: Curves.easeOut,
+                                          fadeOutDuration: Duration(seconds: 2),
                                         ),
                                       )
                                     : Center(

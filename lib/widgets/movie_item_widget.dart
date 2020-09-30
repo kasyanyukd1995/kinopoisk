@@ -31,7 +31,9 @@ class MoveiItemWidget extends StatelessWidget {
                   child: Center(
                     child: CachedNetworkImage(
                       imageUrl: indicator == null
-                          ? movieItem.image.replaceRange(28, 36, '180x250')
+                          ? movieItem.image[8] != 'm'
+                              ? movieItem.image.replaceRange(28, 36, '180x250')
+                              : movieItem.image
                           : movieItem.image,
                       //imageUrl: movieItem.image,
                       height: 145,
