@@ -111,6 +111,7 @@ class _MoviesPageState extends State<MoviesPage> {
                           itemBuilder: (context, index) {
                             MoveModel movieItem = snp.data.items[index];
                             return MoveiItemWidget(
+                              indicator: 1,
                               movieItem: movieItem,
                               onTapMovieFunction: (movieobj) => Navigator.push(
                                   context,
@@ -194,7 +195,7 @@ class _MoviesPageState extends State<MoviesPage> {
                       // By default, show a loading spinner.
                       return Center(child: CircularProgressIndicator());
                     },
-                    future: getMostPopularMovies(),
+                    future: getTop250Movies(),
                   ),
                 ),
               ),

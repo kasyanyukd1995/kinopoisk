@@ -30,7 +30,7 @@ class MostPopularMoviesWidget extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(25.0),
           child: CachedNetworkImage(
-            imageUrl: moveModel.image,
+            imageUrl: moveModel.image.replaceRange(28, 36, '384x555'),
             placeholder: (context, url) =>
                 Center(child: CircularProgressIndicator()),
             errorWidget: (context, url, error) => Icon(Icons.error),

@@ -153,16 +153,27 @@ class SearchPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SearchBar<ResultSearchListModel>(
+            //placeHolder: CircularProgressIndicator(),
             textStyle: TextStyle(color: Colors.white),
             iconActiveColor: Colors.white,
             searchBarStyle: SearchBarStyle(
               backgroundColor: Colors.white54,
             ),
+
+            cancellationWidget: Text(
+              'Cancel',
+              style: TextStyle(
+                color: Colors.white54,
+              ),
+            ),
+
             icon: Icon(
               Icons.search,
               color: Colors.white,
               size: 30,
             ),
+            shrinkWrap: true,
+            //cancellationWidget: SizedBox(),
             onSearch: search,
             onItemFound: (ResultSearchListModel item, int index) {
               return ItemForSearchWidget(

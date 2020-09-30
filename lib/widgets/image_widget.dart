@@ -30,7 +30,7 @@ class ImageWidget extends StatelessWidget {
               //borderRadius: BorderRadius.circular(25.0),
               child: imageItem.image != ''
                   ? Image.network(
-                      imageItem.image,
+                      imageItem.image.replaceRange(28, 36, '400x528'),
                       height: 200,
                       fit: BoxFit.contain,
                     )

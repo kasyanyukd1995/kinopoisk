@@ -21,7 +21,7 @@ import 'dart:async';
 
 import 'actor_info_page.dart';
 
-String apikey = 'k_kG4L6Vrj';
+String apikey = 'k_mG08ynzB';
 //import 'package:kinopoisk/widgets/video_play.dart';
 double setSizeFont(String item) {
   if (item.length > 25)
@@ -239,7 +239,8 @@ class MoveInfoPage extends StatelessWidget {
                                         borderRadius:
                                             BorderRadius.circular(13.0),
                                         child: CachedNetworkImage(
-                                          imageUrl: titleDataItem.image,
+                                          imageUrl: titleDataItem.image
+                                              .replaceRange(28, 36, '200x300'),
                                           placeholder: (context, url) => Center(
                                               child:
                                                   CircularProgressIndicator()),
@@ -436,9 +437,7 @@ class MoveInfoPage extends StatelessWidget {
                                                   ))),
                                 );
                               },
-                              itemCount: titleDataItem.actorList.length > 8
-                                  ? 8
-                                  : titleDataItem.actorList.length,
+                              itemCount: titleDataItem.actorList.length,
                             ),
                           ),
                         ),
@@ -451,7 +450,40 @@ class MoveInfoPage extends StatelessWidget {
                     SizedBox(
                       height: 10,
                     ),
-                    /*Text(
+                    Text(
+                      'Images'.toUpperCase(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontStyle: FontStyle.normal,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: SizedBox(
+                            height: 240.0,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                final imageItem =
+                                    titleDataItem.images.items[index];
+
+                                return ImageWidget(
+                                  imageItem: imageItem,
+                                );
+                              },
+                              itemCount: titleDataItem.images.items.length,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Text(
                       'Similars'.toUpperCase(),
                       style: TextStyle(
                         color: Colors.white,
@@ -490,49 +522,12 @@ class MoveInfoPage extends StatelessWidget {
                                                   ))),
                                 );
                               },
-                              itemCount: titleDataItem.similars.length > 8
-                                  ? 8
-                                  : titleDataItem.similars.length,
+                              itemCount: titleDataItem.similars.length,
                             ),
                           ),
                         ),
                       ],
                     ),
-                    Text(
-                      'Images'.toUpperCase(),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: SizedBox(
-                            height: 240.0,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                final imageItem =
-                                    titleDataItem.images.items[index];
-
-                                return ImageWidget(
-                                  imageItem: imageItem,
-                                );
-                              },
-                              itemCount: titleDataItem.images.items.length > 5
-                                  ? 5
-                                  : titleDataItem.images.items.length,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),*/
                   ],
                 );
                 //Image.network(moveItem.image),

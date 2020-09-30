@@ -29,7 +29,8 @@ class SimilarItemWidget extends StatelessWidget {
                   height: 140,
                   child: Center(
                     child: CachedNetworkImage(
-                      imageUrl: similarItem.image,
+                      imageUrl:
+                          similarItem.image.replaceRange(28, 36, '384x528'),
                       height: 145,
                       placeholder: (context, url) =>
                           Center(child: CircularProgressIndicator()),

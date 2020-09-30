@@ -29,6 +29,21 @@ Future<ListMoveModel> getMostPopularMovies() async {
   }
 }
 
+Future<ListMoveModel> getTop250Movies() async {
+  final response =
+      await http.get('https://imdb-api.com/en/API/Top250Movies/' + apikey);
+
+  if (response.statusCode == 200) {
+    // If the server did return a 200 OK response,
+    // then parse the JSON.
+    return ListMoveModel.fromJson(jsonDecode(response.body));
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load album');
+  }
+}
+
 Future<ListMoveModel> getMostPopularTVs() async {
   final response =
       await http.get('https://imdb-api.com/en/API/MostPopularTVs/' + apikey);
@@ -51,9 +66,9 @@ class MostPopularMoviesPage extends StatefulWidget {
   }
 }
 
-List<MoveModel> moviesList = new List(countMoviesOnMainPage);
+//List<MoveModel> moviesList = new List(countMoviesOnMainPage);
 
-int countMoviesOnMainPage = 8;
+//int countMoviesOnMainPage = 8;
 int _current = 0;
 //Widget ListMove() {}
 
@@ -65,7 +80,7 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
           return Container(
             constraints: BoxConstraints.expand(),
             child: CarouselSlider.builder(
-              itemCount: countMoviesOnMainPage,
+              itemCount: snapshot.data.items.length,
               options: CarouselOptions(
                 autoPlay: true,
                 enlargeCenterPage: true,
@@ -81,7 +96,7 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
               ),
               itemBuilder: (ctx, index) {
                 MoveModel move = snapshot.data.items[index];
-                moviesList[index] = move;
+                //moviesList[index] = move;
                 return MostPopularMoviesWidget(
                   moveModel: move,
                   onTapCityFunction: (move) => Navigator.push(

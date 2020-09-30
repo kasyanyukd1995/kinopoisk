@@ -18,7 +18,7 @@ class ItemForSearchWidget extends StatelessWidget {
             flex: 1,
             fit: FlexFit.tight,
             child: Image.network(
-              searchItem.image,
+              searchItem.image.replaceRange(28, 36, '192x264'),
               width: 60,
               height: 60,
             ),
@@ -33,7 +33,7 @@ class ItemForSearchWidget extends StatelessWidget {
                 ),
                 subtitle: Text(
                   searchItem.description,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: Colors.white54),
                 ),
               ),
             ),

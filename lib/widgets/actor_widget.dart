@@ -23,7 +23,7 @@ class ActorWidget extends StatelessWidget {
                     //borderRadius: BorderRadius.circular(100.0),
                     child: actorItem.image != ''
                         ? Image.network(
-                            actorItem.image,
+                            actorItem.image.replaceRange(28, 36, '320x360'),
                             fit: BoxFit.contain,
                             height: 140,
                           )

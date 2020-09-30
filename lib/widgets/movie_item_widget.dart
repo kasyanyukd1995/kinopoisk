@@ -6,10 +6,12 @@ import 'package:kinopoisk/models/move_model.dart';
 
 class MoveiItemWidget extends StatelessWidget {
   final MoveModel movieItem;
+  final int indicator;
   final Function(MoveModel obj) onTapMovieFunction;
   const MoveiItemWidget({
     this.movieItem,
     this.onTapMovieFunction,
+    this.indicator,
   });
 
   Widget build(BuildContext context) {
@@ -28,7 +30,10 @@ class MoveiItemWidget extends StatelessWidget {
                   height: 140,
                   child: Center(
                     child: CachedNetworkImage(
-                      imageUrl: movieItem.image,
+                      imageUrl: indicator == null
+                          ? movieItem.image.replaceRange(28, 36, '180x250')
+                          : movieItem.image,
+                      //imageUrl: movieItem.image,
                       height: 145,
                       placeholder: (context, url) =>
                           Center(child: CircularProgressIndicator()),
