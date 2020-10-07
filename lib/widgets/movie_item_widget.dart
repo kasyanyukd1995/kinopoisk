@@ -2,12 +2,12 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:kinopoisk/models/move_model.dart';
+import 'package:kinopoisk/models/movie_model.dart';
 
 class MoveiItemWidget extends StatelessWidget {
-  final MoveModel movieItem;
+  final MovieModel movieItem;
   final int indicator;
-  final Function(MoveModel obj) onTapMovieFunction;
+  final Function(MovieModel obj) onTapMovieFunction;
   const MoveiItemWidget({
     this.movieItem,
     this.onTapMovieFunction,

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/models/list_move_model.dart';
-import 'package:kinopoisk/models/move_model.dart';
+import 'package:kinopoisk/models/list_movie_model.dart';
+import 'package:kinopoisk/models/movie_model.dart';
+
 import 'package:kinopoisk/widgets/movie_item_for_t250.dart';
 import 'most_popular_movies_page.dart';
-import 'move_info_page.dart';
+import 'movie_info_page.dart';
 //import 'package:kinopoisk/widgets/bottombar_widget.dart';
 
 class Top250Page extends StatefulWidget {
@@ -16,7 +17,7 @@ class Top250Page extends StatefulWidget {
 class _Top250PageState extends State<Top250Page> {
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<ListMoveModel>(
+    return FutureBuilder<ListMovieModel>(
       builder: (context, snp) {
         if (snp.hasData) {
           return GridView.builder(
@@ -27,7 +28,7 @@ class _Top250PageState extends State<Top250Page> {
             ),
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
-              MoveModel movieItem = snp.data.items[index];
+              MovieModel movieItem = snp.data.items[index];
               return MoveiItemForTop250Widget(
                 movieItem: movieItem,
                 onTapMovieFunction: (movieobj) => Navigator.push(
@@ -44,12 +45,9 @@ class _Top250PageState extends State<Top250Page> {
           return Text('${snp.error}');
         }
 
-        // By default, show a loading spinner.
         return Center(child: CircularProgressIndicator());
       },
       future: getMostPopularMovies(),
     );
-
-    //bottomNavigationBar: BottomAppBarWidget(),
   }
 }

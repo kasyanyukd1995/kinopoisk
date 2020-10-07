@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'move_model.dart';
+part of 'movie_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-MoveModel _$MoveModelFromJson(Map<String, dynamic> json) {
-  return MoveModel(
+MovieModel _$MovieModelFromJson(Map<String, dynamic> json) {
+  return MovieModel(
     id: json['id'] as String,
     rank: json['rank'] as String,
     title: json['title'] as String,
@@ -19,7 +19,8 @@ MoveModel _$MoveModelFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$MoveModelToJson(MoveModel instance) => <String, dynamic>{
+Map<String, dynamic> _$MovieModelToJson(MovieModel instance) =>
+    <String, dynamic>{
       'id': instance.id,
       'rank': instance.rank,
       'title': instance.title,

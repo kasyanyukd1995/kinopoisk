@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/models/actor_model.dart';
+import 'package:kinopoisk/pages/movie_info_page.dart';
 
 class ActorWidget extends StatelessWidget {
   final ActorModel actorItem;
@@ -23,20 +24,8 @@ class ActorWidget extends StatelessWidget {
                 ClipRRect(
                   //borderRadius: BorderRadius.circular(100.0),
                   child: actorItem.image != ''
-                      ? CachedNetworkImage(
-                          height: 140,
-                          imageUrl:
-                              actorItem.image.replaceRange(28, 36, '320x360'),
-                          placeholder: (context, url) =>
-                              Center(child: CircularProgressIndicator()),
-                          errorWidget: (context, url, error) =>
-                              Icon(Icons.error),
-                          fit: BoxFit.fill,
-                          fadeInCurve: Curves.easeIn,
-                          fadeInDuration: Duration(seconds: 2),
-                          fadeOutCurve: Curves.easeOut,
-                          fadeOutDuration: Duration(seconds: 2),
-                        )
+                      ? catchExceptionForImage(
+                          actorItem.image.replaceRange(28, 36, '320x360'), 140)
                       : CachedNetworkImage(
                           height: 140,
                           imageUrl: actorItem.image,
@@ -51,20 +40,6 @@ class ActorWidget extends StatelessWidget {
                           fadeOutDuration: Duration(seconds: 2),
                         ),
                 ),
-                /*      Image.network(
-                            actorItem.image.replaceRange(28, 36, '320x360'),
-                            fit: BoxFit.contain,
-                            height: 140,
-                          )
-                        : Image.network(
-                            null,
-                            fit: BoxFit.contain,
-                            height: 140,
-                          )),
-                Image.network(
-                  actorItem.image,
-                  height: 120,
-                ),*/
                 SizedBox(
                   height: 6,
                 ),

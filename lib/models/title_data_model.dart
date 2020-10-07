@@ -3,8 +3,6 @@ import 'package:kinopoisk/models/actor_model.dart';
 import 'package:kinopoisk/models/similar_model.dart';
 import 'package:kinopoisk/models/trailer_data_model.dart';
 
-import 'images_model.dart';
-
 part 'title_data_model.g.dart';
 
 @JsonSerializable()
@@ -23,7 +21,7 @@ class TitleDataModel {
   final String genres;
   final String countries;
   final String imDbRating;
-  final ImagesModel images;
+
   final TrailerDataModel trailer;
   final List<SimilarModel> similars;
 
@@ -42,7 +40,6 @@ class TitleDataModel {
     this.genres,
     this.countries,
     this.imDbRating,
-    this.images,
     this.trailer,
     this.similars,
   });

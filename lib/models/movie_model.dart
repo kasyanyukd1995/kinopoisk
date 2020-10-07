@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'move_model.g.dart';
+part 'movie_model.g.dart';
 
 @JsonSerializable()
-class MoveModel {
+class MovieModel {
   final String id;
   final String rank;
   final String title;
@@ -13,7 +13,7 @@ class MoveModel {
   final String crew;
   final String imDbRating;
 
-  const MoveModel({
+  const MovieModel({
     this.id,
     this.rank,
     this.title,
@@ -24,10 +24,10 @@ class MoveModel {
     this.imDbRating,
   });
 
-  static const fromJsonFactory = _$MoveModelFromJson;
+  static const fromJsonFactory = _$MovieModelFromJson;
 
-  factory MoveModel.fromJson(Map<String, dynamic> json) =>
-      _$MoveModelFromJson(json);
+  factory MovieModel.fromJson(Map<String, dynamic> json) =>
+      _$MovieModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$MoveModelToJson(this);
+  Map<String, dynamic> toJson() => _$MovieModelToJson(this);
 }

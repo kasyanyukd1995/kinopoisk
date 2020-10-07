@@ -4,57 +4,43 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:kinopoisk/models/list_move_model.dart';
+import 'package:kinopoisk/models/list_movie_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:kinopoisk/models/move_model.dart';
-
-//import 'package:kinopoisk/widgets/drawer_widget.dart';
+import 'package:kinopoisk/models/movie_model.dart';
 
 import 'package:kinopoisk/widgets/most_popular_movies_widget.dart';
 
-import 'move_info_page.dart';
+import 'movie_info_page.dart';
 
-Future<ListMoveModel> getMostPopularMovies() async {
+Future<ListMovieModel> getMostPopularMovies() async {
   final response =
       await http.get('https://imdb-api.com/en/API/MostPopularMovies/' + apikey);
 
   if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
-    return ListMoveModel.fromJson(jsonDecode(response.body));
+    return ListMovieModel.fromJson(jsonDecode(response.body));
   } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
     throw Exception('Failed to load album');
   }
 }
 
-Future<ListMoveModel> getTop250Movies() async {
+Future<ListMovieModel> getTop250Movies() async {
   final response =
       await http.get('https://imdb-api.com/en/API/Top250Movies/' + apikey);
 
   if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
-    return ListMoveModel.fromJson(jsonDecode(response.body));
+    return ListMovieModel.fromJson(jsonDecode(response.body));
   } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
     throw Exception('Failed to load album');
   }
 }
 
-Future<ListMoveModel> getMostPopularTVs() async {
+Future<ListMovieModel> getMostPopularTVs() async {
   final response =
       await http.get('https://imdb-api.com/en/API/MostPopularTVs/' + apikey);
 
   if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
-    return ListMoveModel.fromJson(jsonDecode(response.body));
+    return ListMovieModel.fromJson(jsonDecode(response.body));
   } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
     throw Exception('Failed to load album');
   }
 }
@@ -66,15 +52,9 @@ class MostPopularMoviesPage extends StatefulWidget {
   }
 }
 
-//List<MoveModel> moviesList = new List(countMoviesOnMainPage);
-
-//int countMoviesOnMainPage = 8;
-int _current = 0;
-//Widget ListMove() {}
-
 class _MostPopularMovies extends State<MostPopularMoviesPage> {
   Widget build(BuildContext context) {
-    return FutureBuilder<ListMoveModel>(
+    return FutureBuilder<ListMovieModel>(
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return Container(
@@ -86,16 +66,9 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
                 enlargeCenterPage: true,
                 aspectRatio: 2.0,
                 height: double.infinity,
-
-                /*onPageChanged: (index, reason) {
-                      setState(() {
-                        _current = index;
-                      });
-                    }*/
-                //reverse: true,
               ),
               itemBuilder: (ctx, index) {
-                MoveModel move = snapshot.data.items[index];
+                MovieModel move = snapshot.data.items[index];
                 //moviesList[index] = move;
                 return MostPopularMoviesWidget(
                   moveModel: move,
@@ -116,12 +89,9 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
           return Text('${snapshot.error}');
         }
 
-        // By default, show a loading spinner.
         return Center(child: CircularProgressIndicator());
       },
       future: getMostPopularMovies(),
     );
-    //drawer: DrawerWidget(),
-    //bottomNavigationBar: BottomAppBarWidget(),
   }
 }

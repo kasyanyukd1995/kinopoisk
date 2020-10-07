@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/models/list_move_model.dart';
-import 'package:kinopoisk/models/move_model.dart';
+import 'package:kinopoisk/models/list_movie_model.dart';
+import 'package:kinopoisk/models/movie_model.dart';
 import 'package:kinopoisk/widgets/movie_item_widget.dart';
 import 'most_popular_movies_page.dart';
-import 'move_info_page.dart';
+import 'movie_info_page.dart';
 //import 'package:kinopoisk/widgets/bottombar_widget.dart';
 
 class MoviesPage extends StatefulWidget {
@@ -36,7 +36,7 @@ class _MoviesPageState extends State<MoviesPage> {
               Expanded(
                 child: SizedBox(
                   height: 380,
-                  child: FutureBuilder<ListMoveModel>(
+                  child: FutureBuilder<ListMovieModel>(
                     builder: (context, snp) {
                       if (snp.hasData) {
                         return GridView.builder(
@@ -48,7 +48,7 @@ class _MoviesPageState extends State<MoviesPage> {
                           ),
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
-                            MoveModel movieItem = snp.data.items[index];
+                            MovieModel movieItem = snp.data.items[index];
                             return MoveiItemWidget(
                               movieItem: movieItem,
                               onTapMovieFunction: (movieobj) => Navigator.push(
@@ -97,7 +97,7 @@ class _MoviesPageState extends State<MoviesPage> {
               Expanded(
                 child: SizedBox(
                   height: 380,
-                  child: FutureBuilder<ListMoveModel>(
+                  child: FutureBuilder<ListMovieModel>(
                     builder: (context, snp) {
                       if (snp.hasData) {
                         return GridView.builder(
@@ -109,7 +109,7 @@ class _MoviesPageState extends State<MoviesPage> {
                             childAspectRatio: 1.3,
                           ),
                           itemBuilder: (context, index) {
-                            MoveModel movieItem = snp.data.items[index];
+                            MovieModel movieItem = snp.data.items[index];
                             return MoveiItemWidget(
                               indicator: 1,
                               movieItem: movieItem,
@@ -159,7 +159,7 @@ class _MoviesPageState extends State<MoviesPage> {
               Expanded(
                 child: SizedBox(
                   height: 380,
-                  child: FutureBuilder<ListMoveModel>(
+                  child: FutureBuilder<ListMovieModel>(
                     builder: (context, snp) {
                       if (snp.hasData) {
                         return GridView.builder(
@@ -171,7 +171,7 @@ class _MoviesPageState extends State<MoviesPage> {
                             childAspectRatio: 1.3,
                           ),
                           itemBuilder: (context, index) {
-                            MoveModel movieItem = snp.data.items[index];
+                            MovieModel movieItem = snp.data.items[index];
                             return MoveiItemWidget(
                               movieItem: movieItem,
                               onTapMovieFunction: (movieobj) => Navigator.push(
@@ -191,8 +191,6 @@ class _MoviesPageState extends State<MoviesPage> {
                       } else if (snp.hasError) {
                         return Text('${snp.error}');
                       }
-
-                      // By default, show a loading spinner.
                       return Center(child: CircularProgressIndicator());
                     },
                     future: getTop250Movies(),

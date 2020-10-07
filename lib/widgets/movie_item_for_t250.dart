@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/models/move_model.dart';
+import 'package:kinopoisk/models/movie_model.dart';
 
 class MoveiItemForTop250Widget extends StatelessWidget {
-  final MoveModel movieItem;
-  final Function(MoveModel obj) onTapMovieFunction;
+  final MovieModel movieItem;
+  final Function(MovieModel obj) onTapMovieFunction;
   const MoveiItemForTop250Widget({
     this.movieItem,
     this.onTapMovieFunction,

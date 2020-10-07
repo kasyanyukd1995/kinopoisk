@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/models/move_model.dart';
+import 'package:kinopoisk/models/movie_model.dart';
 
 class MostPopularMoviesWidget extends StatelessWidget {
-  final MoveModel moveModel;
-  final Function(MoveModel moveobj) onTapCityFunction;
+  final MovieModel moveModel;
+  final Function(MovieModel moveobj) onTapCityFunction;
   const MostPopularMoviesWidget({
     this.moveModel,
     this.onTapCityFunction,

@@ -54,16 +54,6 @@ class ImageWidget extends StatelessWidget {
                     fadeOutCurve: Curves.easeOut,
                     fadeOutDuration: Duration(seconds: 2),
                   ),
-            /*
-                  Image.network(
-                      imageItem.image.replaceRange(28, 36, '400x528'),
-                      height: 200,
-                      fit: BoxFit.contain,
-                    )
-                  : Image.network(
-                      null,
-                      fit: BoxFit.contain,
-                    )*/
           ),
         ),
         SizedBox(

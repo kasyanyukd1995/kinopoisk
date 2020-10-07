@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/pages/movies_page.dart';
 import 'package:kinopoisk/pages/search_page.dart';
-import 'package:kinopoisk/pages/search_page.dart';
-import 'package:kinopoisk/pages/top250_page.dart';
 import 'package:kinopoisk/widgets/app_bar_widget.dart';
 import 'most_popular_movies_page.dart';
 
@@ -52,6 +50,7 @@ class _HomePageState extends State<HomePage> {
               Icons.home,
               color: Colors.white,
             ),
+            // ignore: deprecated_member_use
             title: Text(
               'Home',
               style: TextStyle(
@@ -64,6 +63,7 @@ class _HomePageState extends State<HomePage> {
               Icons.movie,
               color: Colors.white,
             ),
+            // ignore: deprecated_member_use
             title: Text(
               'Movies',
               style: TextStyle(
@@ -88,6 +88,7 @@ class _HomePageState extends State<HomePage> {
               Icons.search,
               color: Colors.white,
             ),
+            // ignore: deprecated_member_use
             title: Text(
               'Search',
               style: TextStyle(
