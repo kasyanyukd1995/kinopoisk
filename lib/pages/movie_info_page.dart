@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:kinopoisk/models/title_data_model.dart';
 import 'package:kinopoisk/models/trailer_data_model.dart';
@@ -18,7 +19,7 @@ import 'dart:async';
 
 import 'actor_info_page.dart';
 
-String apikey = 'k_x3uEl68J';
+String apikey = 'k_lya88m8j';
 //import 'package:kinopoisk/widgets/video_play.dart';
 double setSizeFont(String item) {
   if (item.length > 25)
@@ -105,13 +106,35 @@ Future<TrailerDataModel> getTrailerDataModel(
   }
 }
 
-class MoveInfoPage extends StatelessWidget {
+////////////////////////////////////////////////
+//
+class MoveInfoPage extends StatefulWidget {
   final String titleId;
   final String rating;
   const MoveInfoPage({
     this.titleId,
     this.rating,
   });
+
+  @override
+  MoveInfoPageState createState() => new MoveInfoPageState(titleId, rating);
+}
+
+class MoveInfoPageState extends State<MoveInfoPage> {
+  String titleId;
+  String rating;
+
+  MoveInfoPageState(String titleId, String rating) {
+    this.titleId = titleId;
+    this.rating = rating;
+  }
+
+  void initState() {
+    super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
+  }
 
   Widget build(BuildContext context) {
     return SafeArea(
@@ -148,8 +171,7 @@ class MoveInfoPage extends StatelessWidget {
                                       MaterialPageRoute(
                                         builder: (BuildContext context) =>
                                             PlayTrailerPage(
-                                          urlTrailer:
-                                              titleDataItem.trailer.linkEmbed,
+                                          titleDataItem.trailer.linkEmbed,
                                         ),
                                       ),
                                     ),
@@ -229,8 +251,6 @@ class MoveInfoPage extends StatelessWidget {
                                                 Colors.white10.withOpacity(0.4),
                                             spreadRadius: 10,
                                             blurRadius: 10,
-                                            //offset: Offset(
-                                            //    1, 4), // changes position of shadow
                                           ),
                                         ],
                                       ),
@@ -306,7 +326,6 @@ class MoveInfoPage extends StatelessWidget {
                                 height: 10,
                               ),
                               Container(
-                                //margin: const EdgeInsets.all(4.0),
                                 width: 250.0,
                                 child: Text(
                                   titleDataItem.plot,
@@ -532,3 +551,19 @@ class MoveInfoPage extends StatelessWidget {
     );
   }
 }
+
+//
+///////////////////////////////////////////////////
+/*class MoveInfoPage1 extends StatelessWidget {
+  final String titleId;
+  final String rating;
+  const MoveInfoPage1({
+    this.titleId,
+    this.rating,
+  });
+
+  Widget build(BuildContext context) {
+    
+  }
+}
+*/
