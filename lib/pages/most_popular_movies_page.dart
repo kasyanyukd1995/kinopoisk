@@ -69,18 +69,17 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
               ),
               itemBuilder: (ctx, index) {
                 MovieModel move = snapshot.data.items[index];
-                //moviesList[index] = move;
                 return MostPopularMoviesWidget(
                   moveModel: move,
                   onTapCityFunction: (move) => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => MoveInfoPage(
-                                titleId: move.id,
-                                rating: move.imDbRating != ''
-                                    ? move.imDbRating
-                                    : null,
-                              ))),
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => MoveInfoPage(
+                        titleId: move.id,
+                        rating: move.imDbRating != '' ? move.imDbRating : null,
+                      ),
+                    ),
+                  ),
                 );
               },
             ),
@@ -89,7 +88,9 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
           return Text('${snapshot.error}');
         }
 
-        return Center(child: CircularProgressIndicator());
+        return Center(
+          child: CircularProgressIndicator(),
+        );
       },
       future: getMostPopularMovies(),
     );

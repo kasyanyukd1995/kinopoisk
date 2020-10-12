@@ -64,12 +64,8 @@ Future<TitleDataModel> getTitleDataModel(String title, String apikey) async {
       '/Images,Trailer,');
 
   if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
     return TitleDataModel.fromJson(jsonDecode(response.body));
   } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
     throw Exception('Failed to load');
   }
 }
@@ -80,12 +76,8 @@ Future<YouTubeTrailerDataModel> getYouTubeTrailerDataModel(
       'https://imdb-api.com/en/API/YouTubeTrailer/' + apikey + '/' + title);
 
   if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
     return YouTubeTrailerDataModel.fromJson(jsonDecode(response.body));
   } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
     throw Exception('Failed to load');
   }
 }
@@ -96,12 +88,8 @@ Future<TrailerDataModel> getTrailerDataModel(
       .get('https://imdb-api.com/en/API/Trailer/' + apikey + '/' + title);
 
   if (response.statusCode == 200) {
-    // If the server did return a 200 OK response,
-    // then parse the JSON.
     return TrailerDataModel.fromJson(jsonDecode(response.body));
   } else {
-    // If the server did not return a 200 OK response,
-    // then throw an exception.
     throw Exception('Failed to load');
   }
 }
@@ -456,39 +444,6 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                     SizedBox(
                       height: 10,
                     ),
-                    /*Text(
-                      'Images'.toUpperCase(),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontStyle: FontStyle.normal,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Expanded(
-                          child: SizedBox(
-                            height: 240.0,
-                            child: ListView.builder(
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                final imageItem =
-                                    titleDataItem.images.items[index];
-
-                                return ImageWidget(
-                                  imageItem: imageItem,
-                                );
-                              },
-                              itemCount: 1,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),*/
                     Text(
                       'Similars'.toUpperCase(),
                       style: TextStyle(
@@ -551,19 +506,3 @@ class MoveInfoPageState extends State<MoveInfoPage> {
     );
   }
 }
-
-//
-///////////////////////////////////////////////////
-/*class MoveInfoPage1 extends StatelessWidget {
-  final String titleId;
-  final String rating;
-  const MoveInfoPage1({
-    this.titleId,
-    this.rating,
-  });
-
-  Widget build(BuildContext context) {
-    
-  }
-}
-*/

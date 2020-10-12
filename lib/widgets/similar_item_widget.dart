@@ -32,8 +32,9 @@ class SimilarItemWidget extends StatelessWidget {
                       imageUrl:
                           similarItem.image.replaceRange(28, 36, '384x528'),
                       height: 145,
-                      placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
+                      placeholder: (context, url) => Center(
+                        child: CircularProgressIndicator(),
+                      ),
                       errorWidget: (context, url, error) => Icon(Icons.error),
                       fit: BoxFit.fill,
                       fadeInCurve: Curves.easeIn,
@@ -72,7 +73,6 @@ class SimilarItemWidget extends StatelessWidget {
                     ? Center(
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          //crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             RatingBar(
                               initialRating:

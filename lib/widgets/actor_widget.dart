@@ -22,15 +22,15 @@ class ActorWidget extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 ClipRRect(
-                  //borderRadius: BorderRadius.circular(100.0),
                   child: actorItem.image != ''
                       ? catchExceptionForImage(
                           actorItem.image.replaceRange(28, 36, '320x360'), 140)
                       : CachedNetworkImage(
                           height: 140,
                           imageUrl: actorItem.image,
-                          placeholder: (context, url) =>
-                              Center(child: CircularProgressIndicator()),
+                          placeholder: (context, url) => Center(
+                            child: CircularProgressIndicator(),
+                          ),
                           errorWidget: (context, url, error) =>
                               Icon(Icons.error),
                           fit: BoxFit.fill,

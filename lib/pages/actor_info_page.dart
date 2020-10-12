@@ -15,26 +15,26 @@ class ActorInfoPage extends StatelessWidget {
         appBar: AppBarWidget(),
         backgroundColor: Colors.black,
         body: SingleChildScrollView(
-            child: Center(
-          child: Column(
-            children: <Widget>[
-              Image.network(actorModel.image),
-              Text(
-                actorModel.name,
-                style: TextStyle(
-                  color: Colors.white54,
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                Image.network(actorModel.image),
+                Text(
+                  actorModel.name,
+                  style: TextStyle(
+                    color: Colors.white54,
+                  ),
                 ),
-              ),
-              Text(
-                actorModel.asCharacter,
-                style: TextStyle(
-                  color: Colors.white54,
+                Text(
+                  actorModel.asCharacter,
+                  style: TextStyle(
+                    color: Colors.white54,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        )),
-        //backgroundColor: Colors.white,
+        ),
       ),
     );
   }

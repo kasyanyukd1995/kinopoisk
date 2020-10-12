@@ -24,9 +24,6 @@ class _HomePageState extends State<HomePage> {
       case 1:
         child = MoviesPage();
         break;
-      /*case 2:
-        child = Top250Page();
-        break;*/
       case 2:
         child = SearchPage();
         break;
@@ -42,8 +39,6 @@ class _HomePageState extends State<HomePage> {
         selectedItemColor: Colors.amber,
         onTap: (newIndex) => setState(() => _index = newIndex),
         currentIndex: _index,
-
-        //fixedColor: Colors.black,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
@@ -71,18 +66,6 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          /*BottomNavigationBarItem(
-            icon: Icon(
-              Icons.movie_filter,
-              color: Colors.white54,
-            ),
-            title: Text(
-              'Top 250',
-              style: TextStyle(
-                color: Colors.white54,
-              ),
-            ),
-          ),*/
           BottomNavigationBarItem(
             icon: Icon(
               Icons.search,

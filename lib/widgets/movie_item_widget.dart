@@ -22,10 +22,8 @@ class MoveiItemWidget extends StatelessWidget {
             height: 180,
             color: Colors.white12,
             child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  // alignment: Alignment.center,
                   width: 130,
                   height: 140,
                   child: Center(
@@ -35,10 +33,10 @@ class MoveiItemWidget extends StatelessWidget {
                               ? movieItem.image.replaceRange(28, 36, '180x250')
                               : movieItem.image
                           : movieItem.image,
-                      //imageUrl: movieItem.image,
                       height: 145,
-                      placeholder: (context, url) =>
-                          Center(child: CircularProgressIndicator()),
+                      placeholder: (context, url) => Center(
+                        child: CircularProgressIndicator(),
+                      ),
                       errorWidget: (context, url, error) => Icon(Icons.error),
                       fit: BoxFit.fill,
                       fadeInCurve: Curves.easeIn,
@@ -77,7 +75,6 @@ class MoveiItemWidget extends StatelessWidget {
                     ? Center(
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
-                          //crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             RatingBar(
                               initialRating:

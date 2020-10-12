@@ -18,14 +18,15 @@ class MoveiItemForTop250Widget extends StatelessWidget {
             children: <Widget>[
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                  //color: Colors.white10,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15.0),
+                  ),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.blue.withOpacity(0.5),
                       spreadRadius: 10,
                       blurRadius: 30,
-                      offset: Offset(1, 4), // changes position of shadow
+                      offset: Offset(1, 4),
                     ),
                   ],
                 ),

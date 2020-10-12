@@ -4,7 +4,6 @@ import 'package:kinopoisk/models/movie_model.dart';
 import 'package:kinopoisk/widgets/movie_item_widget.dart';
 import 'most_popular_movies_page.dart';
 import 'movie_info_page.dart';
-//import 'package:kinopoisk/widgets/bottombar_widget.dart';
 
 class MoviesPage extends StatefulWidget {
   MoviesPage({Key key}) : super(key: key);
@@ -70,8 +69,6 @@ class _MoviesPageState extends State<MoviesPage> {
                       } else if (snp.hasError) {
                         return Text('${snp.error}');
                       }
-
-                      // By default, show a loading spinner.
                       return Center(child: CircularProgressIndicator());
                     },
                     future: getMostPopularMovies(),
@@ -132,8 +129,6 @@ class _MoviesPageState extends State<MoviesPage> {
                       } else if (snp.hasError) {
                         return Text('${snp.error}');
                       }
-
-                      // By default, show a loading spinner.
                       return Center(child: CircularProgressIndicator());
                     },
                     future: getMostPopularTVs(),
@@ -202,7 +197,5 @@ class _MoviesPageState extends State<MoviesPage> {
         ],
       ),
     );
-
-    //bottomNavigationBar: BottomAppBarWidget(),
   }
 }
