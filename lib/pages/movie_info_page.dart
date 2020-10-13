@@ -1,25 +1,17 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:kinopoisk/models/title_data_model.dart';
-import 'package:kinopoisk/models/trailer_data_model.dart';
-import 'package:kinopoisk/models/youtube_trailer_data_model.dart';
-import 'package:kinopoisk/pages/play_trailer_page.dart';
-import 'package:kinopoisk/widgets/actor_widget.dart';
-import 'package:kinopoisk/widgets/app_bar_widget.dart';
-import 'package:http/http.dart' as http;
-import 'package:kinopoisk/widgets/director_and_writerrs_info_widget.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:kinopoisk/widgets/similar_item_widget.dart';
+import 'package:kinopoisk/models/index.dart';
+import 'package:kinopoisk/pages/index.dart';
+import 'package:kinopoisk/widgets/index.dart';
+import 'package:kinopoisk/data/apikey.dart';
+import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'dart:async';
-
 import 'actor_info_page.dart';
 
-String apikey = 'k_lya88m8j';
 //import 'package:kinopoisk/widgets/video_play.dart';
 double setSizeFont(String item) {
   if (item.length > 25)

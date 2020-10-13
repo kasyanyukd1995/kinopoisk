@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/models/actor_model.dart';
-import 'package:kinopoisk/widgets/app_bar_widget.dart';
+import 'package:kinopoisk/models/index.dart';
+import 'package:kinopoisk/widgets/index.dart';
 
 class ActorInfoPage extends StatelessWidget {
   final ActorModel actorModel;

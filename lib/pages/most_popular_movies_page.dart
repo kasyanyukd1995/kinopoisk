@@ -3,14 +3,11 @@ import 'dart:async';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'package:kinopoisk/models/list_movie_model.dart';
 import 'package:http/http.dart' as http;
-import 'package:kinopoisk/models/movie_model.dart';
-
-import 'package:kinopoisk/widgets/most_popular_movies_widget.dart';
-
-import 'movie_info_page.dart';
+import 'package:kinopoisk/data/apikey.dart';
+import 'package:kinopoisk/models/index.dart';
+import 'package:kinopoisk/widgets/index.dart';
+import 'package:kinopoisk/pages/index.dart';
 
 Future<ListMovieModel> getMostPopularMovies() async {
   final response =

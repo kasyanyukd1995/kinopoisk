@@ -21,10 +21,8 @@ class SimilarItemWidget extends StatelessWidget {
             height: 180,
             color: Colors.white12,
             child: Column(
-              //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  // alignment: Alignment.center,
                   width: 130,
                   height: 140,
                   child: Center(

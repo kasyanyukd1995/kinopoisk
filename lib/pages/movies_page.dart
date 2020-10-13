@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/models/list_movie_model.dart';
-import 'package:kinopoisk/models/movie_model.dart';
-import 'package:kinopoisk/widgets/movie_item_widget.dart';
-import 'most_popular_movies_page.dart';
-import 'movie_info_page.dart';
+import 'package:kinopoisk/models/index.dart';
+import 'package:kinopoisk/widgets/index.dart';
+import 'package:kinopoisk/pages/index.dart';
 
 class MoviesPage extends StatefulWidget {
   MoviesPage({Key key}) : super(key: key);
