@@ -3,8 +3,6 @@ import 'package:kinopoisk/pages/index.dart';
 import 'package:kinopoisk/widgets/index.dart';
 
 class HomePage extends StatefulWidget {
-  //HomePage({Key key}) : super(key: key);
-
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -38,7 +36,7 @@ class _HomePageState extends State<HomePage> {
         onTap: (newIndex) => setState(() => _index = newIndex),
         currentIndex: _index,
         items: [
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
               color: Colors.white,
@@ -51,7 +49,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(
               Icons.movie,
               color: Colors.white,
@@ -64,7 +62,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
           ),
-          BottomNavigationBarItem(
+          const BottomNavigationBarItem(
             icon: Icon(
               Icons.search,
               color: Colors.white,

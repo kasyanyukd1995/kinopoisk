@@ -55,7 +55,7 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return Container(
-            constraints: BoxConstraints.expand(),
+            constraints: const BoxConstraints.expand(),
             child: CarouselSlider.builder(
               itemCount: snapshot.data.items.length,
               options: CarouselOptions(
@@ -64,14 +64,14 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
                 aspectRatio: 2.0,
                 height: double.infinity,
               ),
-              itemBuilder: (ctx, index) {
+              itemBuilder: (__context, index) {
                 MovieModel move = snapshot.data.items[index];
                 return MostPopularMoviesWidget(
                   moveModel: move,
                   onTapCityFunction: (move) => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (BuildContext context) => MoveInfoPage(
+                      builder: (BuildContext _context) => MoveInfoPage(
                         titleId: move.id,
                         rating: move.imDbRating != '' ? move.imDbRating : null,
                       ),
@@ -85,7 +85,7 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
           return Text('${snapshot.error}');
         }
 
-        return Center(
+        return const Center(
           child: CircularProgressIndicator(),
         );
       },

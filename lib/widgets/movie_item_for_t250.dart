@@ -18,7 +18,7 @@ class MoveiItemForTop250Widget extends StatelessWidget {
             children: <Widget>[
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
+                  borderRadius: const BorderRadius.all(
                     Radius.circular(15.0),
                   ),
                   boxShadow: [
@@ -26,7 +26,7 @@ class MoveiItemForTop250Widget extends StatelessWidget {
                       color: Colors.blue.withOpacity(0.5),
                       spreadRadius: 10,
                       blurRadius: 30,
-                      offset: Offset(1, 4),
+                      offset: const Offset(1, 4),
                     ),
                   ],
                 ),
@@ -41,11 +41,11 @@ class MoveiItemForTop250Widget extends StatelessWidget {
               ),
               Text(
                 movieItem.imDbRating,
-                style: TextStyle(fontSize: 12.0),
+                style: const TextStyle(fontSize: 12.0),
               ),
             ],
           ),
-          SizedBox(width: 3.0),
+          const SizedBox(width: 3.0),
         ],
       ),
       onTap: () => onTapMovieFunction(movieItem),

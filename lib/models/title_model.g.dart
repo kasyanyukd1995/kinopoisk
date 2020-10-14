@@ -1,16 +1,16 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'title_data_model.dart';
+part of 'title_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-TitleDataModel _$TitleDataModelFromJson(Map<String, dynamic> json) {
-  return TitleDataModel(
+TitleModel _$TitleModelFromJson(Map<String, dynamic> json) {
+  return TitleModel(
     id: json['id'] as String,
     title: json['title'] as String,
-    year: json['year'] as String,
+    year: json['year'] as STitleModeltring,
     image: json['image'] as String,
     runtimeStr: json['runtimeStr'] as String,
     releaseDate: json['releaseDate'] as String,
@@ -27,15 +27,16 @@ TitleDataModel _$TitleDataModelFromJson(Map<String, dynamic> json) {
     imDbRating: json['imDbRating'] as String,
     trailer: json['trailer'] == null
         ? null
-        : TrailerDataModel.fromJson(json['trailer'] as Map<String, dynamic>),
+        : TrailerModel.fromJson(json['trailer'] as Map<String, dynamic>),
     similars: (json['similars'] as List)
-        ?.map((e) =>
-            e == null ? null : SimilarModel.fromJson(e as Map<String, dynamic>))
+        ?.map((e) => e == null
+            ? null
+            : SimilarMovieModel.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }
 
-Map<String, dynamic> _$TitleDataModelToJson(TitleDataModel instance) =>
+Map<String, dynamic> _$TitleModelToJson(TitleModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

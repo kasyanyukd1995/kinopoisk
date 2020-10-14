@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'similar_model.dart';
+part of 'similar_movie_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-SimilarModel _$SimilarModelFromJson(Map<String, dynamic> json) {
-  return SimilarModel(
+SimilarMovieModel _$SimilarMovieModelFromJson(Map<String, dynamic> json) {
+  return SimilarMovieModel(
     id: json['id'] as String,
     title: json['title'] as String,
     fullTitle: json['fullTitle'] as String,
@@ -21,7 +21,7 @@ SimilarModel _$SimilarModelFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$SimilarModelToJson(SimilarModel instance) =>
+Map<String, dynamic> _$SimilarMovieModelToJson(SimilarMovieModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,

@@ -3,20 +3,22 @@ import 'package:kinopoisk/models/index.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:kinopoisk/pages/index.dart';
 
+const int countViewMovie = 40;
+
 class MoviesPage extends StatefulWidget {
   MoviesPage({Key key}) : super(key: key);
 
   @override
-  _MoviesPageState createState() => _MoviesPageState();
+  _moviesPageState createState() => _moviesPageState();
 }
 
-class _MoviesPageState extends State<MoviesPage> {
+class _moviesPageState extends State<MoviesPage> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          Text(
+          const Text(
             'Most Popular Movies Now',
             style: TextStyle(
               color: Colors.white,
@@ -25,7 +27,7 @@ class _MoviesPageState extends State<MoviesPage> {
               fontWeight: FontWeight.w400,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20.0,
           ),
           Row(
@@ -38,7 +40,7 @@ class _MoviesPageState extends State<MoviesPage> {
                       if (snp.hasData) {
                         return GridView.builder(
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: 20.0,
                             childAspectRatio: 1.3,
@@ -60,14 +62,14 @@ class _MoviesPageState extends State<MoviesPage> {
                                           ))),
                             );
                           },
-                          itemCount: snp.data.items.length > 30
-                              ? 30
+                          itemCount: snp.data.items.length > countViewMovie
+                              ? countViewMovie
                               : snp.data.items.length,
                         );
                       } else if (snp.hasError) {
                         return Text('${snp.error}');
                       }
-                      return Center(child: CircularProgressIndicator());
+                      return const Center(child: CircularProgressIndicator());
                     },
                     future: getMostPopularMovies(),
                   ),
@@ -75,7 +77,7 @@ class _MoviesPageState extends State<MoviesPage> {
               ),
             ],
           ),
-          Text(
+          const Text(
             'Most Popular TVs Now',
             style: TextStyle(
               color: Colors.white,
@@ -84,7 +86,7 @@ class _MoviesPageState extends State<MoviesPage> {
               fontWeight: FontWeight.w400,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20.0,
           ),
           Row(
@@ -98,7 +100,7 @@ class _MoviesPageState extends State<MoviesPage> {
                         return GridView.builder(
                           scrollDirection: Axis.horizontal,
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: 20.0,
                             childAspectRatio: 1.3,
@@ -120,14 +122,14 @@ class _MoviesPageState extends State<MoviesPage> {
                                           ))),
                             );
                           },
-                          itemCount: snp.data.items.length > 30
-                              ? 30
+                          itemCount: snp.data.items.length > countViewMovie
+                              ? countViewMovie
                               : snp.data.items.length,
                         );
                       } else if (snp.hasError) {
                         return Text('${snp.error}');
                       }
-                      return Center(child: CircularProgressIndicator());
+                      return const Center(child: CircularProgressIndicator());
                     },
                     future: getMostPopularTVs(),
                   ),
@@ -135,7 +137,7 @@ class _MoviesPageState extends State<MoviesPage> {
               ),
             ],
           ),
-          Text(
+          const Text(
             'Top 250 Movies',
             style: TextStyle(
               color: Colors.white,
@@ -144,7 +146,7 @@ class _MoviesPageState extends State<MoviesPage> {
               fontWeight: FontWeight.w400,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20.0,
           ),
           Row(
@@ -158,7 +160,7 @@ class _MoviesPageState extends State<MoviesPage> {
                         return GridView.builder(
                           scrollDirection: Axis.horizontal,
                           gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: 20.0,
                             childAspectRatio: 1.3,
@@ -168,15 +170,17 @@ class _MoviesPageState extends State<MoviesPage> {
                             return MoveiItemWidget(
                               movieItem: movieItem,
                               onTapMovieFunction: (movieobj) => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          MoveInfoPage(
-                                            titleId: movieItem.id,
-                                            rating: movieItem.imDbRating != ''
-                                                ? movieItem.imDbRating
-                                                : null,
-                                          ))),
+                                context,
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      MoveInfoPage(
+                                    titleId: movieItem.id,
+                                    rating: movieItem.imDbRating != ''
+                                        ? movieItem.imDbRating
+                                        : null,
+                                  ),
+                                ),
+                              ),
                             );
                           },
                           itemCount: snp.data.items.length,
@@ -184,7 +188,7 @@ class _MoviesPageState extends State<MoviesPage> {
                       } else if (snp.hasError) {
                         return Text('${snp.error}');
                       }
-                      return Center(child: CircularProgressIndicator());
+                      return const Center(child: CircularProgressIndicator());
                     },
                     future: getTop250Movies(),
                   ),

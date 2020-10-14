@@ -10,7 +10,7 @@ import 'package:kinopoisk/widgets/index.dart';
 
 class SearchPage extends StatelessWidget {
   Future<List<ResultSearchListModel>> search(String search) async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 3));
     final response = await http.get(
         'https://imdb-api.com/en/API/SearchTitle/' + apikey + '/' + search);
     if (response.statusCode == 200) {
@@ -28,18 +28,18 @@ class SearchPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SearchBar<ResultSearchListModel>(
-            textStyle: TextStyle(color: Colors.white),
+            textStyle: const TextStyle(color: Colors.white),
             iconActiveColor: Colors.white,
-            searchBarStyle: SearchBarStyle(
+            searchBarStyle: const SearchBarStyle(
               backgroundColor: Colors.white54,
             ),
-            cancellationWidget: Text(
+            cancellationWidget: const Text(
               'Cancel',
               style: TextStyle(
                 color: Colors.white54,
               ),
             ),
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
               color: Colors.white,
               size: 30,
@@ -47,7 +47,7 @@ class SearchPage extends StatelessWidget {
             shrinkWrap: true,
             onSearch: search,
             onItemFound: (ResultSearchListModel item, int index) {
-              return ItemForSearchWidget(
+              return SearchWidget(
                 searchItem: item,
                 onTapItemFunction: (obj) => Navigator.push(
                   context,

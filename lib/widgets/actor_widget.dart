@@ -28,24 +28,24 @@ class ActorWidget extends StatelessWidget {
                       : CachedNetworkImage(
                           height: 140,
                           imageUrl: actorItem.image,
-                          placeholder: (context, url) => Center(
+                          placeholder: (context, url) => const Center(
                             child: CircularProgressIndicator(),
                           ),
                           errorWidget: (context, url, error) =>
-                              Icon(Icons.error),
+                              const Icon(Icons.error),
                           fit: BoxFit.fill,
                           fadeInCurve: Curves.easeIn,
-                          fadeInDuration: Duration(seconds: 2),
+                          fadeInDuration: const Duration(seconds: 2),
                           fadeOutCurve: Curves.easeOut,
-                          fadeOutDuration: Duration(seconds: 2),
+                          fadeOutDuration: const Duration(seconds: 2),
                         ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 6,
                 ),
                 Text(
                   actorItem.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 12.0,
                     color: Colors.white54,
                   ),
@@ -53,7 +53,7 @@ class ActorWidget extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 8.0),
+          const SizedBox(width: 8.0),
         ],
       ),
       onTap: () => onTapActorFunction(actorItem),

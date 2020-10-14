@@ -1,8 +1,8 @@
 import 'package:json_annotation/json_annotation.dart';
-part 'trailer_data_model.g.dart';
+part 'trailer_model.g.dart';
 
 @JsonSerializable()
-class TrailerDataModel {
+class TrailerModel {
   final String iMDbId;
   final String title;
   final String fullTitle;
@@ -13,7 +13,7 @@ class TrailerDataModel {
   final String linkEmbed;
   final String errorMessage;
 
-  const TrailerDataModel({
+  const TrailerModel({
     this.iMDbId,
     this.title,
     this.fullTitle,
@@ -25,10 +25,10 @@ class TrailerDataModel {
     this.errorMessage,
   });
 
-  static const fromJsonFactory = _$TrailerDataModelFromJson;
+  static const fromJsonFactory = _$TrailerModelFromJson;
 
-  factory TrailerDataModel.fromJson(Map<String, dynamic> json) =>
-      _$TrailerDataModelFromJson(json);
+  factory TrailerModel.fromJson(Map<String, dynamic> json) =>
+      _$TrailerModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$TrailerDataModelToJson(this);
+  Map<String, dynamic> toJson() => _$TrailerModelToJson(this);
 }

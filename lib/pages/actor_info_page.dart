@@ -21,13 +21,13 @@ class ActorInfoPage extends StatelessWidget {
                 Image.network(actorModel.image),
                 Text(
                   actorModel.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white54,
                   ),
                 ),
                 Text(
                   actorModel.asCharacter,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white54,
                   ),
                 ),

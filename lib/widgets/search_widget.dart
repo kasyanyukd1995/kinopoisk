@@ -3,10 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/models/result_search_list_model.dart';
 
-class ItemForSearchWidget extends StatelessWidget {
+class SearchWidget extends StatelessWidget {
   final ResultSearchListModel searchItem;
   final Function(ResultSearchListModel obj) onTapItemFunction;
-  const ItemForSearchWidget({
+  const SearchWidget({
     this.searchItem,
     this.onTapItemFunction,
   });
@@ -22,17 +22,16 @@ class ItemForSearchWidget extends StatelessWidget {
                 fit: FlexFit.tight,
                 child: CachedNetworkImage(
                   height: 70,
-                  //width: 40,
                   imageUrl: searchItem.image.replaceRange(28, 36, '192x264'),
-                  placeholder: (context, url) => Center(
+                  placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
                   ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                   fit: BoxFit.fill,
                   fadeInCurve: Curves.easeIn,
-                  fadeInDuration: Duration(seconds: 2),
+                  fadeInDuration: const Duration(seconds: 2),
                   fadeOutCurve: Curves.easeOut,
-                  fadeOutDuration: Duration(seconds: 2),
+                  fadeOutDuration: const Duration(seconds: 2),
                 ),
               ),
               Flexible(
@@ -41,11 +40,11 @@ class ItemForSearchWidget extends StatelessWidget {
                   child: ListTile(
                     title: Text(
                       searchItem.title,
-                      style: TextStyle(color: Colors.white),
+                      style: const TextStyle(color: Colors.white),
                     ),
                     subtitle: Text(
                       searchItem.description,
-                      style: TextStyle(color: Colors.white54),
+                      style: const TextStyle(color: Colors.white54),
                     ),
                   ),
                 ),

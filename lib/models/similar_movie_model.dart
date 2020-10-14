@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 
-part 'similar_model.g.dart';
+part 'similar_movie_model.g.dart';
 
 @JsonSerializable()
-class SimilarModel {
+class SimilarMovieModel {
   final String id;
   final String title;
   final String fullTitle;
@@ -15,7 +15,7 @@ class SimilarModel {
   final String genres;
   final String imDbRating;
 
-  const SimilarModel({
+  const SimilarMovieModel({
     this.id,
     this.title,
     this.fullTitle,
@@ -28,10 +28,10 @@ class SimilarModel {
     this.imDbRating,
   });
 
-  static const fromJsonFactory = _$SimilarModelFromJson;
+  static const fromJsonFactory = _$SimilarMovieModelFromJson;
 
-  factory SimilarModel.fromJson(Map<String, dynamic> json) =>
-      _$SimilarModelFromJson(json);
+  factory SimilarMovieModel.fromJson(Map<String, dynamic> json) =>
+      _$SimilarMovieModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$SimilarModelToJson(this);
+  Map<String, dynamic> toJson() => _$SimilarMovieModelToJson(this);
 }

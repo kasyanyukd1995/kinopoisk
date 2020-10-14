@@ -3,11 +3,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import 'package:kinopoisk/models/similar_model.dart';
+import 'package:kinopoisk/models/similar_movie_model.dart';
 
 class SimilarItemWidget extends StatelessWidget {
-  final SimilarModel similarItem;
-  final Function(SimilarModel obj) onTapMovieFunction;
+  final SimilarMovieModel similarItem;
+  final Function(SimilarMovieModel obj) onTapMovieFunction;
   const SimilarItemWidget({
     this.similarItem,
     this.onTapMovieFunction,
@@ -30,27 +30,28 @@ class SimilarItemWidget extends StatelessWidget {
                       imageUrl:
                           similarItem.image.replaceRange(28, 36, '384x528'),
                       height: 145,
-                      placeholder: (context, url) => Center(
+                      placeholder: (context, url) => const Center(
                         child: CircularProgressIndicator(),
                       ),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
                       fit: BoxFit.fill,
                       fadeInCurve: Curves.easeIn,
-                      fadeInDuration: Duration(seconds: 2),
+                      fadeInDuration: const Duration(seconds: 2),
                       fadeOutCurve: Curves.easeOut,
-                      fadeOutDuration: Duration(seconds: 2),
+                      fadeOutDuration: const Duration(seconds: 2),
                     ),
                   ),
                 ),
                 Container(
                   width: 130,
-                  padding: EdgeInsets.fromLTRB(2, 0, 2, 0),
+                  padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
                   child: Center(
                     child: similarItem.title.length > 16
                         ? Text(
                             similarItem.title,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white70,
                               fontSize: 9,
                               fontWeight: FontWeight.w300,
@@ -59,7 +60,7 @@ class SimilarItemWidget extends StatelessWidget {
                         : Text(
                             similarItem.title,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white70,
                               fontSize: 11,
                               fontWeight: FontWeight.w400,
@@ -81,8 +82,8 @@ class SimilarItemWidget extends StatelessWidget {
                               itemCount: 5,
                               itemSize: 10.0,
                               itemPadding:
-                                  EdgeInsets.symmetric(horizontal: 4.0),
-                              itemBuilder: (context, _) => Icon(
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              itemBuilder: (context, _) => const Icon(
                                 Icons.star,
                                 color: Colors.amber,
                               ),
@@ -92,7 +93,7 @@ class SimilarItemWidget extends StatelessWidget {
                             ),
                             Text(
                               similarItem.imDbRating,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 15.0,
                                 color: Colors.white,
                                 fontStyle: FontStyle.normal,
@@ -102,13 +103,13 @@ class SimilarItemWidget extends StatelessWidget {
                           ],
                         ),
                       )
-                    : SizedBox(
+                    : const SizedBox(
                         height: 1,
                       ),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
         ],

@@ -10,3 +10,4 @@ linter:
   rules:
       prefer_single_quotes: true
       avoid_classes_with_only_static_members: false
+      prefer_const_constructors: true

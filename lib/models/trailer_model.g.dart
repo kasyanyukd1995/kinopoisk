@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'trailer_data_model.dart';
+part of 'trailer_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-TrailerDataModel _$TrailerDataModelFromJson(Map<String, dynamic> json) {
-  return TrailerDataModel(
+TrailerModel _$TrailerModelFromJson(Map<String, dynamic> json) {
+  return TrailerModel(
     iMDbId: json['iMDbId'] as String,
     title: json['title'] as String,
     fullTitle: json['fullTitle'] as String,
@@ -20,7 +20,7 @@ TrailerDataModel _$TrailerDataModelFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$TrailerDataModelToJson(TrailerDataModel instance) =>
+Map<String, dynamic> _$TrailerModelToJson(TrailerModel instance) =>
     <String, dynamic>{
       'iMDbId': instance.iMDbId,
       'title': instance.title,

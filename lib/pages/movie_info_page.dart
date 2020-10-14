@@ -25,30 +25,32 @@ Widget catchExceptionForImage(String urlImage, double height) {
     return CachedNetworkImage(
       height: height,
       imageUrl: urlImage,
-      placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-      errorWidget: (context, url, error) => Icon(Icons.error),
+      placeholder: (context, url) =>
+          const Center(child: const CircularProgressIndicator()),
+      errorWidget: (context, url, error) => const Icon(Icons.error),
       fit: BoxFit.fill,
       fadeInCurve: Curves.easeIn,
-      fadeInDuration: Duration(seconds: 2),
+      fadeInDuration: const Duration(seconds: 2),
       fadeOutCurve: Curves.easeOut,
-      fadeOutDuration: Duration(seconds: 2),
+      fadeOutDuration: const Duration(seconds: 2),
     );
   } catch (e) {
     return CachedNetworkImage(
       height: height,
       imageUrl: null,
-      placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-      errorWidget: (context, url, error) => Icon(Icons.error),
+      placeholder: (context, url) =>
+          const Center(child: const CircularProgressIndicator()),
+      errorWidget: (context, url, error) => const Icon(Icons.error),
       fit: BoxFit.fill,
       fadeInCurve: Curves.easeIn,
-      fadeInDuration: Duration(seconds: 2),
+      fadeInDuration: const Duration(seconds: 2),
       fadeOutCurve: Curves.easeOut,
-      fadeOutDuration: Duration(seconds: 2),
+      fadeOutDuration: const Duration(seconds: 2),
     );
   }
 }
 
-Future<TitleDataModel> getTitleDataModel(String title, String apikey) async {
+Future<TitleModel> getTitleDataModel(String title, String apikey) async {
   final response = await http.get('https://imdb-api.com/en/API/Title/' +
       apikey +
       '/' +
@@ -56,38 +58,23 @@ Future<TitleDataModel> getTitleDataModel(String title, String apikey) async {
       '/Images,Trailer,');
 
   if (response.statusCode == 200) {
-    return TitleDataModel.fromJson(jsonDecode(response.body));
+    return TitleModel.fromJson(jsonDecode(response.body));
   } else {
     throw Exception('Failed to load');
   }
 }
 
-Future<YouTubeTrailerDataModel> getYouTubeTrailerDataModel(
-    String title, String apikey) async {
-  final response = await http.get(
-      'https://imdb-api.com/en/API/YouTubeTrailer/' + apikey + '/' + title);
-
-  if (response.statusCode == 200) {
-    return YouTubeTrailerDataModel.fromJson(jsonDecode(response.body));
-  } else {
-    throw Exception('Failed to load');
-  }
-}
-
-Future<TrailerDataModel> getTrailerDataModel(
-    String title, String apikey) async {
+Future<TrailerModel> getTrailerDataModel(String title, String apikey) async {
   final response = await http
       .get('https://imdb-api.com/en/API/Trailer/' + apikey + '/' + title);
 
   if (response.statusCode == 200) {
-    return TrailerDataModel.fromJson(jsonDecode(response.body));
+    return TrailerModel.fromJson(jsonDecode(response.body));
   } else {
     throw Exception('Failed to load');
   }
 }
 
-////////////////////////////////////////////////
-//
 class MoveInfoPage extends StatefulWidget {
   final String titleId;
   final String rating;
@@ -122,9 +109,9 @@ class MoveInfoPageState extends State<MoveInfoPage> {
         appBar: AppBarWidget(),
         backgroundColor: Colors.black12,
         body: SingleChildScrollView(
-          child: FutureBuilder<TitleDataModel>(
+          child: FutureBuilder<TitleModel>(
             builder: (context, snapshot) {
-              TitleDataModel titleDataItem = snapshot.data;
+              TitleModel titleDataItem = snapshot.data;
               if (snapshot.hasData) {
                 return Column(
                   children: <Widget>[
@@ -140,7 +127,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                                 ),
                                 Center(
                                   child: IconButton(
-                                    icon: Icon(
+                                    icon: const Icon(
                                       Icons.play_circle_filled,
                                       color: Colors.white70,
                                       size: 40,
@@ -160,7 +147,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                               ],
                             ),
                           )
-                        : SizedBox(
+                        : const SizedBox(
                             height: 1,
                           ),
                     Padding(
@@ -184,7 +171,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                         children: <Widget>[
                           Text(
                             titleDataItem.year + '   ',
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                               fontStyle: FontStyle.normal,
@@ -193,7 +180,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                           ),
                           Text(
                             titleDataItem.runtimeStr,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                               fontStyle: FontStyle.normal,
@@ -207,7 +194,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                       color: Colors.white24,
                       height: 1,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                     Row(
@@ -222,7 +209,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                                     Container(
                                       margin: const EdgeInsets.all(15.0),
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.all(
+                                        borderRadius: const BorderRadius.all(
                                             Radius.circular(13.0)),
                                         color: Colors.white10,
                                         boxShadow: [
@@ -250,9 +237,11 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                                             allowHalfRating: true,
                                             itemCount: 5,
                                             itemSize: 13.0,
-                                            itemPadding: EdgeInsets.symmetric(
-                                                horizontal: 4.0),
-                                            itemBuilder: (context, _) => Icon(
+                                            itemPadding:
+                                                const EdgeInsets.symmetric(
+                                                    horizontal: 4.0),
+                                            itemBuilder: (context, _) =>
+                                                const Icon(
                                               Icons.star,
                                               color: Colors.amber,
                                             ),
@@ -260,7 +249,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                                               print(rating);
                                             },
                                           )
-                                        : SizedBox(height: 1),
+                                        : const SizedBox(height: 1),
                                   ],
                                 ),
                               )
@@ -274,9 +263,9 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                                     allowHalfRating: true,
                                     itemCount: 5,
                                     itemSize: 13.0,
-                                    itemPadding:
-                                        EdgeInsets.symmetric(horizontal: 4.0),
-                                    itemBuilder: (context, _) => Icon(
+                                    itemPadding: const EdgeInsets.symmetric(
+                                        horizontal: 4.0),
+                                    itemBuilder: (context, _) => const Icon(
                                       Icons.star,
                                       color: Colors.amber,
                                     ),
@@ -284,7 +273,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                                       print(rating);
                                     },
                                   )
-                                : SizedBox(height: 1),
+                                : const SizedBox(height: 1),
                         Flexible(
                           flex: 4,
                           child: Column(
@@ -294,7 +283,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                                 alignment: Alignment.topCenter,
                                 child: Text(
                                   titleDataItem.genres,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 20,
                                     fontStyle: FontStyle.normal,
@@ -302,14 +291,14 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                                   ),
                                 ),
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 height: 10,
                               ),
                               Container(
                                 width: 250.0,
                                 child: Text(
                                   titleDataItem.plot,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 15,
                                     fontStyle: FontStyle.normal,
@@ -328,7 +317,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                     ),
                     Column(
                       children: [
-                        Align(
+                        const Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
                             'Stars',
@@ -344,7 +333,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             titleDataItem.stars,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white54,
                               fontSize: 20,
                               fontStyle: FontStyle.normal,
@@ -356,7 +345,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                     ),
                     Column(
                       children: [
-                        Align(
+                        const Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
                             'Contries',
@@ -372,7 +361,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             titleDataItem.countries,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white54,
                               fontSize: 20,
                               fontStyle: FontStyle.normal,
@@ -386,19 +375,19 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                       color: Colors.white24,
                       height: 1,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
                       'Actors'.toUpperCase(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
@@ -433,19 +422,19 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                       color: Colors.white24,
                       height: 1,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
                       'Similars'.toUpperCase(),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Row(
@@ -487,7 +476,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                 return Text('${snapshot.error}');
               }
 
-              return SizedBox(
+              return const SizedBox(
                   height: 600,
                   child: Center(child: CircularProgressIndicator()));
             },

@@ -3,7 +3,7 @@ export 'app_bar_widget.dart';
 export 'director_and_writerrs_info_widget.dart';
 export 'image_widget.dart';
 export 'image_widget.dart';
-export 'item_for_search.dart';
+export 'search_widget.dart';
 export 'most_popular_movies_widget.dart';
 export 'most_popular_movies_widget.dart';
 export 'movie_item_for_t250.dart';

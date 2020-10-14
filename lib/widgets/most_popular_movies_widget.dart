@@ -14,9 +14,9 @@ class MostPopularMoviesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
-        margin: EdgeInsets.only(left: 2, top: 50, right: 5, bottom: 20),
+        margin: const EdgeInsets.only(left: 2, top: 50, right: 5, bottom: 20),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(
+          borderRadius: const BorderRadius.all(
             Radius.circular(20.0),
           ),
           boxShadow: [
@@ -24,7 +24,7 @@ class MostPopularMoviesWidget extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
               spreadRadius: 10,
               blurRadius: 30,
-              offset: Offset(1, 4),
+              offset: const Offset(1, 4),
             ),
           ],
         ),
@@ -34,15 +34,15 @@ class MostPopularMoviesWidget extends StatelessWidget {
             imageUrl: moveModel.image[8] == 'm'
                 ? moveModel.image
                 : moveModel.image.replaceRange(28, 36, '384x555'),
-            placeholder: (context, url) => Center(
+            placeholder: (context, url) => const Center(
               child: CircularProgressIndicator(),
             ),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+            errorWidget: (context, url, error) => const Icon(Icons.error),
             fit: BoxFit.fill,
             fadeInCurve: Curves.easeIn,
-            fadeInDuration: Duration(seconds: 2),
+            fadeInDuration: const Duration(seconds: 2),
             fadeOutCurve: Curves.easeOut,
-            fadeOutDuration: Duration(seconds: 2),
+            fadeOutDuration: const Duration(seconds: 2),
           ),
         ),
       ),

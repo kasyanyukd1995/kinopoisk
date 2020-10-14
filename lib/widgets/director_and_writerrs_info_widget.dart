@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/models/title_data_model.dart';
+import 'package:kinopoisk/models/title_model.dart';
 
 class DirectorAndWritersinfoWidget extends StatelessWidget {
-  final TitleDataModel titleItem;
+  final TitleModel titleItem;
 
   const DirectorAndWritersinfoWidget({
     this.titleItem,
@@ -14,7 +14,7 @@ class DirectorAndWritersinfoWidget extends StatelessWidget {
       if (titleItem.writers != '') {
         return Column(
           children: [
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'Directors',
@@ -30,7 +30,7 @@ class DirectorAndWritersinfoWidget extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                 titleItem.directors,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white54,
                   fontSize: 20,
                   fontStyle: FontStyle.normal,
@@ -38,7 +38,7 @@ class DirectorAndWritersinfoWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'Writers',
@@ -54,7 +54,7 @@ class DirectorAndWritersinfoWidget extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                 titleItem.writers,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white54,
                   fontSize: 20,
                   fontStyle: FontStyle.normal,
@@ -67,7 +67,7 @@ class DirectorAndWritersinfoWidget extends StatelessWidget {
       } else {
         return Column(
           children: [
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'Directors',
@@ -83,7 +83,7 @@ class DirectorAndWritersinfoWidget extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                 titleItem.directors,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white54,
                   fontSize: 20,
                   fontStyle: FontStyle.normal,
@@ -98,7 +98,7 @@ class DirectorAndWritersinfoWidget extends StatelessWidget {
       if (titleItem.writers != '') {
         return Column(
           children: [
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'Writers',
@@ -114,7 +114,7 @@ class DirectorAndWritersinfoWidget extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                 titleItem.writers,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white54,
                   fontSize: 20,
                   fontStyle: FontStyle.normal,
@@ -126,7 +126,7 @@ class DirectorAndWritersinfoWidget extends StatelessWidget {
         );
       }
     }
-    return SizedBox(
+    return const SizedBox(
       height: 10,
     );
   }

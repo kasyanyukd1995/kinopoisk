@@ -1,12 +1,12 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kinopoisk/models/actor_model.dart';
-import 'package:kinopoisk/models/similar_model.dart';
-import 'package:kinopoisk/models/trailer_data_model.dart';
+import 'package:kinopoisk/models/similar_movie_model.dart';
+import 'package:kinopoisk/models/trailer_model.dart';
 
-part 'title_data_model.g.dart';
+part 'title_model.g.dart';
 
 @JsonSerializable()
-class TitleDataModel {
+class TitleModel {
   final String id;
   final String title;
   final String year;
@@ -22,10 +22,10 @@ class TitleDataModel {
   final String countries;
   final String imDbRating;
 
-  final TrailerDataModel trailer;
-  final List<SimilarModel> similars;
+  final TrailerModel trailer;
+  final List<SimilarMovieModel> similars;
 
-  const TitleDataModel({
+  const TitleModel({
     this.id,
     this.title,
     this.year,
@@ -44,10 +44,10 @@ class TitleDataModel {
     this.similars,
   });
 
-  static const fromJsonFactory = _$TitleDataModelFromJson;
+  static const fromJsonFactory = _$TitleModelFromJson;
 
-  factory TitleDataModel.fromJson(Map<String, dynamic> json) =>
-      _$TitleDataModelFromJson(json);
+  factory TitleModel.fromJson(Map<String, dynamic> json) =>
+      _$TitleModelFromJson(json);
 
-  Map<String, dynamic> toJson() => _$TitleDataModelToJson(this);
+  Map<String, dynamic> toJson() => _$TitleModelToJson(this);
 }

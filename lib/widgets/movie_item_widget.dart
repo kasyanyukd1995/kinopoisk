@@ -34,27 +34,28 @@ class MoveiItemWidget extends StatelessWidget {
                               : movieItem.image
                           : movieItem.image,
                       height: 145,
-                      placeholder: (context, url) => Center(
+                      placeholder: (context, url) => const Center(
                         child: CircularProgressIndicator(),
                       ),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.error),
                       fit: BoxFit.fill,
                       fadeInCurve: Curves.easeIn,
-                      fadeInDuration: Duration(seconds: 2),
+                      fadeInDuration: const Duration(seconds: 2),
                       fadeOutCurve: Curves.easeOut,
-                      fadeOutDuration: Duration(seconds: 2),
+                      fadeOutDuration: const Duration(seconds: 2),
                     ),
                   ),
                 ),
                 Container(
                   width: 130,
-                  padding: EdgeInsets.fromLTRB(2, 0, 2, 0),
+                  padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
                   child: Center(
                     child: movieItem.title.length > 16
                         ? Text(
                             movieItem.title,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white70,
                               fontSize: 9,
                               fontWeight: FontWeight.w300,
@@ -63,7 +64,7 @@ class MoveiItemWidget extends StatelessWidget {
                         : Text(
                             movieItem.title,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white70,
                               fontSize: 11,
                               fontWeight: FontWeight.w400,
@@ -85,8 +86,8 @@ class MoveiItemWidget extends StatelessWidget {
                               itemCount: 5,
                               itemSize: 10.0,
                               itemPadding:
-                                  EdgeInsets.symmetric(horizontal: 4.0),
-                              itemBuilder: (context, _) => Icon(
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              itemBuilder: (context, _) => const Icon(
                                 Icons.star,
                                 color: Colors.amber,
                               ),
@@ -96,7 +97,7 @@ class MoveiItemWidget extends StatelessWidget {
                             ),
                             Text(
                               movieItem.imDbRating,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 15.0,
                                 color: Colors.white,
                                 fontStyle: FontStyle.normal,
@@ -106,13 +107,13 @@ class MoveiItemWidget extends StatelessWidget {
                           ],
                         ),
                       )
-                    : SizedBox(
+                    : const SizedBox(
                         height: 1,
                       ),
               ],
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 5,
           ),
         ],
