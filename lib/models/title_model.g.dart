@@ -10,7 +10,7 @@ TitleModel _$TitleModelFromJson(Map<String, dynamic> json) {
   return TitleModel(
     id: json['id'] as String,
     title: json['title'] as String,
-    year: json['year'] as STitleModeltring,
+    year: json['year'] as String,
     image: json['image'] as String,
     runtimeStr: json['runtimeStr'] as String,
     releaseDate: json['releaseDate'] as String,

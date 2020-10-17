@@ -5,9 +5,11 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:kinopoisk/models/index.dart';
 import 'package:kinopoisk/pages/index.dart';
+import 'package:kinopoisk/widgets/directors_info_widget.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:kinopoisk/data/apikey.dart';
 import 'package:http/http.dart' as http;
+import 'package:kinopoisk/widgets/writers_info_widget.dart';
 import 'dart:convert';
 import 'dart:async';
 import 'actor_info_page.dart';
@@ -312,9 +314,8 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                         )
                       ],
                     ),
-                    DirectorAndWritersinfoWidget(
-                      titleItem: titleDataItem,
-                    ),
+                    DirectorinfoWidget(titleItem: titleDataItem),
+                    WritersinfoWidget(titleItem: titleDataItem),
                     Column(
                       children: [
                         const Align(
