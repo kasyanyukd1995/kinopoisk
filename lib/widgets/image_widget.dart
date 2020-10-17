@@ -15,9 +15,7 @@ class ImageWidget extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20.0),
-            ),
+            borderRadius: const BorderRadius.all(Radius.circular(20.0)),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
@@ -32,9 +30,8 @@ class ImageWidget extends StatelessWidget {
                 ? CachedNetworkImage(
                     height: 200,
                     imageUrl: imageItem.image.replaceRange(28, 36, '400x528'),
-                    placeholder: (context, url) => const Center(
-                      child: CircularProgressIndicator(),
-                    ),
+                    placeholder: (context, url) =>
+                        const Center(child: CircularProgressIndicator()),
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
                     fit: BoxFit.fill,
@@ -46,9 +43,8 @@ class ImageWidget extends StatelessWidget {
                 : CachedNetworkImage(
                     height: 200,
                     imageUrl: null,
-                    placeholder: (context, url) => const Center(
-                      child: CircularProgressIndicator(),
-                    ),
+                    placeholder: (context, url) =>
+                        const Center(child: CircularProgressIndicator()),
                     errorWidget: (context, url, error) =>
                         const Icon(Icons.error),
                     fit: BoxFit.fill,
@@ -59,9 +55,7 @@ class ImageWidget extends StatelessWidget {
                   ),
           ),
         ),
-        const SizedBox(
-          width: 8,
-        ),
+        const SizedBox(width: 8),
       ],
     );
   }

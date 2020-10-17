@@ -5,7 +5,6 @@ export 'image_widget.dart';
 export 'search_widget.dart';
 export 'most_popular_movies_widget.dart';
 export 'most_popular_movies_widget.dart';
-export 'movie_item_for_t250.dart';
 export 'movie_item_widget.dart';
 export 'similar_item_widget.dart';
 export 'directors_info_widget.dart';

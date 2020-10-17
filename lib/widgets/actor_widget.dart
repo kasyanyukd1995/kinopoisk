@@ -40,9 +40,7 @@ class ActorWidget extends StatelessWidget {
                           fadeOutDuration: const Duration(seconds: 2),
                         ),
                 ),
-                const SizedBox(
-                  height: 6,
-                ),
+                const SizedBox(height: 6),
                 Text(
                   actorItem.name,
                   style: const TextStyle(

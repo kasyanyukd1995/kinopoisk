@@ -107,15 +107,11 @@ class MoveiItemWidget extends StatelessWidget {
                           ],
                         ),
                       )
-                    : const SizedBox(
-                        height: 1,
-                      ),
+                    : const SizedBox(height: 1),
               ],
             ),
           ),
-          const SizedBox(
-            width: 5,
-          ),
+          const SizedBox(width: 5),
         ],
       ),
       onTap: () => onTapMovieFunction(movieItem),

@@ -149,9 +149,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                               ],
                             ),
                           )
-                        : const SizedBox(
-                            height: 1,
-                          ),
+                        : const SizedBox(height: 1),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
                       child: Align(
@@ -196,9 +194,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                       color: Colors.white24,
                       height: 1,
                     ),
-                    const SizedBox(
-                      height: 4,
-                    ),
+                    const SizedBox(height: 4),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
@@ -293,9 +289,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                                   ),
                                 ),
                               ),
-                              const SizedBox(
-                                height: 10,
-                              ),
+                              const SizedBox(height: 10),
                               Container(
                                 width: 250.0,
                                 child: Text(
@@ -376,9 +370,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                       color: Colors.white24,
                       height: 1,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     Text(
                       'Actors'.toUpperCase(),
                       style: const TextStyle(
@@ -388,9 +380,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     Row(
                       children: <Widget>[
                         Expanded(
@@ -423,9 +413,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                       color: Colors.white24,
                       height: 1,
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     Text(
                       'Similars'.toUpperCase(),
                       style: const TextStyle(
@@ -435,9 +423,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                         fontWeight: FontWeight.w400,
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
+                    const SizedBox(height: 10),
                     Row(
                       children: <Widget>[
                         Expanded(

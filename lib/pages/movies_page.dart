@@ -27,9 +27,7 @@ class _moviesPageState extends State<MoviesPage> {
               fontWeight: FontWeight.w400,
             ),
           ),
-          const SizedBox(
-            height: 20.0,
-          ),
+          const SizedBox(height: 20.0),
           Row(
             children: <Widget>[
               Expanded(
@@ -86,9 +84,7 @@ class _moviesPageState extends State<MoviesPage> {
               fontWeight: FontWeight.w400,
             ),
           ),
-          const SizedBox(
-            height: 20.0,
-          ),
+          const SizedBox(height: 20.0),
           Row(
             children: <Widget>[
               Expanded(
@@ -146,9 +142,7 @@ class _moviesPageState extends State<MoviesPage> {
               fontWeight: FontWeight.w400,
             ),
           ),
-          const SizedBox(
-            height: 20.0,
-          ),
+          const SizedBox(height: 20.0),
           Row(
             children: <Widget>[
               Expanded(

@@ -104,13 +104,13 @@ class SimilarItemWidget extends StatelessWidget {
                         ),
                       )
                     : const SizedBox(
-                        height: 1,
+                        height: 1
                       ),
               ],
             ),
           ),
           const SizedBox(
-            width: 5,
+            width: 5
           ),
         ],
       ),

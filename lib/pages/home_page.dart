@@ -36,47 +36,27 @@ class _HomePageState extends State<HomePage> {
         onTap: (newIndex) => setState(() => _index = newIndex),
         currentIndex: _index,
         items: [
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: Colors.white,
-            ),
-            // ignore: deprecated_member_use
-            title: Text(
-              'Home',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.movie,
-              color: Colors.white,
-            ),
-            // ignore: deprecated_member_use
-            title: Text(
-              'Movies',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-            // ignore: deprecated_member_use
-            title: Text(
-              'Search',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ),
+          bottomNavigationBarItem(Icons.home, 'Home'),
+          bottomNavigationBarItem(Icons.movie, 'Movies'),
+          bottomNavigationBarItem(Icons.search, 'Search'),
         ],
       ),
     );
   }
+}
+
+BottomNavigationBarItem bottomNavigationBarItem(
+    IconData icon, String nameItem) {
+  return BottomNavigationBarItem(
+    icon: Icon(
+      icon,
+      color: Colors.white,
+    ),
+
+    // ignore: deprecated_member_use
+    title: Text(
+      nameItem,
+      style: const TextStyle(color: Colors.white),
+    ),
+  );
 }
