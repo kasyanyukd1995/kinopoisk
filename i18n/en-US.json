@@ -1,0 +1,33 @@
+{
+    
+    "homePage": {
+        "bottomNavigation" :{
+            "home" : "Home",
+            "movies": "Movies",
+            "search" : "Search"
+        }
+    },
+    "moviesPage" : {
+        "titleBlock":{
+            "mostPopularMoviesNow": "Most Popular Movies Now",
+            "mostPopularTVsNow": "Most Popular TVs Now",
+            "top250Movies": "Top 250 Movies"
+        }
+    },
+    "searchPage":{
+        "cancel":"Cancel"
+    },
+    "movieInfoPage":{
+        "titleBlock":{
+            "directors": "Directors",
+            "writers" : "Writers",
+            "stars" : "Stars",
+            "countries" : "Countries",
+            "actors" : "Actors",
+            "similars" : "Similars"
+        }
+        
+    }
+    
+    
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/pages/index.dart';
 import 'package:kinopoisk/widgets/index.dart';
 
@@ -36,9 +37,12 @@ class _HomePageState extends State<HomePage> {
         onTap: (newIndex) => setState(() => _index = newIndex),
         currentIndex: _index,
         items: [
-          bottomNavigationBarItem(Icons.home, 'Home'),
-          bottomNavigationBarItem(Icons.movie, 'Movies'),
-          bottomNavigationBarItem(Icons.search, 'Search'),
+          bottomNavigationBarItem(
+              Icons.home, I18n.of(context).homePageBottomNavigationHome),
+          bottomNavigationBarItem(
+              Icons.movie, I18n.of(context).homePageBottomNavigationMovies),
+          bottomNavigationBarItem(
+              Icons.search, I18n.of(context).homePageBottomNavigationSearch),
         ],
       ),
     );

@@ -6,10 +6,9 @@ part 'list_movie_model.g.dart';
 @JsonSerializable()
 class ListMovieModel {
   final List<MovieModel> items;
-  final String errorMessage;
+
   const ListMovieModel({
     this.items,
-    this.errorMessage,
   });
   static const fromJsonFactory = _$ListMovieModelFromJson;
 

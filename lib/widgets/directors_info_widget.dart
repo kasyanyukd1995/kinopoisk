@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/models/title_model.dart';
+import 'package:kinopoisk/pages/movies_page.dart';
 
 bool checkData(String text) {
   if (text == '') return false;
@@ -19,16 +21,11 @@ class DirectorinfoWidget extends StatelessWidget {
       visible: checkData(titleItem.directors),
       child: Column(
         children: [
-          const Align(
+          Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Directors',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.w300,
-              ),
+              I18n.of(context).movieInfoPageTitleBlockDirectors,
+              style: textStyleForTitle,
             ),
           ),
           Align(

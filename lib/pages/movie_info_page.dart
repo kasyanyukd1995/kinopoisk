@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:kinopoisk/models/index.dart';
+import 'package:kinopoisk/generated/i18n.dart';
+
 import 'package:kinopoisk/pages/index.dart';
 import 'package:kinopoisk/widgets/directors_info_widget.dart';
 import 'package:kinopoisk/widgets/index.dart';
@@ -11,7 +12,7 @@ import 'package:kinopoisk/data/apikey.dart';
 import 'package:http/http.dart' as http;
 import 'package:kinopoisk/widgets/writers_info_widget.dart';
 import 'dart:convert';
-import 'dart:async';
+import 'dart:async'; ,,
 import 'actor_info_page.dart';
 
 //import 'package:kinopoisk/widgets/video_play.dart';
@@ -51,6 +52,13 @@ Widget catchExceptionForImage(String urlImage, double height) {
     );
   }
 }
+
+const TextStyle textStyleForTitleBlock = TextStyle(
+  color: Colors.white,
+  fontSize: 20,
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.w300,
+);
 
 Future<TitleModel> getTitleDataModel(String title, String apikey) async {
   final response = await http.get('https://imdb-api.com/en/API/Title/' +
@@ -312,16 +320,11 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                     WritersinfoWidget(titleItem: titleDataItem),
                     Column(
                       children: [
-                        const Align(
+                        Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Stars',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.w300,
-                            ),
+                            I18n.of(context).movieInfoPageTitleBlockStars,
+                            style: textStyleForTitleBlock,
                           ),
                         ),
                         Align(
@@ -340,16 +343,11 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                     ),
                     Column(
                       children: [
-                        const Align(
+                        Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Contries',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.w300,
-                            ),
+                            I18n.of(context).movieInfoPageTitleBlockCountries,
+                            style: textStyleForTitleBlock,
                           ),
                         ),
                         Align(

@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/models/index.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:kinopoisk/pages/index.dart';
 
 const int countViewMovie = 40;
+const TextStyle textStyleForTitle = TextStyle(
+  color: Colors.white,
+  fontSize: 26,
+  fontStyle: FontStyle.normal,
+  fontWeight: FontWeight.w400,
+);
 
 class MoviesPage extends StatefulWidget {
   MoviesPage({Key key}) : super(key: key);
@@ -18,14 +25,9 @@ class _moviesPageState extends State<MoviesPage> {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
-          const Text(
-            'Most Popular Movies Now',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 26,
-              fontStyle: FontStyle.normal,
-              fontWeight: FontWeight.w400,
-            ),
+          Text(
+            I18n.of(context).moviesPageTitleBlockMostPopularMoviesNow,
+            style: textStyleForTitle,
           ),
           const SizedBox(height: 20.0),
           Row(
@@ -75,14 +77,9 @@ class _moviesPageState extends State<MoviesPage> {
               ),
             ],
           ),
-          const Text(
-            'Most Popular TVs Now',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 26,
-              fontStyle: FontStyle.normal,
-              fontWeight: FontWeight.w400,
-            ),
+          Text(
+            I18n.of(context).moviesPageTitleBlockMostPopularTVsNow,
+            style: textStyleForTitle,
           ),
           const SizedBox(height: 20.0),
           Row(
@@ -133,14 +130,9 @@ class _moviesPageState extends State<MoviesPage> {
               ),
             ],
           ),
-          const Text(
-            'Top 250 Movies',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 26,
-              fontStyle: FontStyle.normal,
-              fontWeight: FontWeight.w400,
-            ),
+          Text(
+            I18n.of(context).moviesPageTitleBlockTop250Movies,
+            style: textStyleForTitle,
           ),
           const SizedBox(height: 20.0),
           Row(

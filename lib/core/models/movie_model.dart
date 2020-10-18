@@ -5,7 +5,6 @@ part 'movie_model.g.dart';
 @JsonSerializable()
 class MovieModel {
   final String id;
-  final String rank;
   final String title;
   final String fullTitle;
   final String year;
@@ -15,7 +14,6 @@ class MovieModel {
 
   const MovieModel({
     this.id,
-    this.rank,
     this.title,
     this.fullTitle,
     this.year,

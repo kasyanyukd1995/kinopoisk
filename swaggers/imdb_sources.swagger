@@ -1,0 +1,4041 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "IMDb-API",
+    "description": "The IMDb-API Documentation. You need a <a href='/Identity/Account/Manage' target='_blank'><code>API Key</code></a> for testing APIs.<br/><a class='link' href='/API'>Back to API Tester</a>",
+    "contact": {
+      "name": "IMDb-API",
+      "url": "https://imdb-api.com",
+      "email": "support@imdb-api.com"
+    },
+    "version": "1.3"
+  },
+  "paths": {
+    "/API/Search/{apiKey}/{expression}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "expression",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/SearchTitle/{apiKey}/{expression}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "expression",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/SearchMovie/{apiKey}/{expression}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "expression",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/SearchSeries/{apiKey}/{expression}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "expression",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/SearchName/{apiKey}/{expression}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "expression",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/SearchEpisode/{apiKey}/{expression}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "expression",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/SearchCompany/{apiKey}/{expression}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "expression",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/SearchKeyword/{apiKey}/{expression}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "expression",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/SearchAll/{apiKey}/{expression}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "expression",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/API/Title/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TitleData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TitleData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TitleData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/API/Title/{apiKey}/{id}/{options}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "options",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TitleData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TitleData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TitleData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/API/Report/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/{lang}/API/Report/{apiKey}/{id}/{options}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "options",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/API/Subtitles/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubtitleData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubtitleData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubtitleData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Subtitles/{apiKey}/{id}/{seasonNumber}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "seasonNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubtitleData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubtitleData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubtitleData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/FullCast/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullCastData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullCastData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FullCastData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Posters/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PosterData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PosterData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PosterData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Images/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Images/{apiKey}/{id}/{options}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "options",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ImageData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Trailer/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TrailerData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TrailerData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TrailerData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Ratings/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RatingData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RatingData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RatingData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/UserRatings/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRatingData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRatingData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRatingData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/SeasonEpisodes/{apiKey}/{id}/{seasonNumber}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "seasonNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeasonEpisodeData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeasonEpisodeData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SeasonEpisodeData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/ExternalSites/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalSiteData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalSiteData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExternalSiteData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{lang}/API/Wikipedia/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "lang",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/WikipediaData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WikipediaData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WikipediaData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/IMDbList/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/IMDbListData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IMDbListData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IMDbListData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Top250Movies/{apiKey}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Top250Data"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Top250Data"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Top250Data"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Top250TVs/{apiKey}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Top250Data"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Top250Data"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Top250Data"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/MostPopularMovies/{apiKey}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MostPopularData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MostPopularData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MostPopularData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/MostPopularTVs/{apiKey}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MostPopularData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MostPopularData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MostPopularData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/InTheaters/{apiKey}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewMovieData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewMovieData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewMovieData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/ComingSoon/{apiKey}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewMovieData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewMovieData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NewMovieData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/BoxOffice/{apiKey}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoxOfficeWeekendData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoxOfficeWeekendData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoxOfficeWeekendData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/BoxOfficeAllTime/{apiKey}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoxOfficeAllTimeData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoxOfficeAllTimeData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BoxOfficeAllTimeData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Name/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/NameData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NameData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NameData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Company/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/Keyword/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeywordData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeywordData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KeywordData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/YouTubeTrailer/{apiKey}/{id}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/YouTubeTrailerData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YouTubeTrailerData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YouTubeTrailerData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/YouTube/{apiKey}/{v}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "v",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/YouTubeData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YouTubeData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YouTubeData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/API/YouTubePlaylist/{apiKey}/{list}": {
+      "get": {
+        "tags": [
+          "MoviesApi"
+        ],
+        "parameters": [
+          {
+            "name": "apiKey",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "list",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/YouTubePlaylistData"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YouTubePlaylistData"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/YouTubePlaylistData"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Top250DataDetail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "rank": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "crew": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRatingCount": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "Top250Data": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Top250DataDetail"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "TrailerData": {
+        "type": "object",
+        "properties": {
+          "imDbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "videoId": {
+            "type": "string",
+            "nullable": true
+          },
+          "videoTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "videoDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "thumbnailUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "uploadDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "link": {
+            "type": "string",
+            "nullable": true
+          },
+          "linkEmbed": {
+            "type": "string",
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UserRatingDataDetail": {
+        "type": "object",
+        "properties": {
+          "rating": {
+            "type": "string",
+            "nullable": true
+          },
+          "percent": {
+            "type": "string",
+            "nullable": true
+          },
+          "votes": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "UserRatingData": {
+        "type": "object",
+        "properties": {
+          "imDbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "totalRatingVotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "ratings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRatingDataDetail"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "WikipediaDataPlot": {
+        "type": "object",
+        "properties": {
+          "plainText": {
+            "type": "string",
+            "nullable": true
+          },
+          "html": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "WikipediaData": {
+        "type": "object",
+        "properties": {
+          "imDbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "titleInLanguage": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "plotShort": {
+            "$ref": "#/components/schemas/WikipediaDataPlot"
+          },
+          "plotFull": {
+            "$ref": "#/components/schemas/WikipediaDataPlot"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "YouTubeDataItem": {
+        "type": "object",
+        "properties": {
+          "quality": {
+            "type": "string",
+            "nullable": true
+          },
+          "mimeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "extension": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "YouTubeData": {
+        "required": [
+          "videoId"
+        ],
+        "type": "object",
+        "properties": {
+          "videoId": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "duration": {
+            "type": "string",
+            "nullable": true
+          },
+          "uploadDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "videos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YouTubeDataItem"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "YouTubePlaylistDataItem": {
+        "type": "object",
+        "properties": {
+          "videoId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "duration": {
+            "type": "string",
+            "nullable": true
+          },
+          "uploadDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "YouTubePlaylistData": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "auhtor": {
+            "type": "string",
+            "nullable": true
+          },
+          "videos": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/YouTubePlaylistDataItem"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "YouTubeTrailerData": {
+        "type": "object",
+        "properties": {
+          "imDbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "videoId": {
+            "type": "string",
+            "nullable": true
+          },
+          "videoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SearchResult": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "resultType": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SearchData": {
+        "required": [
+          "expression",
+          "searchType"
+        ],
+        "type": "object",
+        "properties": {
+          "searchType": {
+            "type": "string"
+          },
+          "expression": {
+            "type": "string"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchResult"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "EpisodeShortDetail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "seasonNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "episodeNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "released": {
+            "type": "string",
+            "nullable": true
+          },
+          "plot": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRatingCount": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SeasonEpisodeData": {
+        "type": "object",
+        "properties": {
+          "imDbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "episodes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EpisodeShortDetail"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SubtitleDataDetail": {
+        "type": "object",
+        "properties": {
+          "seasonNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "rate": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "owner": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "link": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SubtitleData": {
+        "type": "object",
+        "properties": {
+          "imDbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "subtitles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubtitleDataDetail"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "StarShort": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ActorShort": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "asCharacter": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CastShortItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CastShort": {
+        "type": "object",
+        "properties": {
+          "job": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CastShortItem"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "FullCastData": {
+        "type": "object",
+        "properties": {
+          "imDbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "directors": {
+            "$ref": "#/components/schemas/CastShort"
+          },
+          "writers": {
+            "$ref": "#/components/schemas/CastShort"
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActorShort"
+            },
+            "nullable": true
+          },
+          "others": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CastShort"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "KeyValueItem": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CompanyShort": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "RatingData": {
+        "type": "object",
+        "properties": {
+          "imDbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDb": {
+            "type": "string",
+            "nullable": true
+          },
+          "metacritic": {
+            "type": "string",
+            "nullable": true
+          },
+          "theMovieDb": {
+            "type": "string",
+            "nullable": true
+          },
+          "rottenTomatoes": {
+            "type": "string",
+            "nullable": true
+          },
+          "tV_com": {
+            "type": "string",
+            "nullable": true
+          },
+          "filmAffinity": {
+            "type": "string",
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "PosterDataItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "link": {
+            "type": "string",
+            "nullable": true
+          },
+          "aspectRatio": {
+            "type": "number",
+            "format": "double"
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "width": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "PosterData": {
+        "type": "object",
+        "properties": {
+          "imDbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "posters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PosterDataItem"
+            },
+            "nullable": true
+          },
+          "backdors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PosterDataItem"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ImageDataDetail": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ImageData": {
+        "type": "object",
+        "properties": {
+          "imDbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ImageDataDetail"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "BoxOfficeShort": {
+        "type": "object",
+        "properties": {
+          "budget": {
+            "type": "string",
+            "nullable": true
+          },
+          "openingWeekendUSA": {
+            "type": "string",
+            "nullable": true
+          },
+          "grossUSA": {
+            "type": "string",
+            "nullable": true
+          },
+          "cumulativeWorldwideGross": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SimilarShort": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "plot": {
+            "type": "string",
+            "nullable": true
+          },
+          "directors": {
+            "type": "string",
+            "nullable": true
+          },
+          "stars": {
+            "type": "string",
+            "nullable": true
+          },
+          "genres": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRating": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "TvSeriesInfo": {
+        "type": "object",
+        "properties": {
+          "yearEnd": {
+            "type": "string",
+            "nullable": true
+          },
+          "creators": {
+            "type": "string",
+            "nullable": true
+          },
+          "creatorList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StarShort"
+            },
+            "nullable": true
+          },
+          "seasons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "TvEpisodeInfo": {
+        "type": "object",
+        "properties": {
+          "seriesId": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesFullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesYear": {
+            "type": "string",
+            "nullable": true
+          },
+          "seriesYearEnd": {
+            "type": "string",
+            "nullable": true
+          },
+          "seasonNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "episodeNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "previousEpisodeId": {
+            "type": "string",
+            "nullable": true
+          },
+          "nextEpisodeId": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "TitleData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "originalTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "releaseDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "runtimeMins": {
+            "type": "string",
+            "nullable": true
+          },
+          "runtimeStr": {
+            "type": "string",
+            "nullable": true
+          },
+          "plot": {
+            "type": "string",
+            "nullable": true
+          },
+          "plotLocal": {
+            "type": "string",
+            "nullable": true
+          },
+          "plotLocalIsRtl": {
+            "type": "boolean"
+          },
+          "awards": {
+            "type": "string",
+            "nullable": true
+          },
+          "directors": {
+            "type": "string",
+            "nullable": true
+          },
+          "directorList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StarShort"
+            },
+            "nullable": true
+          },
+          "writers": {
+            "type": "string",
+            "nullable": true
+          },
+          "writerList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StarShort"
+            },
+            "nullable": true
+          },
+          "stars": {
+            "type": "string",
+            "nullable": true
+          },
+          "starList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StarShort"
+            },
+            "nullable": true
+          },
+          "actorList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ActorShort"
+            },
+            "nullable": true
+          },
+          "fullCast": {
+            "$ref": "#/components/schemas/FullCastData"
+          },
+          "genres": {
+            "type": "string",
+            "nullable": true
+          },
+          "genreList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValueItem"
+            },
+            "nullable": true
+          },
+          "companies": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyShort"
+            },
+            "nullable": true
+          },
+          "countries": {
+            "type": "string",
+            "nullable": true
+          },
+          "countryList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValueItem"
+            },
+            "nullable": true
+          },
+          "languages": {
+            "type": "string",
+            "nullable": true
+          },
+          "languageList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValueItem"
+            },
+            "nullable": true
+          },
+          "contentRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRatingVotes": {
+            "type": "string",
+            "nullable": true
+          },
+          "metacriticRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "ratings": {
+            "$ref": "#/components/schemas/RatingData"
+          },
+          "wikipedia": {
+            "$ref": "#/components/schemas/WikipediaData"
+          },
+          "posters": {
+            "$ref": "#/components/schemas/PosterData"
+          },
+          "images": {
+            "$ref": "#/components/schemas/ImageData"
+          },
+          "trailer": {
+            "$ref": "#/components/schemas/TrailerData"
+          },
+          "boxOffice": {
+            "$ref": "#/components/schemas/BoxOfficeShort"
+          },
+          "tagline": {
+            "type": "string",
+            "nullable": true
+          },
+          "keywords": {
+            "type": "string",
+            "nullable": true
+          },
+          "keywordList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "similars": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimilarShort"
+            },
+            "nullable": true
+          },
+          "tvSeriesInfo": {
+            "$ref": "#/components/schemas/TvSeriesInfo"
+          },
+          "tvEpisodeInfo": {
+            "$ref": "#/components/schemas/TvEpisodeInfo"
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "BoxOfficeWeekendDataDetail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "rank": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "weekend": {
+            "type": "string",
+            "nullable": true
+          },
+          "gross": {
+            "type": "string",
+            "nullable": true
+          },
+          "weeks": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "BoxOfficeWeekendData": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BoxOfficeWeekendDataDetail"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "BoxOfficeAllTimeDataDetail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "rank": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "worldwideLifetimeGross": {
+            "type": "string",
+            "nullable": true
+          },
+          "domesticLifetimeGross": {
+            "type": "string",
+            "nullable": true
+          },
+          "domestic": {
+            "type": "string",
+            "nullable": true
+          },
+          "foreignLifetimeGross": {
+            "type": "string",
+            "nullable": true
+          },
+          "foreign": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "BoxOfficeAllTimeData": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BoxOfficeAllTimeDataDetail"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "NewMovieDataDetail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "releaseState": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "runtimeMins": {
+            "type": "string",
+            "nullable": true
+          },
+          "runtimeStr": {
+            "type": "string",
+            "nullable": true
+          },
+          "plot": {
+            "type": "string",
+            "nullable": true
+          },
+          "contentRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRatingCount": {
+            "type": "string",
+            "nullable": true
+          },
+          "metacriticRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "genres": {
+            "type": "string",
+            "nullable": true
+          },
+          "genreList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValueItem"
+            },
+            "nullable": true
+          },
+          "directors": {
+            "type": "string",
+            "nullable": true
+          },
+          "directorList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StarShort"
+            },
+            "nullable": true
+          },
+          "stars": {
+            "type": "string",
+            "nullable": true
+          },
+          "starList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/StarShort"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "NewMovieData": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewMovieDataDetail"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "MovieShort": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRating": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CompanyData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MovieShort"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ExternalSiteItem": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "LanguageUrl": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ExternalSiteData": {
+        "type": "object",
+        "properties": {
+          "imDbId": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "officialWebsite": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDb": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "theMovieDb": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "rottenTomatoes": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "metacritic": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "netflix": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "googlePlay": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "filmAffinity": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "freebase": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "gnd": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "viaf": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "alloCine": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "allMovie": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "port": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "dnf": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "movieMeter": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "boxOfficeMojo": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "csfd": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "kinenote": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "allcinema": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "kinopoisk": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "elonet": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "ldiF": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "cineplex": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "eDb": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "elCinema": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "scope_dk": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "swedishFilmDatabaseFilm": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "elFilm": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "ofDb": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "openMediaDatabase": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "quoraTopic": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "cinema_de": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "deutscheSynchronkartei": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "movieWalker": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "tvGuide": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "filmweb_pl": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "tV_com": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "isan": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "eidr": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "afiCatalogOfFeature": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "theNumbers": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "tcmMovieDatabase": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "cine_gr": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "bfiNationalArchive": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "exploitationVisa": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "sratim": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "cineRessources": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "cinemathequeQuebecoise": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "encyclopaediaBritannicaOnline": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "bechdelTestMovieList": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "movieplayer_it": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "mYmovies": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "cinematografo": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "lumiere": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "bfi": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "prisma": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "cineMagia": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "daum": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "douban": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "museumOfModernArt": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "ilMondoDeiDoppiatori": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "fandango": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "moviepilot_de": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "sudocAuthorities": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "bibliothequeNationaleDeFrance": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "siamzone": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "academyAwardsDatabase": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "knowYourMeme": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "theEncyclopediaOfScienceFiction": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "letterboxd": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "comicVine": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "theTVDB": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "tvSpielfilmSeries": {
+            "$ref": "#/components/schemas/ExternalSiteItem"
+          },
+          "wikipediaUrls": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LanguageUrl"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "IMDbListDataDetail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "index": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRatingCount": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "IMDbListData": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "by": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "nullable": true
+          },
+          "updated": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/IMDbListDataDetail"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "KeywordData": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "nullable": true
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MovieShort"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "MostPopularDataDetail": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "rank": {
+            "type": "string",
+            "nullable": true
+          },
+          "rankUpDown": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "crew": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRating": {
+            "type": "string",
+            "nullable": true
+          },
+          "imDbRatingCount": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "MostPopularData": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MostPopularDataDetail"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "KnownFor": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CastMovie": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "NameData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "deathDate": {
+            "type": "string",
+            "nullable": true
+          },
+          "awards": {
+            "type": "string",
+            "nullable": true
+          },
+          "height": {
+            "type": "string",
+            "nullable": true
+          },
+          "knownFors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KnownFor"
+            },
+            "nullable": true
+          },
+          "castMovies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CastMovie"
+            },
+            "nullable": true
+          },
+          "errorMessage": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  }
+}

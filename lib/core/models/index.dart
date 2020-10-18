@@ -1,5 +1,4 @@
 export 'actor_model.dart';
-export 'image_model.dart';
 export 'list_movie_model.dart';
 export 'movie_model.dart';
 export 'result_search_list_model.dart';

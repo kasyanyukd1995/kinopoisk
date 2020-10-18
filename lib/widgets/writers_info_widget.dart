@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/models/title_model.dart';
+import 'package:kinopoisk/pages/movies_page.dart';
 import 'package:kinopoisk/widgets/directors_info_widget.dart';
 
 class WritersinfoWidget extends StatelessWidget {
@@ -15,16 +17,11 @@ class WritersinfoWidget extends StatelessWidget {
       visible: checkData(titleItem.writers),
       child: Column(
         children: [
-          const Align(
+          Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'Writers',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.w300,
-              ),
+              I18n.of(context).movieInfoPageTitleBlockWriters,
+              style: textStyleForTitle,
             ),
           ),
           Align(

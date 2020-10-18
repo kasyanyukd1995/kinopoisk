@@ -6,25 +6,13 @@ part 'similar_movie_model.g.dart';
 class SimilarMovieModel {
   final String id;
   final String title;
-  final String fullTitle;
-  final String year;
   final String image;
-  final String plot;
-  final String directors;
-  final String stars;
-  final String genres;
   final String imDbRating;
 
   const SimilarMovieModel({
     this.id,
     this.title,
-    this.fullTitle,
-    this.year,
     this.image,
-    this.plot,
-    this.directors,
-    this.stars,
-    this.genres,
     this.imDbRating,
   });
 
