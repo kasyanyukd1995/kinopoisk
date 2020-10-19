@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/generated/i18n.dart';
-import 'package:kinopoisk/models/title_model.dart';
+import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/pages/movies_page.dart';
 import 'package:kinopoisk/widgets/directors_info_widget.dart';
 

@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/models/actor_model.dart';
+import 'package:kinopoisk/core/models/actor_model.dart';
 import 'package:kinopoisk/pages/movie_info_page.dart';
 
 class ActorWidget extends StatelessWidget {

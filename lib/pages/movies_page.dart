@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kinopoisk/core/models/list_movie_model.dart';
+import 'package:kinopoisk/core/models/movie_model.dart';
 import 'package:kinopoisk/generated/i18n.dart';
-import 'package:kinopoisk/models/index.dart';
+import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:kinopoisk/pages/index.dart';
 
@@ -54,7 +56,7 @@ class _moviesPageState extends State<MoviesPage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          MoveInfoPage(
+                                          MovieInfoPage(
                                             titleId: movieItem.id,
                                             rating: movieItem.imDbRating != ''
                                                 ? movieItem.imDbRating
@@ -107,7 +109,7 @@ class _moviesPageState extends State<MoviesPage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (BuildContext context) =>
-                                          MoveInfoPage(
+                                          MovieInfoPage(
                                             titleId: movieItem.id,
                                             rating: movieItem.imDbRating != ''
                                                 ? movieItem.imDbRating
@@ -159,7 +161,7 @@ class _moviesPageState extends State<MoviesPage> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (BuildContext context) =>
-                                      MoveInfoPage(
+                                      MovieInfoPage(
                                     titleId: movieItem.id,
                                     rating: movieItem.imDbRating != ''
                                         ? movieItem.imDbRating

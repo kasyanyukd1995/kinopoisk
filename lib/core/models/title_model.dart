@@ -1,9 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:kinopoisk/core/models/similar_movie_model.dart';
 import 'package:kinopoisk/core/models/trailer_model.dart';
-import 'package:kinopoisk/models/actor_model.dart';
-import 'package:kinopoisk/models/similar_movie_model.dart';
-import 'package:kinopoisk/models/trailer_model.dart';
 
 import 'actor_model.dart';
 

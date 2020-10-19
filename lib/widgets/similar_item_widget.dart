@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-import 'package:kinopoisk/models/similar_movie_model.dart';
+import 'package:kinopoisk/core/models/index.dart';
 
 class SimilarItemWidget extends StatelessWidget {
   final SimilarMovieModel similarItem;
@@ -103,15 +103,11 @@ class SimilarItemWidget extends StatelessWidget {
                           ],
                         ),
                       )
-                    : const SizedBox(
-                        height: 1
-                      ),
+                    : const SizedBox(height: 1),
               ],
             ),
           ),
-          const SizedBox(
-            width: 5
-          ),
+          const SizedBox(width: 5),
         ],
       ),
       onTap: () => onTapMovieFunction(similarItem),

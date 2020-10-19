@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:kinopoisk/core/common/pages.dart';
+import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 
 import 'package:kinopoisk/pages/index.dart';
@@ -12,7 +14,7 @@ import 'package:kinopoisk/data/apikey.dart';
 import 'package:http/http.dart' as http;
 import 'package:kinopoisk/widgets/writers_info_widget.dart';
 import 'dart:convert';
-import 'dart:async'; ,,
+import 'dart:async';
 import 'actor_info_page.dart';
 
 //import 'package:kinopoisk/widgets/video_play.dart';
@@ -85,23 +87,23 @@ Future<TrailerModel> getTrailerDataModel(String title, String apikey) async {
   }
 }
 
-class MoveInfoPage extends StatefulWidget {
+class MovieInfoPage extends StatefulWidget {
   final String titleId;
   final String rating;
-  const MoveInfoPage({
+  const MovieInfoPage({
     this.titleId,
     this.rating,
   });
 
   @override
-  MoveInfoPageState createState() => new MoveInfoPageState(titleId, rating);
+  MovieInfoPageState createState() => new MovieInfoPageState(titleId, rating);
 }
 
-class MoveInfoPageState extends State<MoveInfoPage> {
+class MovieInfoPageState extends State<MovieInfoPage> {
   String titleId;
   String rating;
 
-  MoveInfoPageState(String titleId, String rating) {
+  MovieInfoPageState(String titleId, String rating) {
     this.titleId = titleId;
     this.rating = rating;
   }
@@ -143,15 +145,10 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                                       size: 40,
                                     ),
                                     tooltip: 'Play oficial trailer',
-                                    onPressed: () => Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                        builder: (BuildContext context) =>
-                                            PlayTrailerPage(
-                                          titleDataItem.trailer.linkEmbed,
-                                        ),
-                                      ),
-                                    ),
+                                    onPressed: () => NavigationService()
+                                        .navigateTo(Pages.playTrailer,
+                                            arguments: titleDataItem
+                                                .trailer.linkEmbed),
                                   ),
                                 ),
                               ],
@@ -439,7 +436,7 @@ class MoveInfoPageState extends State<MoveInfoPage> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (BuildContext context) =>
-                                                  MoveInfoPage(
+                                                  MovieInfoPage(
                                                     titleId: similarItem.id,
                                                     rating: similarItem
                                                                 .imDbRating !=

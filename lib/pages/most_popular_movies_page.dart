@@ -5,7 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:kinopoisk/data/apikey.dart';
-import 'package:kinopoisk/models/index.dart';
+import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:kinopoisk/pages/index.dart';
 
@@ -71,7 +71,7 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
                   onTapCityFunction: (move) => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (BuildContext _context) => MoveInfoPage(
+                      builder: (BuildContext _context) => MovieInfoPage(
                         titleId: move.id,
                         rating: move.imDbRating != '' ? move.imDbRating : null,
                       ),

@@ -1,7 +1,5 @@
 export 'actor_widget.dart';
 export 'app_bar_widget.dart';
-export 'image_widget.dart';
-export 'image_widget.dart';
 export 'search_widget.dart';
 export 'most_popular_movies_widget.dart';
 export 'most_popular_movies_widget.dart';

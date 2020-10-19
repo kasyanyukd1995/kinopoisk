@@ -16,10 +16,10 @@ class MovieItemSearchModel {
     this.description,
   });
 
-  static const fromJsonFactory = _$ResultMovieItemSearchModelFromJson;
+  static const fromJsonFactory = _$MovieItemSearchModelFromJson;
 
   factory MovieItemSearchModel.fromJson(Map<String, dynamic> json) =>
-      _$ResultMovieItemSearchModelFromJson(json);
+      _$MovieItemSearchModelFromJson(json);
 
   Map<String, dynamic> toJson() => _$MovieItemSearchModelToJson(this);
 }
