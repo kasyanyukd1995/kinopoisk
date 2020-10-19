@@ -32,7 +32,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param expression
 
   @Get(path: '/API/Search/{apiKey}/{expression}')
-  Future<chopper.Response<SearchData>> unnamedMethod0(
+  Future<chopper.Response<SearchData>> aPisearchApiKeyExpressionGet(
       {@Path('apiKey') @required String apiKey,
       @Path('expression') @required String expression});
 
@@ -41,7 +41,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param expression
 
   @Get(path: '/API/SearchTitle/{apiKey}/{expression}')
-  Future<chopper.Response<SearchData>> unnamedMethod1(
+  Future<chopper.Response<SearchData>> aPisearchTitleApiKeyExpressionGet(
       {@Path('apiKey') @required String apiKey,
       @Path('expression') @required String expression});
 
@@ -50,7 +50,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param expression
 
   @Get(path: '/API/SearchMovie/{apiKey}/{expression}')
-  Future<chopper.Response<SearchData>> unnamedMethod2(
+  Future<chopper.Response<SearchData>> aPisearchMovieApiKeyExpressionGet(
       {@Path('apiKey') @required String apiKey,
       @Path('expression') @required String expression});
 
@@ -59,7 +59,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param expression
 
   @Get(path: '/API/SearchSeries/{apiKey}/{expression}')
-  Future<chopper.Response<SearchData>> unnamedMethod3(
+  Future<chopper.Response<SearchData>> aPisearchSeriesApiKeyExpressionGet(
       {@Path('apiKey') @required String apiKey,
       @Path('expression') @required String expression});
 
@@ -68,7 +68,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param expression
 
   @Get(path: '/API/SearchName/{apiKey}/{expression}')
-  Future<chopper.Response<SearchData>> unnamedMethod4(
+  Future<chopper.Response<SearchData>> aPisearchNameApiKeyExpressionGet(
       {@Path('apiKey') @required String apiKey,
       @Path('expression') @required String expression});
 
@@ -77,7 +77,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param expression
 
   @Get(path: '/API/SearchEpisode/{apiKey}/{expression}')
-  Future<chopper.Response<SearchData>> unnamedMethod5(
+  Future<chopper.Response<SearchData>> aPisearchEpisodeApiKeyExpressionGet(
       {@Path('apiKey') @required String apiKey,
       @Path('expression') @required String expression});
 
@@ -86,7 +86,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param expression
 
   @Get(path: '/API/SearchCompany/{apiKey}/{expression}')
-  Future<chopper.Response<SearchData>> unnamedMethod6(
+  Future<chopper.Response<SearchData>> aPisearchCompanyApiKeyExpressionGet(
       {@Path('apiKey') @required String apiKey,
       @Path('expression') @required String expression});
 
@@ -95,7 +95,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param expression
 
   @Get(path: '/API/SearchKeyword/{apiKey}/{expression}')
-  Future<chopper.Response<SearchData>> unnamedMethod7(
+  Future<chopper.Response<SearchData>> aPisearchKeywordApiKeyExpressionGet(
       {@Path('apiKey') @required String apiKey,
       @Path('expression') @required String expression});
 
@@ -104,7 +104,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param expression
 
   @Get(path: '/API/SearchAll/{apiKey}/{expression}')
-  Future<chopper.Response<SearchData>> unnamedMethod8(
+  Future<chopper.Response<SearchData>> aPisearchAllApiKeyExpressionGet(
       {@Path('apiKey') @required String apiKey,
       @Path('expression') @required String expression});
 
@@ -114,7 +114,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param apiKey
 
   @Get(path: '/{lang}/API/Title/{apiKey}/{id}')
-  Future<chopper.Response<TitleData>> unnamedMethod9(
+  Future<chopper.Response<TitleData>> langApititleApiKeyIdGet(
       {@Path('lang') @required String lang,
       @Path('id') @required String id,
       @Path('apiKey') @required String apiKey});
@@ -126,7 +126,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param options
 
   @Get(path: '/{lang}/API/Title/{apiKey}/{id}/{options}')
-  Future<chopper.Response<TitleData>> unnamedMethod10(
+  Future<chopper.Response<TitleData>> langApititleApiKeyIdOptionsGet(
       {@Path('lang') @required String lang,
       @Path('apiKey') @required String apiKey,
       @Path('id') @required String id,
@@ -138,7 +138,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param apiKey
 
   @Get(path: '/{lang}/API/Report/{apiKey}/{id}')
-  Future<chopper.Response> unnamedMethod11(
+  Future<chopper.Response> langApireportApiKeyIdGet(
       {@Path('lang') @required String lang,
       @Path('id') @required String id,
       @Path('apiKey') @required String apiKey});
@@ -150,7 +150,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param apiKey
 
   @Get(path: '/{lang}/API/Report/{apiKey}/{id}/{options}')
-  Future<chopper.Response> unnamedMethod12(
+  Future<chopper.Response> langApireportApiKeyIdOptionsGet(
       {@Path('lang') @required String lang,
       @Path('id') @required String id,
       @Path('options') @required String options,
@@ -161,7 +161,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/API/Subtitles/{apiKey}/{id}')
-  Future<chopper.Response<SubtitleData>> unnamedMethod13(
+  Future<chopper.Response<SubtitleData>> aPisubtitlesApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -171,7 +171,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param seasonNumber
 
   @Get(path: '/API/Subtitles/{apiKey}/{id}/{seasonNumber}')
-  Future<chopper.Response<SubtitleData>> unnamedMethod14(
+  Future<chopper.Response<SubtitleData>> aPisubtitlesApiKeyIdSeasonNumberGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id,
       @Path('seasonNumber') @required String seasonNumber});
@@ -181,7 +181,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/API/FullCast/{apiKey}/{id}')
-  Future<chopper.Response<FullCastData>> unnamedMethod15(
+  Future<chopper.Response<FullCastData>> aPifullCastApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -190,7 +190,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/API/Posters/{apiKey}/{id}')
-  Future<chopper.Response<PosterData>> unnamedMethod16(
+  Future<chopper.Response<PosterData>> aPipostersApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -199,7 +199,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param apiKey
 
   @Get(path: '/API/Images/{apiKey}/{id}')
-  Future<chopper.Response<ImageData>> unnamedMethod17(
+  Future<chopper.Response<ImageData>> aPiimagesApiKeyIdGet(
       {@Path('id') @required String id,
       @Path('apiKey') @required String apiKey});
 
@@ -209,7 +209,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param options
 
   @Get(path: '/API/Images/{apiKey}/{id}/{options}')
-  Future<chopper.Response<ImageData>> unnamedMethod18(
+  Future<chopper.Response<ImageData>> aPiimagesApiKeyIdOptionsGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id,
       @Path('options') @required String options});
@@ -219,7 +219,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/API/Trailer/{apiKey}/{id}')
-  Future<chopper.Response<TrailerData>> unnamedMethod19(
+  Future<chopper.Response<TrailerData>> aPitrailerApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -228,7 +228,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/API/Ratings/{apiKey}/{id}')
-  Future<chopper.Response<RatingData>> unnamedMethod20(
+  Future<chopper.Response<RatingData>> aPiratingsApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -237,7 +237,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/API/UserRatings/{apiKey}/{id}')
-  Future<chopper.Response<UserRatingData>> unnamedMethod21(
+  Future<chopper.Response<UserRatingData>> aPiuserRatingsApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -247,17 +247,18 @@ abstract class ImdbSources extends ChopperService {
   ///@param seasonNumber
 
   @Get(path: '/API/SeasonEpisodes/{apiKey}/{id}/{seasonNumber}')
-  Future<chopper.Response<SeasonEpisodeData>> unnamedMethod22(
-      {@Path('apiKey') @required String apiKey,
-      @Path('id') @required String id,
-      @Path('seasonNumber') @required String seasonNumber});
+  Future<chopper.Response<SeasonEpisodeData>>
+      aPiseasonEpisodesApiKeyIdSeasonNumberGet(
+          {@Path('apiKey') @required String apiKey,
+          @Path('id') @required String id,
+          @Path('seasonNumber') @required String seasonNumber});
 
   ///null
   ///@param apiKey
   ///@param id
 
   @Get(path: '/API/ExternalSites/{apiKey}/{id}')
-  Future<chopper.Response<ExternalSiteData>> unnamedMethod23(
+  Future<chopper.Response<ExternalSiteData>> aPiexternalSitesApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -267,7 +268,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/{lang}/API/Wikipedia/{apiKey}/{id}')
-  Future<chopper.Response<WikipediaData>> unnamedMethod24(
+  Future<chopper.Response<WikipediaData>> langApiwikipediaApiKeyIdGet(
       {@Path('lang') @required String lang,
       @Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
@@ -277,7 +278,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/API/IMDbList/{apiKey}/{id}')
-  Future<chopper.Response<IMDbListData>> unnamedMethod25(
+  Future<chopper.Response<IMDbListData>> aPiimdbListApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -285,56 +286,56 @@ abstract class ImdbSources extends ChopperService {
   ///@param apiKey
 
   @Get(path: '/API/Top250Movies/{apiKey}')
-  Future<chopper.Response<Top250Data>> unnamedMethod26(
+  Future<chopper.Response<Top250Data>> aPitop250MoviesApiKeyGet(
       {@Path('apiKey') @required String apiKey});
 
   ///null
   ///@param apiKey
 
   @Get(path: '/API/Top250TVs/{apiKey}')
-  Future<chopper.Response<Top250Data>> unnamedMethod27(
+  Future<chopper.Response<Top250Data>> aPitop250TvsApiKeyGet(
       {@Path('apiKey') @required String apiKey});
 
   ///null
   ///@param apiKey
 
   @Get(path: '/API/MostPopularMovies/{apiKey}')
-  Future<chopper.Response<MostPopularData>> unnamedMethod28(
+  Future<chopper.Response<MostPopularData>> aPimostPopularMoviesApiKeyGet(
       {@Path('apiKey') @required String apiKey});
 
   ///null
   ///@param apiKey
 
   @Get(path: '/API/MostPopularTVs/{apiKey}')
-  Future<chopper.Response<MostPopularData>> unnamedMethod29(
+  Future<chopper.Response<MostPopularData>> aPimostPopularTvsApiKeyGet(
       {@Path('apiKey') @required String apiKey});
 
   ///null
   ///@param apiKey
 
   @Get(path: '/API/InTheaters/{apiKey}')
-  Future<chopper.Response<NewMovieData>> unnamedMethod30(
+  Future<chopper.Response<NewMovieData>> aPiinTheatersApiKeyGet(
       {@Path('apiKey') @required String apiKey});
 
   ///null
   ///@param apiKey
 
   @Get(path: '/API/ComingSoon/{apiKey}')
-  Future<chopper.Response<NewMovieData>> unnamedMethod31(
+  Future<chopper.Response<NewMovieData>> aPicomingSoonApiKeyGet(
       {@Path('apiKey') @required String apiKey});
 
   ///null
   ///@param apiKey
 
   @Get(path: '/API/BoxOffice/{apiKey}')
-  Future<chopper.Response<BoxOfficeWeekendData>> unnamedMethod32(
+  Future<chopper.Response<BoxOfficeWeekendData>> aPiboxOfficeApiKeyGet(
       {@Path('apiKey') @required String apiKey});
 
   ///null
   ///@param apiKey
 
   @Get(path: '/API/BoxOfficeAllTime/{apiKey}')
-  Future<chopper.Response<BoxOfficeAllTimeData>> unnamedMethod33(
+  Future<chopper.Response<BoxOfficeAllTimeData>> aPiboxOfficeAllTimeApiKeyGet(
       {@Path('apiKey') @required String apiKey});
 
   ///null
@@ -342,7 +343,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/API/Name/{apiKey}/{id}')
-  Future<chopper.Response<NameData>> unnamedMethod34(
+  Future<chopper.Response<NameData>> aPinameApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -351,7 +352,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/API/Company/{apiKey}/{id}')
-  Future<chopper.Response<CompanyData>> unnamedMethod35(
+  Future<chopper.Response<CompanyData>> aPicompanyApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -360,7 +361,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/API/Keyword/{apiKey}/{id}')
-  Future<chopper.Response<KeywordData>> unnamedMethod36(
+  Future<chopper.Response<KeywordData>> aPikeywordApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -369,7 +370,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param id
 
   @Get(path: '/API/YouTubeTrailer/{apiKey}/{id}')
-  Future<chopper.Response<YouTubeTrailerData>> unnamedMethod37(
+  Future<chopper.Response<YouTubeTrailerData>> aPiyouTubeTrailerApiKeyIdGet(
       {@Path('apiKey') @required String apiKey,
       @Path('id') @required String id});
 
@@ -378,7 +379,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param v
 
   @Get(path: '/API/YouTube/{apiKey}/{v}')
-  Future<chopper.Response<YouTubeData>> unnamedMethod38(
+  Future<chopper.Response<YouTubeData>> aPiyouTubeApiKeyVget(
       {@Path('apiKey') @required String apiKey, @Path('v') @required String v});
 
   ///null
@@ -386,7 +387,7 @@ abstract class ImdbSources extends ChopperService {
   ///@param list
 
   @Get(path: '/API/YouTubePlaylist/{apiKey}/{list}')
-  Future<chopper.Response<YouTubePlaylistData>> unnamedMethod39(
+  Future<chopper.Response<YouTubePlaylistData>> aPiyouTubePlaylistApiKeyListGet(
       {@Path('apiKey') @required String apiKey,
       @Path('list') @required String list});
 }

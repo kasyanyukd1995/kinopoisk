@@ -47,6 +47,8 @@ class NavigationService {
     );
   }
 
+
+
   void goBackToShell({Pages page}) {
     navigatorKey.currentState.popUntil((Route<dynamic> route) {
       return route.isFirst;
@@ -54,13 +56,13 @@ class NavigationService {
 
     changeShellTab(page);
   }
-
-
+*/
+/*
   void changeShellTab(Pages page) {
     BlocProvider.of<ShellBloc>(mainGlobalKey.currentContext)
         .add(ShellEvent.itemSelectedEvent(_shellPageToInt[page]));
-  }
-*/
+  }*/
+
   void goBack() {
     navigatorKey.currentState.pop();
   }

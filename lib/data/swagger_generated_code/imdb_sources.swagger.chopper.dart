@@ -17,7 +17,7 @@ class _$ImdbSources extends ImdbSources {
   final definitionType = ImdbSources;
 
   @override
-  Future<Response<SearchData>> unnamedMethod0(
+  Future<Response<SearchData>> aPisearchApiKeyExpressionGet(
       {String apiKey, String expression}) {
     final $url = '/API/Search/$apiKey/$expression';
     final $request = Request('GET', $url, client.baseUrl);
@@ -25,7 +25,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<SearchData>> unnamedMethod1(
+  Future<Response<SearchData>> aPisearchTitleApiKeyExpressionGet(
       {String apiKey, String expression}) {
     final $url = '/API/SearchTitle/$apiKey/$expression';
     final $request = Request('GET', $url, client.baseUrl);
@@ -33,7 +33,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<SearchData>> unnamedMethod2(
+  Future<Response<SearchData>> aPisearchMovieApiKeyExpressionGet(
       {String apiKey, String expression}) {
     final $url = '/API/SearchMovie/$apiKey/$expression';
     final $request = Request('GET', $url, client.baseUrl);
@@ -41,7 +41,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<SearchData>> unnamedMethod3(
+  Future<Response<SearchData>> aPisearchSeriesApiKeyExpressionGet(
       {String apiKey, String expression}) {
     final $url = '/API/SearchSeries/$apiKey/$expression';
     final $request = Request('GET', $url, client.baseUrl);
@@ -49,7 +49,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<SearchData>> unnamedMethod4(
+  Future<Response<SearchData>> aPisearchNameApiKeyExpressionGet(
       {String apiKey, String expression}) {
     final $url = '/API/SearchName/$apiKey/$expression';
     final $request = Request('GET', $url, client.baseUrl);
@@ -57,7 +57,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<SearchData>> unnamedMethod5(
+  Future<Response<SearchData>> aPisearchEpisodeApiKeyExpressionGet(
       {String apiKey, String expression}) {
     final $url = '/API/SearchEpisode/$apiKey/$expression';
     final $request = Request('GET', $url, client.baseUrl);
@@ -65,7 +65,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<SearchData>> unnamedMethod6(
+  Future<Response<SearchData>> aPisearchCompanyApiKeyExpressionGet(
       {String apiKey, String expression}) {
     final $url = '/API/SearchCompany/$apiKey/$expression';
     final $request = Request('GET', $url, client.baseUrl);
@@ -73,7 +73,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<SearchData>> unnamedMethod7(
+  Future<Response<SearchData>> aPisearchKeywordApiKeyExpressionGet(
       {String apiKey, String expression}) {
     final $url = '/API/SearchKeyword/$apiKey/$expression';
     final $request = Request('GET', $url, client.baseUrl);
@@ -81,7 +81,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<SearchData>> unnamedMethod8(
+  Future<Response<SearchData>> aPisearchAllApiKeyExpressionGet(
       {String apiKey, String expression}) {
     final $url = '/API/SearchAll/$apiKey/$expression';
     final $request = Request('GET', $url, client.baseUrl);
@@ -89,7 +89,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<TitleData>> unnamedMethod9(
+  Future<Response<TitleData>> langApititleApiKeyIdGet(
       {String lang, String id, String apiKey}) {
     final $url = '/$lang/API/Title/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
@@ -97,7 +97,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<TitleData>> unnamedMethod10(
+  Future<Response<TitleData>> langApititleApiKeyIdOptionsGet(
       {String lang, String apiKey, String id, String options}) {
     final $url = '/$lang/API/Title/$apiKey/$id/$options';
     final $request = Request('GET', $url, client.baseUrl);
@@ -105,7 +105,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<dynamic>> unnamedMethod11(
+  Future<Response<dynamic>> langApireportApiKeyIdGet(
       {String lang, String id, String apiKey}) {
     final $url = '/$lang/API/Report/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
@@ -113,7 +113,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<dynamic>> unnamedMethod12(
+  Future<Response<dynamic>> langApireportApiKeyIdOptionsGet(
       {String lang, String id, String options, String apiKey}) {
     final $url = '/$lang/API/Report/$apiKey/$id/$options';
     final $request = Request('GET', $url, client.baseUrl);
@@ -121,14 +121,15 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<SubtitleData>> unnamedMethod13({String apiKey, String id}) {
+  Future<Response<SubtitleData>> aPisubtitlesApiKeyIdGet(
+      {String apiKey, String id}) {
     final $url = '/API/Subtitles/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<SubtitleData, SubtitleData>($request);
   }
 
   @override
-  Future<Response<SubtitleData>> unnamedMethod14(
+  Future<Response<SubtitleData>> aPisubtitlesApiKeyIdSeasonNumberGet(
       {String apiKey, String id, String seasonNumber}) {
     final $url = '/API/Subtitles/$apiKey/$id/$seasonNumber';
     final $request = Request('GET', $url, client.baseUrl);
@@ -136,28 +137,30 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<FullCastData>> unnamedMethod15({String apiKey, String id}) {
+  Future<Response<FullCastData>> aPifullCastApiKeyIdGet(
+      {String apiKey, String id}) {
     final $url = '/API/FullCast/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<FullCastData, FullCastData>($request);
   }
 
   @override
-  Future<Response<PosterData>> unnamedMethod16({String apiKey, String id}) {
+  Future<Response<PosterData>> aPipostersApiKeyIdGet(
+      {String apiKey, String id}) {
     final $url = '/API/Posters/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<PosterData, PosterData>($request);
   }
 
   @override
-  Future<Response<ImageData>> unnamedMethod17({String id, String apiKey}) {
+  Future<Response<ImageData>> aPiimagesApiKeyIdGet({String id, String apiKey}) {
     final $url = '/API/Images/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<ImageData, ImageData>($request);
   }
 
   @override
-  Future<Response<ImageData>> unnamedMethod18(
+  Future<Response<ImageData>> aPiimagesApiKeyIdOptionsGet(
       {String apiKey, String id, String options}) {
     final $url = '/API/Images/$apiKey/$id/$options';
     final $request = Request('GET', $url, client.baseUrl);
@@ -165,28 +168,31 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<TrailerData>> unnamedMethod19({String apiKey, String id}) {
+  Future<Response<TrailerData>> aPitrailerApiKeyIdGet(
+      {String apiKey, String id}) {
     final $url = '/API/Trailer/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<TrailerData, TrailerData>($request);
   }
 
   @override
-  Future<Response<RatingData>> unnamedMethod20({String apiKey, String id}) {
+  Future<Response<RatingData>> aPiratingsApiKeyIdGet(
+      {String apiKey, String id}) {
     final $url = '/API/Ratings/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<RatingData, RatingData>($request);
   }
 
   @override
-  Future<Response<UserRatingData>> unnamedMethod21({String apiKey, String id}) {
+  Future<Response<UserRatingData>> aPiuserRatingsApiKeyIdGet(
+      {String apiKey, String id}) {
     final $url = '/API/UserRatings/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<UserRatingData, UserRatingData>($request);
   }
 
   @override
-  Future<Response<SeasonEpisodeData>> unnamedMethod22(
+  Future<Response<SeasonEpisodeData>> aPiseasonEpisodesApiKeyIdSeasonNumberGet(
       {String apiKey, String id, String seasonNumber}) {
     final $url = '/API/SeasonEpisodes/$apiKey/$id/$seasonNumber';
     final $request = Request('GET', $url, client.baseUrl);
@@ -194,7 +200,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<ExternalSiteData>> unnamedMethod23(
+  Future<Response<ExternalSiteData>> aPiexternalSitesApiKeyIdGet(
       {String apiKey, String id}) {
     final $url = '/API/ExternalSites/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
@@ -202,7 +208,7 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<WikipediaData>> unnamedMethod24(
+  Future<Response<WikipediaData>> langApiwikipediaApiKeyIdGet(
       {String lang, String apiKey, String id}) {
     final $url = '/$lang/API/Wikipedia/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
@@ -210,91 +216,98 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<IMDbListData>> unnamedMethod25({String apiKey, String id}) {
+  Future<Response<IMDbListData>> aPiimdbListApiKeyIdGet(
+      {String apiKey, String id}) {
     final $url = '/API/IMDbList/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<IMDbListData, IMDbListData>($request);
   }
 
   @override
-  Future<Response<Top250Data>> unnamedMethod26({String apiKey}) {
+  Future<Response<Top250Data>> aPitop250MoviesApiKeyGet({String apiKey}) {
     final $url = '/API/Top250Movies/$apiKey';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<Top250Data, Top250Data>($request);
   }
 
   @override
-  Future<Response<Top250Data>> unnamedMethod27({String apiKey}) {
+  Future<Response<Top250Data>> aPitop250TvsApiKeyGet({String apiKey}) {
     final $url = '/API/Top250TVs/$apiKey';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<Top250Data, Top250Data>($request);
   }
 
   @override
-  Future<Response<MostPopularData>> unnamedMethod28({String apiKey}) {
+  Future<Response<MostPopularData>> aPimostPopularMoviesApiKeyGet(
+      {String apiKey}) {
     final $url = '/API/MostPopularMovies/$apiKey';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<MostPopularData, MostPopularData>($request);
   }
 
   @override
-  Future<Response<MostPopularData>> unnamedMethod29({String apiKey}) {
+  Future<Response<MostPopularData>> aPimostPopularTvsApiKeyGet(
+      {String apiKey}) {
     final $url = '/API/MostPopularTVs/$apiKey';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<MostPopularData, MostPopularData>($request);
   }
 
   @override
-  Future<Response<NewMovieData>> unnamedMethod30({String apiKey}) {
+  Future<Response<NewMovieData>> aPiinTheatersApiKeyGet({String apiKey}) {
     final $url = '/API/InTheaters/$apiKey';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<NewMovieData, NewMovieData>($request);
   }
 
   @override
-  Future<Response<NewMovieData>> unnamedMethod31({String apiKey}) {
+  Future<Response<NewMovieData>> aPicomingSoonApiKeyGet({String apiKey}) {
     final $url = '/API/ComingSoon/$apiKey';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<NewMovieData, NewMovieData>($request);
   }
 
   @override
-  Future<Response<BoxOfficeWeekendData>> unnamedMethod32({String apiKey}) {
+  Future<Response<BoxOfficeWeekendData>> aPiboxOfficeApiKeyGet(
+      {String apiKey}) {
     final $url = '/API/BoxOffice/$apiKey';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<BoxOfficeWeekendData, BoxOfficeWeekendData>($request);
   }
 
   @override
-  Future<Response<BoxOfficeAllTimeData>> unnamedMethod33({String apiKey}) {
+  Future<Response<BoxOfficeAllTimeData>> aPiboxOfficeAllTimeApiKeyGet(
+      {String apiKey}) {
     final $url = '/API/BoxOfficeAllTime/$apiKey';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<BoxOfficeAllTimeData, BoxOfficeAllTimeData>($request);
   }
 
   @override
-  Future<Response<NameData>> unnamedMethod34({String apiKey, String id}) {
+  Future<Response<NameData>> aPinameApiKeyIdGet({String apiKey, String id}) {
     final $url = '/API/Name/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<NameData, NameData>($request);
   }
 
   @override
-  Future<Response<CompanyData>> unnamedMethod35({String apiKey, String id}) {
+  Future<Response<CompanyData>> aPicompanyApiKeyIdGet(
+      {String apiKey, String id}) {
     final $url = '/API/Company/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<CompanyData, CompanyData>($request);
   }
 
   @override
-  Future<Response<KeywordData>> unnamedMethod36({String apiKey, String id}) {
+  Future<Response<KeywordData>> aPikeywordApiKeyIdGet(
+      {String apiKey, String id}) {
     final $url = '/API/Keyword/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<KeywordData, KeywordData>($request);
   }
 
   @override
-  Future<Response<YouTubeTrailerData>> unnamedMethod37(
+  Future<Response<YouTubeTrailerData>> aPiyouTubeTrailerApiKeyIdGet(
       {String apiKey, String id}) {
     final $url = '/API/YouTubeTrailer/$apiKey/$id';
     final $request = Request('GET', $url, client.baseUrl);
@@ -302,14 +315,15 @@ class _$ImdbSources extends ImdbSources {
   }
 
   @override
-  Future<Response<YouTubeData>> unnamedMethod38({String apiKey, String v}) {
+  Future<Response<YouTubeData>> aPiyouTubeApiKeyVget(
+      {String apiKey, String v}) {
     final $url = '/API/YouTube/$apiKey/$v';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<YouTubeData, YouTubeData>($request);
   }
 
   @override
-  Future<Response<YouTubePlaylistData>> unnamedMethod39(
+  Future<Response<YouTubePlaylistData>> aPiyouTubePlaylistApiKeyListGet(
       {String apiKey, String list}) {
     final $url = '/API/YouTubePlaylist/$apiKey/$list';
     final $request = Request('GET', $url, client.baseUrl);
