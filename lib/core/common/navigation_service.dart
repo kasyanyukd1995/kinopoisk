@@ -35,20 +35,6 @@ class NavigationService {
   }
 
 /*
-  Future navigateToProductCard({ProductModel product, ProductSKU productSKU}) {
-    return navigatorKey.currentState.push(
-      CupertinoPageRoute(
-        builder: (_) => ProductCardPage(
-          product: product,
-          productSKU: productSKU,
-        ),
-        fullscreenDialog: true,
-      ),
-    );
-  }
-
-
-
   void goBackToShell({Pages page}) {
     navigatorKey.currentState.popUntil((Route<dynamic> route) {
       return route.isFirst;

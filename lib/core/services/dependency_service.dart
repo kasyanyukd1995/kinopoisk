@@ -1,4 +1,12 @@
-import 'package:chopper/chopper.dart';
-import 'package:kinopoisk/generated/i18n.dart';
+import 'package:get_it/get_it.dart';
+import 'package:kinopoisk/core/common/navigation_service.dart';
 
-//I18n get localization => I18n.of(Get.context);
+final _ioc = GetIt.I;
+NavigationService get navigationService => _ioc.get<NavigationService>();
+
+class DependencyService {
+  static void registerServices() {
+    _ioc.reset();
+    _ioc.registerLazySingleton(() => NavigationService());
+  }
+}

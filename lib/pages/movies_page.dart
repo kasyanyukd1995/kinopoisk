@@ -53,15 +53,17 @@ class _moviesPageState extends State<MoviesPage> {
                             return MoveiItemWidget(
                               movieItem: movieItem,
                               onTapMovieFunction: (movieobj) => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          MovieInfoPage(
-                                            titleId: movieItem.id,
-                                            rating: movieItem.imDbRating != ''
-                                                ? movieItem.imDbRating
-                                                : null,
-                                          ))),
+                                context,
+                                MaterialPageRoute(
+                                  builder: (BuildContext context) =>
+                                      MovieInfoPage(
+                                    titleId: movieItem.id,
+                                    rating: movieItem.imDbRating != ''
+                                        ? movieItem.imDbRating
+                                        : null,
+                                  ),
+                                ),
+                              ),
                             );
                           },
                           itemCount: snp.data.items.length > countViewMovie

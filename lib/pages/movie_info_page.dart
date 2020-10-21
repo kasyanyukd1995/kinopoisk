@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:kinopoisk/core/common/pages.dart';
+import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 
@@ -433,17 +433,17 @@ class MovieInfoPageState extends State<MovieInfoPage> {
                                   similarItem: similarItem,
                                   onTapMovieFunction: (movieobj) =>
                                       Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (BuildContext context) =>
-                                                  MovieInfoPage(
-                                                    titleId: similarItem.id,
-                                                    rating: similarItem
-                                                                .imDbRating !=
-                                                            ''
-                                                        ? similarItem.imDbRating
-                                                        : null,
-                                                  ))),
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          MovieInfoPage(
+                                        titleId: similarItem.id,
+                                        rating: similarItem.imDbRating != ''
+                                            ? similarItem.imDbRating
+                                            : null,
+                                      ),
+                                    ),
+                                  ),
                                 );
                               },
                               itemCount: titleDataItem.similars.length,
