@@ -17,6 +17,7 @@ enum Pages {
 
 class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey = Get.key;
+  // ignore: unused_field
   final Map<Pages, int> _shellPageToInt = {
     Pages.home: 0,
     Pages.mostPopularMovies: 1,

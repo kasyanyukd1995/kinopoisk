@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:kinopoisk/core/blocs/base_page_state.dart';
+import 'package:kinopoisk/core/repositories/movies_repository.dart';
+import 'package:kinopoisk/core/blocs/movies_bloc.dart';
+import 'package:kinopoisk/core/blocs/movies_event.dart';
+import 'package:kinopoisk/core/blocs/movies_state.dart';
+import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/list_movie_model.dart';
 import 'package:kinopoisk/core/models/movie_model.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:kinopoisk/pages/index.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 const int countViewMovie = 40;
 const TextStyle textStyleForTitle = TextStyle(
@@ -15,16 +22,34 @@ const TextStyle textStyleForTitle = TextStyle(
 );
 
 class MoviesPage extends StatefulWidget {
-  MoviesPage({Key key}) : super(key: key);
-
   @override
-  _moviesPageState createState() => _moviesPageState();
+  _MoviesPageState createState() => _MoviesPageState();
 }
 
-class _moviesPageState extends State<MoviesPage> {
+class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
+  final moviesRepository = MoviesRepository();
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      child: BlocBuilder<MoviesBloc, MoviesState>(
+        cubit: bloc,
+        builder: (context, state) => Container(
+          padding: const EdgeInsets.fromLTRB(150, 250, 0, 0),
+          child: MaterialButton(
+            height: 200,
+            child: Text('dfdf'),
+            color: Colors.red,
+            onPressed: () => bloc.add(MoviesInitializeEvent()),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/*
+SingleChildScrollView(
       child: Column(
         children: <Widget>[
           Text(
@@ -107,16 +132,8 @@ class _moviesPageState extends State<MoviesPage> {
                             return MoveiItemWidget(
                               indicator: 1,
                               movieItem: movieItem,
-                              onTapMovieFunction: (movieobj) => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (BuildContext context) =>
-                                          MovieInfoPage(
-                                            titleId: movieItem.id,
-                                            rating: movieItem.imDbRating != ''
-                                                ? movieItem.imDbRating
-                                                : null,
-                                          ))),
+                              onTapMovieFunction: (movieobj) =>
+                                  NavigationService().goBack(),
                             );
                           },
                           itemCount: snp.data.items.length > countViewMovie
@@ -188,6 +205,5 @@ class _moviesPageState extends State<MoviesPage> {
           ),
         ],
       ),
-    );
-  }
-}
+    ),
+    */

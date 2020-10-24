@@ -6,19 +6,13 @@ part 'movie_model.g.dart';
 class MovieModel {
   final String id;
   final String title;
-  final String fullTitle;
-  final String year;
   final String image;
-  final String crew;
   final String imDbRating;
 
   const MovieModel({
     this.id,
     this.title,
-    this.fullTitle,
-    this.year,
     this.image,
-    this.crew,
     this.imDbRating,
   });
 
