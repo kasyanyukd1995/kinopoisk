@@ -11,8 +11,6 @@ class DependencyService {
     _ioc.reset();
     _ioc.registerLazySingleton(() => NavigationService());
     _registerBlocs(_ioc);
-    final b = _ioc.get<MoviesBloc>();
-    final a = b;
   }
 
   static void _registerBlocs(GetIt ioc) {

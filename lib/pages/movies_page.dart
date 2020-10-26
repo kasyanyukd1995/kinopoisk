@@ -31,19 +31,52 @@ class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: BlocBuilder<MoviesBloc, MoviesState>(
-        cubit: bloc,
-        builder: (context, state) => Container(
-          padding: const EdgeInsets.fromLTRB(150, 250, 0, 0),
-          child: MaterialButton(
-            height: 200,
-            child: Text('dfdf'),
-            color: Colors.red,
-            onPressed: () => bloc.add(MoviesInitializeEvent()),
+    return BlocBuilder<MoviesBloc, MoviesState>(
+      cubit: bloc,
+      builder: (context, state) {
+        //bloc.add(MoviesInitializeEvent());
+        return Scaffold(
+          appBar: AppBarWidget(),
+          body: SingleChildScrollView(
+            child: Column(
+              children: <Widget>[
+                Text(
+                  I18n.of(context).moviesPageTitleBlockMostPopularMoviesNow,
+                  style: textStyleForTitle,
+                ),
+                const SizedBox(height: 20.0),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: SizedBox(
+                        height: 380,
+                        child: GridView.builder(
+                            scrollDirection: Axis.horizontal,
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 20.0,
+                              childAspectRatio: 1.3,
+                            ),
+                            itemBuilder: (context, index) {
+                              MovieModel movieItem = bloc.movies.items[index];
+                              return MoveiItemWidget(
+                                indicator: 1,
+                                movieItem: movieItem,
+                                onTapMovieFunction: (movieobj) =>
+                                    NavigationService().goBack(),
+                              );
+                            },
+                            itemCount: bloc.movies.items.length),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

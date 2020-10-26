@@ -7,34 +7,16 @@ class MoviesRepository {
   ImdbSources _moviesProviders = ImdbSources.create();
 
   Future<List<MovieModel>> fetchMostPopularMovies() async {
-    List<MovieModel> listMovie;
-
     final resultRequest =
         await _moviesProviders.aPimostPopularMoviesApiKeyGet(apiKey: apikey);
 
-    return resultRequest.
-    // for (MostPopularDataDetail item in resultRequest.body.items) {
-    //   listMovie.add(
-    //     new MovieModel(
-    //       id: item.id,
-    //       imDbRating: item.imDbRating,
-    //       image: item.image,
-    //       title: item.title,
-    //     ),
-    //   );
-    }
-    //return listMovie;
+    return resultRequest.body.items.map(
+      (item) => MovieModel(
+        id: item.id,
+        imDbRating: item.imDbRating,
+        image: item.image,
+        title: item.title,
+      ),
+    );
   }
-
-//   Future<List<MostPopularDataDetail>> fetchMostPopularTvs() async {
-//     final resultRequest =
-//         await _moviesProviders.aPimostPopularTvsApiKeyGet(apiKey: apikey);
-//     return resultRequest.body.items;
-//   }
-
-//   Future<List<Top250DataDetail>> fetchTop250Movies() async {
-//     final resultRequest =
-//         await _moviesProviders.aPitop250MoviesApiKeyGet(apiKey: apikey);
-//     return resultRequest.body.items;
-//   }
 }
