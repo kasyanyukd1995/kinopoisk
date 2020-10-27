@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/pages/index.dart';
 
 final GlobalKey mainGlobalKey = GlobalKey();
@@ -71,11 +72,10 @@ class NavigationService {
         resultPage = SearchPage();
         break;
       case Pages.movieInfo:
-        final rating = arguments as String;
-        final titeleId = arguments as String;
+        final movie = arguments as MovieModel;
         resultPage = MovieInfoPage(
-          rating: rating,
-          titleId: titeleId,
+          rating: movie.imDbRating,
+          titleId: movie.id,
         );
         break;
       case Pages.playTrailer:

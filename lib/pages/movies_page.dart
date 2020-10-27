@@ -28,52 +28,70 @@ class MoviesPage extends StatefulWidget {
 
 class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
   final moviesRepository = MoviesRepository();
+  int countViewMovie = 30;
+  @override
+  void initState() {
+    super.initState();
+    bloc.add(MoviesInitializeEvent());
+  }
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MoviesBloc, MoviesState>(
       cubit: bloc,
       builder: (context, state) {
-        //bloc.add(MoviesInitializeEvent());
         return Scaffold(
           appBar: AppBarWidget(),
-          body: SingleChildScrollView(
-            child: Column(
-              children: <Widget>[
-                Text(
-                  I18n.of(context).moviesPageTitleBlockMostPopularMoviesNow,
-                  style: textStyleForTitle,
+          backgroundColor: Colors.black,
+          body: Stack(
+            children: [
+              if (state is MoviesBusyState)
+                const Center(
+                  child: CircularProgressIndicator(),
                 ),
-                const SizedBox(height: 20.0),
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: SizedBox(
-                        height: 380,
-                        child: GridView.builder(
-                            scrollDirection: Axis.horizontal,
+              if (state is MoviesEmptyState)
+                const Center(
+                  child: Text('no movies'),
+                ),
+              Column(
+                children: [
+                  Text(
+                    I18n.of(context).moviesPageTitleBlockMostPopularMoviesNow,
+                    style: textStyleForTitle,
+                  ),
+                  const SizedBox(height: 20.0),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: SizedBox(
+                          height: 380,
+                          child: GridView.builder(
                             gridDelegate:
                                 const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                               crossAxisSpacing: 20.0,
                               childAspectRatio: 1.3,
                             ),
+                            scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
-                              MovieModel movieItem = bloc.movies.items[index];
+                              MovieModel movieItem = bloc.movies[index];
                               return MoveiItemWidget(
-                                indicator: 1,
                                 movieItem: movieItem,
-                                onTapMovieFunction: (movieobj) =>
-                                    NavigationService().goBack(),
+                                onTapMovieFunction: (movieobj) => bloc
+                                    .add(TapOnMoviesEvent(movie: movieItem)),
                               );
                             },
-                            itemCount: bloc.movies.items.length),
+                            itemCount: bloc.movies.length > countViewMovie
+                                ? countViewMovie
+                                : bloc.movies.length,
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
           ),
         );
       },

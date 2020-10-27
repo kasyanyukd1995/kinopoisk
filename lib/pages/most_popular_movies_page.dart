@@ -9,12 +9,12 @@ import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:kinopoisk/pages/index.dart';
 
-Future<ListMovieModel> getMostPopularMovies() async {
+Future<List<MovieModel>> getMostPopularMovies() async {
   final response =
       await http.get('https://imdb-api.com/en/API/MostPopularMovies/' + apikey);
 
   if (response.statusCode == 200) {
-    return ListMovieModel.fromJson(jsonDecode(response.body));
+    return ListMovieModel.fromJson(jsonDecode(response.body)).items;
   } else {
     throw Exception('Failed to load album');
   }
@@ -51,13 +51,13 @@ class MostPopularMoviesPage extends StatefulWidget {
 
 class _MostPopularMovies extends State<MostPopularMoviesPage> {
   Widget build(BuildContext context) {
-    return FutureBuilder<ListMovieModel>(
+    return FutureBuilder<List<MovieModel>>(
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           return Container(
             constraints: const BoxConstraints.expand(),
             child: CarouselSlider.builder(
-              itemCount: snapshot.data.items.length,
+              itemCount: snapshot.data.length,
               options: CarouselOptions(
                 autoPlay: true,
                 enlargeCenterPage: true,
@@ -65,7 +65,7 @@ class _MostPopularMovies extends State<MostPopularMoviesPage> {
                 height: double.infinity,
               ),
               itemBuilder: (__context, index) {
-                MovieModel move = snapshot.data.items[index];
+                MovieModel move = snapshot.data[index];
                 return MostPopularMoviesWidget(
                   moveModel: move,
                   onTapCityFunction: (move) => Navigator.push(

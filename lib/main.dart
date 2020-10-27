@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomePage(),
+      home: MoviesPage(),
       navigatorKey: Get.key,
       localizationsDelegates: [i18n],
       supportedLocales: i18n.supportedLocales,
