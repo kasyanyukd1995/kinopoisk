@@ -11,7 +11,6 @@ abstract class BasePageState<TBloc extends Bloc, T extends StatefulWidget>
   @override
   void initState() {
     super.initState();
-
     _bloc = getBloc();
   }
 

@@ -2,15 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/blocs/base_page_state.dart';
 import 'package:kinopoisk/core/repositories/movies_repository.dart';
 import 'package:kinopoisk/core/blocs/movies_bloc.dart';
-import 'package:kinopoisk/core/blocs/movies_event.dart';
-import 'package:kinopoisk/core/blocs/movies_state.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/list_movie_model.dart';
 import 'package:kinopoisk/core/models/movie_model.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/widgets/index.dart';
-import 'package:kinopoisk/pages/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 const int countViewMovie = 40;
@@ -74,16 +71,16 @@ class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
                             ),
                             scrollDirection: Axis.horizontal,
                             itemBuilder: (context, index) {
-                              MovieModel movieItem = bloc.movies[index];
+                              MovieModel movieItem = bloc.getMovies[index];
                               return MoveiItemWidget(
                                 movieItem: movieItem,
                                 onTapMovieFunction: (movieobj) => bloc
                                     .add(TapOnMoviesEvent(movie: movieItem)),
                               );
                             },
-                            itemCount: bloc.movies.length > countViewMovie
+                            itemCount: bloc.getMovies.length > countViewMovie
                                 ? countViewMovie
-                                : bloc.movies.length,
+                                : bloc.getMovies.length,
                           ),
                         ),
                       ),

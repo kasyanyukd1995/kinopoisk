@@ -1,18 +1,12 @@
 import 'dart:async';
-
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/core/models/movie_model.dart';
-import 'package:kinopoisk/core/repositories/movies_repository.dart';
-import 'package:kinopoisk/core/blocs/movies_event.dart';
-import 'package:kinopoisk/core/blocs/movies_state.dart';
-import 'package:kinopoisk/core/services/dependency_service.dart';
 import 'package:kinopoisk/pages/index.dart';
 
 class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
-  List<MovieModel> movies = [];
+  List<MovieModel> _movies = [];
 
   MoviesBloc() : super(MoviesEmptyState());
 
@@ -22,8 +16,8 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   Stream<MoviesState> mapEventToState(MoviesEvent event) async* {
     if (event is MoviesInitializeEvent) {
       yield MoviesBusyState();
-      movies = await getMostPopularMovies();
-      if (movies != null) {
+      _movies = await getMostPopularMovies();
+      if (_movies != null) {
         yield MoviesLoadedState();
       } else {
         yield MoviesEmptyState();
@@ -32,4 +26,28 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
       NavigationService().navigateTo(Pages.movieInfo, arguments: event.movie);
     }
   }
+
+  List<MovieModel> get getMovies => _movies;
 }
+
+abstract class MoviesEvent {}
+
+class MoviesInitializeEvent extends MoviesEvent {}
+
+class TapOnMoviesEvent extends MoviesEvent {
+  final MovieModel movie;
+
+  TapOnMoviesEvent({this.movie});
+}
+
+abstract class MoviesState {}
+
+class MoviesEmptyState extends MoviesState {}
+
+class MoviesInitState extends MoviesState {}
+
+class MoviesBusyState extends MoviesState {}
+
+class MoviesLoadedState extends MoviesState {}
+
+class ErrorState extends MoviesState {}

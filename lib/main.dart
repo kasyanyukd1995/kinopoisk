@@ -6,6 +6,7 @@ import 'package:kinopoisk/core/services/dependency_service.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/pages/home_page.dart';
 import 'package:kinopoisk/pages/index.dart';
+import 'package:kinopoisk/pages/shell_page.dart';
 
 GetIt getIt = GetIt.instance;
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MoviesPage(),
+      home: ShellPage(),
       navigatorKey: Get.key,
       localizationsDelegates: [i18n],
       supportedLocales: i18n.supportedLocales,
