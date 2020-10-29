@@ -5,6 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
+import 'package:kinopoisk/data/repositories/data_repository.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 
 import 'package:kinopoisk/pages/index.dart';
@@ -61,31 +62,6 @@ const TextStyle textStyleForTitleBlock = TextStyle(
   fontStyle: FontStyle.normal,
   fontWeight: FontWeight.w300,
 );
-
-Future<TitleModel> getTitleDataModel(String title, String apikey) async {
-  final response = await http.get('https://imdb-api.com/en/API/Title/' +
-      apikey +
-      '/' +
-      title +
-      '/Images,Trailer,');
-
-  if (response.statusCode == 200) {
-    return TitleModel.fromJson(jsonDecode(response.body));
-  } else {
-    throw Exception('Failed to load');
-  }
-}
-
-Future<TrailerModel> getTrailerDataModel(String title, String apikey) async {
-  final response = await http
-      .get('https://imdb-api.com/en/API/Trailer/' + apikey + '/' + title);
-
-  if (response.statusCode == 200) {
-    return TrailerModel.fromJson(jsonDecode(response.body));
-  } else {
-    throw Exception('Failed to load');
-  }
-}
 
 class MovieInfoPage extends StatefulWidget {
   final String titleId;

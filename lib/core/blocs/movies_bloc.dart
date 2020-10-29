@@ -3,10 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/core/models/movie_model.dart';
-import 'package:kinopoisk/pages/index.dart';
+import 'package:kinopoisk/data/repositories/data_repository.dart';
 
 class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
-  List<MovieModel> _movies = [];
+  List<MovieModel> _mostPopMovies = [];
+  List<MovieModel> _mostPopTvs = [];
+  List<MovieModel> _top250Movies = [];
 
   MoviesBloc() : super(MoviesEmptyState());
 
@@ -16,8 +18,11 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   Stream<MoviesState> mapEventToState(MoviesEvent event) async* {
     if (event is MoviesInitializeEvent) {
       yield MoviesBusyState();
-      _movies = await getMostPopularMovies();
-      if (_movies != null) {
+      _mostPopMovies = await getMostPopularMovies();
+      _mostPopTvs = await getMostPopularTVs();
+      _top250Movies = await getTop250Movies();
+
+      if (_mostPopMovies != null) {
         yield MoviesLoadedState();
       } else {
         yield MoviesEmptyState();
@@ -27,7 +32,9 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
     }
   }
 
-  List<MovieModel> get getMovies => _movies;
+  List<MovieModel> get getMovies => _mostPopMovies;
+  List<MovieModel> get getTvs => _mostPopTvs;
+  List<MovieModel> get getTop250Movie => _top250Movies;
 }
 
 abstract class MoviesEvent {}

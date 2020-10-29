@@ -1,46 +1,11 @@
-import 'dart:convert';
-import 'dart:async';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:kinopoisk/data/apikey.dart';
+import 'package:kinopoisk/core/blocs/base_page_state.dart';
+import 'package:kinopoisk/core/blocs/most_popular_movies_page_bloc.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/widgets/index.dart';
-import 'package:kinopoisk/pages/index.dart';
-
-Future<List<MovieModel>> getMostPopularMovies() async {
-  final response =
-      await http.get('https://imdb-api.com/en/API/MostPopularMovies/' + apikey);
-
-  if (response.statusCode == 200) {
-    return ListMovieModel.fromJson(jsonDecode(response.body)).items;
-  } else {
-    throw Exception('Failed to load album');
-  }
-}
-
-Future<ListMovieModel> getTop250Movies() async {
-  final response =
-      await http.get('https://imdb-api.com/en/API/Top250Movies/' + apikey);
-
-  if (response.statusCode == 200) {
-    return ListMovieModel.fromJson(jsonDecode(response.body));
-  } else {
-    throw Exception('Failed to load album');
-  }
-}
-
-Future<ListMovieModel> getMostPopularTVs() async {
-  final response =
-      await http.get('https://imdb-api.com/en/API/MostPopularTVs/' + apikey);
-
-  if (response.statusCode == 200) {
-    return ListMovieModel.fromJson(jsonDecode(response.body));
-  } else {
-    throw Exception('Failed to load album');
-  }
-}
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MostPopularMoviesPage extends StatefulWidget {
   @override
@@ -49,47 +14,53 @@ class MostPopularMoviesPage extends StatefulWidget {
   }
 }
 
-class _MostPopularMovies extends State<MostPopularMoviesPage> {
-  Widget build(BuildContext context) {
-    return FutureBuilder<List<MovieModel>>(
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return Container(
-            constraints: const BoxConstraints.expand(),
-            child: CarouselSlider.builder(
-              itemCount: snapshot.data.length,
-              options: CarouselOptions(
-                autoPlay: true,
-                enlargeCenterPage: true,
-                aspectRatio: 2.0,
-                height: double.infinity,
-              ),
-              itemBuilder: (__context, index) {
-                MovieModel move = snapshot.data[index];
-                return MostPopularMoviesWidget(
-                  moveModel: move,
-                  onTapCityFunction: (move) => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext _context) => MovieInfoPage(
-                        titleId: move.id,
-                        rating: move.imDbRating != '' ? move.imDbRating : null,
-                      ),
-                    ),
-                  ),
-                );
-              },
-            ),
-          );
-        } else if (snapshot.hasError) {
-          return Text('${snapshot.error}');
-        }
+class _MostPopularMovies
+    extends BasePageState<MostPopularMoviesBloc, MostPopularMoviesPage> {
+  void initState() {
+    super.initState();
+    bloc.add(MoviesInitializeEvent());
+  }
 
-        return const Center(
-          child: CircularProgressIndicator(),
+  Widget build(BuildContext context) {
+    return BlocBuilder<MostPopularMoviesBloc, MostPopularMoviesState>(
+      cubit: bloc,
+      builder: (context, state) {
+        return Scaffold(
+          backgroundColor: Colors.black,
+          body: Stack(
+            children: [
+              if (state is MoviesBusyState)
+                const Center(
+                  child: CircularProgressIndicator(),
+                ),
+              if (state is MoviesEmptyState)
+                const Center(
+                  child: Text('no movies'),
+                ),
+              Container(
+                constraints: const BoxConstraints.expand(),
+                child: CarouselSlider.builder(
+                  itemCount: bloc.getMovies.length,
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                    aspectRatio: 2.0,
+                    height: double.infinity,
+                  ),
+                  itemBuilder: (__context, index) {
+                    MovieModel movie = bloc.getMovies[index];
+                    return MostPopularMoviesWidget(
+                      moveModel: movie,
+                      onTapCityFunction: (movie) =>
+                          bloc.add(TapOnMoviesEvent()),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ),
         );
       },
-      future: getMostPopularMovies(),
     );
   }
 }

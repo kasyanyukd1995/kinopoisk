@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:kinopoisk/core/blocs/movies_bloc.dart';
 
 abstract class BasePageState<TBloc extends Bloc, T extends StatefulWidget>
     extends State<T> {
