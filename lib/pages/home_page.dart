@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/pages/index.dart';

@@ -49,43 +49,117 @@ class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
                 const Center(
                   child: Text('no movies'),
                 ),
-              Column(
-                children: [
-                  Text(
-                    I18n.of(context).moviesPageTitleBlockMostPopularMoviesNow,
-                    style: textStyleForTitle,
-                  ),
-                  const SizedBox(height: 20.0),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: SizedBox(
-                          height: 380,
-                          child: GridView.builder(
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              crossAxisSpacing: 20.0,
-                              childAspectRatio: 1.3,
+              SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Text(
+                      I18n.of(context).moviesPageTitleBlockMostPopularMoviesNow,
+                      style: textStyleForTitle,
+                    ),
+                    const SizedBox(height: 20.0),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            height: 380,
+                            child: GridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 20.0,
+                                childAspectRatio: 1.3,
+                              ),
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                MovieModel movieItem = bloc.getMovies[index];
+                                return MoveiItemWidget(
+                                  movieItem: movieItem,
+                                  onTapMovieFunction: (movieobj) => bloc
+                                      .add(TapOnMoviesEvent(movie: movieItem)),
+                                );
+                              },
+                              itemCount: bloc.getMovies.length > countViewMovie
+                                  ? countViewMovie
+                                  : bloc.getMovies.length,
                             ),
-                            scrollDirection: Axis.horizontal,
-                            itemBuilder: (context, index) {
-                              MovieModel movieItem = bloc.getMovies[index];
-                              return MoveiItemWidget(
-                                movieItem: movieItem,
-                                onTapMovieFunction: (movieobj) => bloc
-                                    .add(TapOnMoviesEvent(movie: movieItem)),
-                              );
-                            },
-                            itemCount: bloc.getMovies.length > countViewMovie
-                                ? countViewMovie
-                                : bloc.getMovies.length,
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                    const SizedBox(height: 20.0),
+                    Text(
+                      I18n.of(context).moviesPageTitleBlockMostPopularTVsNow,
+                      style: textStyleForTitle,
+                    ),
+                    const SizedBox(height: 20.0),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            height: 380,
+                            child: GridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 20.0,
+                                childAspectRatio: 1.3,
+                              ),
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                MovieModel movieItem = bloc.getTvs[index];
+                                return MoveiItemWidget(
+                                  movieItem: movieItem,
+                                  onTapMovieFunction: (movieobj) => bloc
+                                      .add(TapOnMoviesEvent(movie: movieItem)),
+                                );
+                              },
+                              itemCount: bloc.getTvs.length > countViewMovie
+                                  ? countViewMovie
+                                  : bloc.getTvs.length,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20.0),
+                    Text(
+                      I18n.of(context).moviesPageTitleBlockTop250Movies,
+                      style: textStyleForTitle,
+                    ),
+                    const SizedBox(height: 20.0),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            height: 380,
+                            child: GridView.builder(
+                              gridDelegate:
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                crossAxisSpacing: 20.0,
+                                childAspectRatio: 1.3,
+                              ),
+                              scrollDirection: Axis.horizontal,
+                              itemBuilder: (context, index) {
+                                MovieModel movieItem =
+                                    bloc.getTop250Movie[index];
+                                return MoveiItemWidget(
+                                  movieItem: movieItem,
+                                  onTapMovieFunction: (movieobj) => bloc
+                                      .add(TapOnMoviesEvent(movie: movieItem)),
+                                );
+                              },
+                              itemCount:
+                                  bloc.getTop250Movie.length > countViewMovie
+                                      ? countViewMovie
+                                      : bloc.getTop250Movie.length,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

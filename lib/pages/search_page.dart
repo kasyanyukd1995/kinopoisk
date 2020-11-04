@@ -1,8 +1,9 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flappy_search_bar/flappy_search_bar.dart';
 import 'package:flappy_search_bar/search_bar_style.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/models/movie_item_search_model.dart';
 import 'package:kinopoisk/data/apikey.dart';
 import 'package:kinopoisk/core/models/index.dart';

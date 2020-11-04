@@ -23,7 +23,6 @@ class TitleModel {
   final String countries;
   final String imDbRating;
 
-  final TrailerModel trailer;
   final List<SimilarMovieModel> similars;
 
   const TitleModel({
@@ -40,7 +39,6 @@ class TitleModel {
     this.genres,
     this.countries,
     this.imDbRating,
-    this.trailer,
     this.similars,
   });
 

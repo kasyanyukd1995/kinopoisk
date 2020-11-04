@@ -37,12 +37,9 @@ Future<List<MovieModel>> getMostPopularTVs() async {
   }
 }
 
-Future<TitleModel> getTitleDataModel(String title, String apikey) async {
-  final response = await http.get('https://imdb-api.com/en/API/Title/' +
-      apikey +
-      '/' +
-      title +
-      '/Images,Trailer,');
+Future<TitleModel> getTitleDataModel(String title) async {
+  final response = await http
+      .get('https://imdb-api.com/en/API/Title/' + apikey + '/' + title);
 
   if (response.statusCode == 200) {
     return TitleModel.fromJson(jsonDecode(response.body));
@@ -51,9 +48,20 @@ Future<TitleModel> getTitleDataModel(String title, String apikey) async {
   }
 }
 
-Future<TrailerModel> getTrailerDataModel(String title, String apikey) async {
-  final response = await http
-      .get('https://imdb-api.com/en/API/Trailer/' + apikey + '/' + title);
+Future<TrailerModel> getTrailerDataModel(String title) async {
+  final response = await http.get(
+      'https://imdb-api.com/en/API/YouTubeTrailer/' + apikey + '/' + title);
+
+  if (response.statusCode == 200) {
+    return TrailerModel.fromJson(jsonDecode(response.body));
+  } else {
+    throw Exception('Failed to load');
+  }
+}
+
+Future<TrailerModel> getImagesDataModel(String title, String apikey) async {
+  final response = await http.get(
+      'https://imdb-api.com/en/API/Images/' + apikey + '/' + title + '/short');
 
   if (response.statusCode == 200) {
     return TrailerModel.fromJson(jsonDecode(response.body));

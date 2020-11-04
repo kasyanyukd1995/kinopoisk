@@ -22,7 +22,9 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
       _mostPopTvs = await getMostPopularTVs();
       _top250Movies = await getTop250Movies();
 
-      if (_mostPopMovies != null) {
+      if (_mostPopMovies != null &&
+          _mostPopTvs != null &&
+          _top250Movies != null) {
         yield MoviesLoadedState();
       } else {
         yield MoviesEmptyState();

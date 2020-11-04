@@ -11,7 +11,7 @@ enum Pages {
   movies,
   movieInfo,
   mostPopularMovies,
-  actorinfo,
+  actorInfo,
   playTrailer,
   search,
 }
@@ -75,12 +75,18 @@ class NavigationService {
         final movie = arguments as MovieModel;
         resultPage = MovieInfoPage(
           rating: movie.imDbRating,
-          titleId: movie.id,
+          titleId: movie.imDbRating != '' ? movie.imDbRating : null,
+        );
+        break;
+      case Pages.actorInfo:
+        final actor = arguments as ActorModel;
+        resultPage = ActorInfoPage(
+          actorModel: actor,
         );
         break;
       case Pages.playTrailer:
-        final urlTrailer = arguments as String;
-        resultPage = PlayTrailerPage(urlTrailer);
+        final videoId = arguments as String;
+        resultPage = PlayTrailerPage(videoId: videoId);
         break;
 
       default:

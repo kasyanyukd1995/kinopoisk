@@ -8,13 +8,11 @@ part of 'trailer_model.dart';
 
 TrailerModel _$TrailerModelFromJson(Map<String, dynamic> json) {
   return TrailerModel(
-    thumbnailUrl: json['thumbnailUrl'] as String,
-    linkEmbed: json['linkEmbed'] as String,
+    videoId: json['videoId'] as String,
   );
 }
 
 Map<String, dynamic> _$TrailerModelToJson(TrailerModel instance) =>
     <String, dynamic>{
-      'thumbnailUrl': instance.thumbnailUrl,
-      'linkEmbed': instance.linkEmbed,
+      'videoId': instance.videoId,
     };

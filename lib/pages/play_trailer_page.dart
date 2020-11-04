@@ -1,49 +1,56 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:kinopoisk/widgets/index.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class PlayTrailerPage extends StatefulWidget {
-  final String urlTrailer;
+  final String videoId;
 
-  PlayTrailerPage(this.urlTrailer);
+  const PlayTrailerPage({this.videoId});
 
   @override
-  PlayTrailerPageState createState() => new PlayTrailerPageState(urlTrailer);
+  _PlayTrailerPageState createState() => _PlayTrailerPageState(videoId);
 }
 
-class PlayTrailerPageState extends State<PlayTrailerPage> {
-  String urlTrailer;
+class _PlayTrailerPageState extends State<PlayTrailerPage> {
+  final String videoId;
 
-  PlayTrailerPageState(String urlTrailer) {
-    this.urlTrailer = urlTrailer;
+  _PlayTrailerPageState(this.videoId);
+  Widget build(BuildContext conxtext) {
+    return YoutubePlayer(
+      controller: _controller(videoId),
+      liveUIColor: Colors.white54,
+      actionsPadding: const EdgeInsets.all(15.0),
+      aspectRatio: 16 / 9,
+    );
   }
 
-  void initState() {
-    super.initState();
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeRight,
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.portraitUp,
-    ]);
-  }
-
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: WebviewScaffold(
-        appBar: AppBarWidget(),
-        url: urlTrailer,
-        withZoom: true,
-        withLocalStorage: true,
-        hidden: true,
-        initialChild: Container(
-          color: Colors.black,
-          child: const Center(
-            child: CircularProgressIndicator(),
-          ),
-        ),
+  YoutubePlayerController _controller(String videoId) {
+    return YoutubePlayerController(
+      initialVideoId: videoId,
+      flags: const YoutubePlayerFlags(
+        autoPlay: true,
+        mute: false,
       ),
     );
   }
 }
+
+// YoutubeValueBuilder(
+//    controller: _controller, // This can be omitted, if using `YoutubePlayerControllerProvider`
+//    builder: (context, value) {
+//       return IconButton(
+//          icon: Icon(
+//                   value.playerState == PlayerState.playing
+//                     ? Icons.pause
+//                     : Icons.play_arrow,
+//          ),
+//          onPressed: value.isReady
+//             ? () {
+//                   value.playerState == PlayerState.playing
+//                     ? context.ytController.pause()
+//                     : context.ytController.play();
+//                  }
+//             : null,
+//       );
+//    },
+// );

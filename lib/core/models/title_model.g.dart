@@ -24,9 +24,6 @@ TitleModel _$TitleModelFromJson(Map<String, dynamic> json) {
     genres: json['genres'] as String,
     countries: json['countries'] as String,
     imDbRating: json['imDbRating'] as String,
-    trailer: json['trailer'] == null
-        ? null
-        : TrailerModel.fromJson(json['trailer'] as Map<String, dynamic>),
     similars: (json['similars'] as List)
         ?.map((e) => e == null
             ? null
@@ -50,6 +47,5 @@ Map<String, dynamic> _$TitleModelToJson(TitleModel instance) =>
       'genres': instance.genres,
       'countries': instance.countries,
       'imDbRating': instance.imDbRating,
-      'trailer': instance.trailer,
       'similars': instance.similars,
     };

@@ -3,12 +3,10 @@ part 'trailer_model.g.dart';
 
 @JsonSerializable()
 class TrailerModel {
-  final String thumbnailUrl;
-  final String linkEmbed;
+  final String videoId;
 
   const TrailerModel({
-    this.thumbnailUrl,
-    this.linkEmbed,
+    this.videoId,
   });
 
   static const fromJsonFactory = _$TrailerModelFromJson;
