@@ -34,7 +34,9 @@ class _ShellPageState extends BasePageState<ShellBloc, ShellPage> {
               ),
               bottomNavigationBar: BottomNavigationBarWidget(
                 selectedItem: bloc.selectedItemIndex,
-                onTappedFunction: (index) => bloc.add(ItemSelectedEvent(index)),
+                onTappedFunction: (index) {
+                  bloc.add(ItemSelectedEvent(index));
+                },
               ),
             );
           },

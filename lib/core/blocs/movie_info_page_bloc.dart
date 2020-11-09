@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/core/models/movie_model.dart';
+import 'package:kinopoisk/core/services/dependency_service.dart';
 import 'package:kinopoisk/data/repositories/data_repository.dart';
 
 class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
@@ -19,15 +20,15 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
       yield MovieInfoBusyState();
       _movie = await getTitleDataModel(event.titleId);
       _trailer = await getTrailerDataModel(event.titleId);
-      if (_movie != null && _trailer != null) {
+      if (_movie != null) {
         yield MovieInfoLoadedState();
       } else {
         yield MovieInfoEmptyState();
       }
     } else if (event is TapOnActorEvent) {
-      NavigationService().navigateTo(Pages.actorInfo, arguments: event.actor);
+      navigationService.navigateTo(Pages.actorInfo, arguments: event.actor);
     } else if (event is TapOnSimilarMovieEvent) {
-      NavigationService().navigateTo(Pages.movieInfo, arguments: event.movie);
+      navigationService.navigateTo(Pages.movieInfo, arguments: event.movie);
     }
   }
 
@@ -48,6 +49,12 @@ class TapOnActorEvent extends MovieInfoEvent {
   final ActorModel actor;
 
   TapOnActorEvent({this.actor});
+}
+
+class TapOnPlayTrailerEvent extends MovieInfoEvent {
+  final String videoId;
+
+  TapOnPlayTrailerEvent({this.videoId});
 }
 
 class TapOnSimilarMovieEvent extends MovieInfoEvent {

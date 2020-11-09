@@ -18,7 +18,8 @@ abstract class BasePageState<TBloc extends Bloc, T extends StatefulWidget>
   }
 
   TBloc getBloc() {
-    return GetIt.instance.get<TBloc>();
+    print('get bloc');
+    return GetIt.I.get<TBloc>();
   }
 
   @override

@@ -16,13 +16,16 @@ class SearchWidget extends StatelessWidget {
     return InkWell(
       child: Column(
         children: [
+          const SizedBox(
+            height: 3,
+          ),
           Row(
             children: <Widget>[
               Flexible(
                 flex: 1,
                 fit: FlexFit.tight,
                 child: CachedNetworkImage(
-                  height: 70,
+                  height: 90,
                   imageUrl: searchItem.image.replaceRange(28, 36, '192x264'),
                   placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
@@ -51,6 +54,9 @@ class SearchWidget extends StatelessWidget {
                 ),
               ),
             ],
+          ),
+          const SizedBox(
+            height: 3,
           ),
           Container(
             height: 1,

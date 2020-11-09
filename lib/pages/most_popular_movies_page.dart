@@ -4,20 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/blocs/base_page_state.dart';
 import 'package:kinopoisk/core/blocs/most_popular_movies_page_bloc.dart';
 import 'package:kinopoisk/core/models/index.dart';
+import 'package:kinopoisk/core/services/dependency_service.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MostPopularMoviesPage extends StatefulWidget {
   @override
-  State<StatefulWidget> createState() {
-    return _MostPopularMovies();
-  }
+  State<StatefulWidget> createState() => _MostPopularMovies();
 }
 
 class _MostPopularMovies
     extends BasePageState<MostPopularMoviesBloc, MostPopularMoviesPage> {
   void initState() {
     super.initState();
+
     bloc.add(MoviesInitializeEvent());
   }
 
@@ -37,26 +37,28 @@ class _MostPopularMovies
                 const Center(
                   child: Text('no movies'),
                 ),
-              Container(
-                constraints: const BoxConstraints.expand(),
-                child: CarouselSlider.builder(
-                  itemCount: bloc.getMovies.length,
-                  options: CarouselOptions(
-                    autoPlay: true,
-                    enlargeCenterPage: true,
-                    aspectRatio: 2.0,
-                    height: double.infinity,
+              if (state is MoviesLoadedState)
+                Container(
+                  constraints: const BoxConstraints.expand(),
+                  child: CarouselSlider.builder(
+                    // carouselController: CarouselController(),
+                    itemCount: bloc.getMovies.length,
+                    options: CarouselOptions(
+                      autoPlay: true,
+                      enlargeCenterPage: true,
+                      aspectRatio: 2.0,
+                      height: double.infinity,
+                    ),
+                    itemBuilder: (__context, index) {
+                      MovieModel movie = bloc.getMovies[index];
+                      return MostPopularMoviesWidget(
+                          moveModel: movie,
+                          onTapCityFunction: (movie) {
+                            bloc.add(TapOnMoviesEvent(movie: movie));
+                          });
+                    },
                   ),
-                  itemBuilder: (__context, index) {
-                    MovieModel movie = bloc.getMovies[index];
-                    return MostPopularMoviesWidget(
-                      moveModel: movie,
-                      onTapCityFunction: (movie) =>
-                          bloc.add(TapOnMoviesEvent()),
-                    );
-                  },
                 ),
-              ),
             ],
           ),
         );

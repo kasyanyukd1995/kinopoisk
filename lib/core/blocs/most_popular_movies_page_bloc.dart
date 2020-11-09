@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/core/models/movie_model.dart';
+import 'package:kinopoisk/core/services/dependency_service.dart';
 import 'package:kinopoisk/data/repositories/data_repository.dart';
 
 class MostPopularMoviesBloc
@@ -25,7 +26,7 @@ class MostPopularMoviesBloc
         yield MoviesEmptyState();
       }
     } else if (event is TapOnMoviesEvent) {
-      NavigationService().navigateTo(Pages.movieInfo, arguments: event.movie);
+      navigationService.navigateTo(Pages.movieInfo, arguments: event.movie);
     }
   }
 

@@ -34,5 +34,6 @@ abstract class ShellEvent {}
 
 class ItemSelectedEvent extends ShellEvent {
   final int index;
+
   ItemSelectedEvent(this.index);
 }

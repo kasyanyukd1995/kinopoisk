@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:kinopoisk/core/models/movie_model.dart';
 import 'package:kinopoisk/core/models/similar_movie_model.dart';
 import 'package:kinopoisk/core/models/trailer_model.dart';
 
@@ -23,7 +24,7 @@ class TitleModel {
   final String countries;
   final String imDbRating;
 
-  final List<SimilarMovieModel> similars;
+  final List<MovieModel> similars;
 
   const TitleModel({
     this.id,

@@ -6,13 +6,11 @@ import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/pages/home_page.dart';
 import 'package:kinopoisk/pages/index.dart';
 import 'package:kinopoisk/pages/shell_page.dart';
-
 import 'pages/play_trailer_page.dart';
-
-GetIt getIt = GetIt.instance;
 
 void main() {
   //DependencyService.registerServices();
+  DependencyService.registerServices();
   runApp(MyApp());
 }
 
@@ -21,7 +19,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DependencyService.registerServices();
     return MaterialApp(
       title: 'MovieSearch',
       theme: ThemeData(

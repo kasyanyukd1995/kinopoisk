@@ -25,9 +25,8 @@ TitleModel _$TitleModelFromJson(Map<String, dynamic> json) {
     countries: json['countries'] as String,
     imDbRating: json['imDbRating'] as String,
     similars: (json['similars'] as List)
-        ?.map((e) => e == null
-            ? null
-            : SimilarMovieModel.fromJson(e as Map<String, dynamic>))
+        ?.map((e) =>
+            e == null ? null : MovieModel.fromJson(e as Map<String, dynamic>))
         ?.toList(),
   );
 }

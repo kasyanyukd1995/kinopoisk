@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/blocs/base_page_state.dart';
-import 'package:kinopoisk/core/repositories/movies_repository.dart';
+
 import 'package:kinopoisk/core/blocs/movies_bloc.dart';
-import 'package:kinopoisk/core/common/navigation_service.dart';
-import 'package:kinopoisk/core/models/list_movie_model.dart';
+
 import 'package:kinopoisk/core/models/movie_model.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/core/models/index.dart';

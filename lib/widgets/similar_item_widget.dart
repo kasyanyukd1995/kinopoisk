@@ -6,8 +6,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:kinopoisk/core/models/index.dart';
 
 class SimilarItemWidget extends StatelessWidget {
-  final SimilarMovieModel similarItem;
-  final Function(SimilarMovieModel obj) onTapMovieFunction;
+  final MovieModel similarItem;
+  final Function(MovieModel obj) onTapMovieFunction;
   const SimilarItemWidget({
     this.similarItem,
     this.onTapMovieFunction,
