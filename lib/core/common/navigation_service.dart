@@ -35,21 +35,6 @@ class NavigationService {
     return navigatorKey.currentState.pushReplacement(route);
   }
 
-/*
-  void goBackToShell({Pages page}) {
-    navigatorKey.currentState.popUntil((Route<dynamic> route) {
-      return route.isFirst;
-    });
-
-    changeShellTab(page);
-  }
-*/
-/*
-  void changeShellTab(Pages page) {
-    BlocProvider.of<ShellBloc>(mainGlobalKey.currentContext)
-        .add(ShellEvent.itemSelectedEvent(_shellPageToInt[page]));
-  }*/
-
   void goBack() {
     navigatorKey.currentState.pop();
   }
@@ -58,9 +43,6 @@ class NavigationService {
     Widget resultPage;
 
     switch (page) {
-      case Pages.home:
-        resultPage = HomePage();
-        break;
       case Pages.mostPopularMovies:
         resultPage = MostPopularMoviesPage();
         break;
@@ -85,7 +67,7 @@ class NavigationService {
         break;
 
       default:
-        resultPage = HomePage();
+        resultPage = ShellPage();
         break;
     }
 

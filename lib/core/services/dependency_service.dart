@@ -1,9 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:kinopoisk/core/blocs/most_popular_movies_page_bloc.dart';
-import 'package:kinopoisk/core/blocs/movie_info_page_bloc.dart';
-import 'package:kinopoisk/core/blocs/movies_bloc.dart';
-import 'package:kinopoisk/core/blocs/search_page_bloc.dart';
-import 'package:kinopoisk/core/blocs/shell_bloc.dart';
+import 'package:kinopoisk/core/blocs/index.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 
 final _ioc = GetIt.I;

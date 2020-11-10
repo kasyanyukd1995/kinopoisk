@@ -22,19 +22,18 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
       iconSize: 23,
       selectedItemColor: Colors.amber,
       currentIndex: widget.selectedItem,
-      // onTap: (newIndex) => setState(() => _index = newIndex),
       items: [
         bottomNavigationBarItem(
             Icons.home,
-            I18n.of(context).homePageBottomNavigationHome,
+            I18n.of(context).shellPageBottomNavigationHome,
             widget.onTappedFunction),
         bottomNavigationBarItem(
             Icons.movie,
-            I18n.of(context).homePageBottomNavigationMovies,
+            I18n.of(context).shellPageBottomNavigationMovies,
             widget.onTappedFunction),
         bottomNavigationBarItem(
             Icons.search,
-            I18n.of(context).homePageBottomNavigationSearch,
+            I18n.of(context).shellPageBottomNavigationSearch,
             widget.onTappedFunction),
       ],
       onTap: widget.onTappedFunction,

@@ -33,11 +33,11 @@ class I18n implements WidgetsLocalizations {
   TextDirection get textDirection => TextDirection.ltr;
 
   /// "Home"
-  String get homePageBottomNavigationHome => "Home";
+  String get shellPageBottomNavigationHome => "Home";
   /// "Movies"
-  String get homePageBottomNavigationMovies => "Movies";
+  String get shellPageBottomNavigationMovies => "Movies";
   /// "Search"
-  String get homePageBottomNavigationSearch => "Search";
+  String get shellPageBottomNavigationSearch => "Search";
   /// "Most Popular Movies Now"
   String get moviesPageTitleBlockMostPopularMoviesNow => "Most Popular Movies Now";
   /// "Most Popular TVs Now"
@@ -50,6 +50,8 @@ class I18n implements WidgetsLocalizations {
   String get movieInfoPageTitleBlockDirectors => "Directors";
   /// "Writers"
   String get movieInfoPageTitleBlockWriters => "Writers";
+  /// "Images"
+  String get movieInfoPageTitleBlockImages => "Images";
   /// "Stars"
   String get movieInfoPageTitleBlockStars => "Stars";
   /// "Countries"

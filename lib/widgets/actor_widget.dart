@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/models/actor_model.dart';
 import 'package:kinopoisk/pages/movie_info_page.dart';
+import 'index.dart';
 
 class ActorWidget extends StatelessWidget {
   final ActorModel actorItem;
@@ -28,8 +29,8 @@ class ActorWidget extends StatelessWidget {
                       : CachedNetworkImage(
                           height: 140,
                           imageUrl: actorItem.image,
-                          placeholder: (context, url) => const Center(
-                            child: CircularProgressIndicator(),
+                          placeholder: (context, url) => Center(
+                            child: MyCircularProgressIndicator(),
                           ),
                           errorWidget: (context, url, error) =>
                               const Icon(Icons.error),

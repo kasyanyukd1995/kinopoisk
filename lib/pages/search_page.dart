@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'package:kinopoisk/core/blocs/base_page_state.dart';
-import 'package:kinopoisk/core/blocs/search_page_bloc.dart';
-
+import 'package:kinopoisk/core/blocs/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
@@ -47,30 +44,20 @@ class _SearchPageState extends BasePageState<SearchBloc, SearchPage> {
                 decoration: inputDecoration,
               ),
             ),
-
-            /*if (state is SearchInitState)
-
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  gradient: const LinearGradient(
-                    colors: [
-                      Colors.white,
-                      Colors.grey,
-                    ],
+            if (state is SearchBusyState)
+              Center(
+                child: MyCircularProgressIndicator(),
+              ),
+            if (state is SearchEmptyState)
+              const Center(
+                child: Text(
+                  'not found',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22,
+                    fontWeight: FontWeight.w300,
                   ),
                 ),
-                child: TextField(
-                  onChanged: (value) {
-                    if (value.length > 3)
-                      bloc.add(BeginSearchEvent(title: value));
-                  },
-                  decoration: inputDecoration,
-                ),
-              ),*/
-            if (state is SearchBusyState)
-              const Center(
-                child: CircularProgressIndicator(),
               ),
             if (state is SearchLoadedState)
               Padding(
@@ -119,48 +106,3 @@ InputDecoration inputDecoration = InputDecoration(
   contentPadding: const EdgeInsets.all(16),
   enabledBorder: InputBorder.none,
 );
-
-// Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.black,
-//       body: SafeArea(
-//         child: Padding(
-//           padding: const EdgeInsets.symmetric(horizontal: 20),
-//           child: SearchBar<MovieItemSearchModel>(
-//             textStyle: const TextStyle(color: Colors.white),
-//             iconActiveColor: Colors.white,
-//             searchBarStyle: const SearchBarStyle(
-//               backgroundColor: Colors.white54,
-//             ),
-//             cancellationWidget: const Text(
-//               'Cancel',
-//               style: TextStyle(
-//                 color: Colors.white54,
-//               ),
-//             ),
-//             icon: const Icon(
-//               Icons.search,
-//               color: Colors.white,
-//               size: 30,
-//             ),
-//             shrinkWrap: true,
-//             onSearch: search,
-//             minimumChars: 3,
-//             hintText: 'Enter title your movie',
-//             onItemFound: (MovieItemSearchModel item, int index) {
-//               return SearchWidget(
-//                 searchItem: item,
-//                 onTapItemFunction: (obj) => Navigator.push(
-//                   context,
-//                   MaterialPageRoute(
-//                     builder: (BuildContext context) => MovieInfoPage(
-//                       titleId: item.id,
-//                     ),
-//                   ),
-//                 ),
-//               );
-//             },
-//           ),
-//         ),
-//       ),
-//     );

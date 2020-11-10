@@ -7,3 +7,4 @@ export 'movie_item_widget.dart';
 export 'similar_item_widget.dart';
 export 'directors_info_widget.dart';
 export 'writers_info_widget.dart';
+export 'circular_progress_indicator.dart';

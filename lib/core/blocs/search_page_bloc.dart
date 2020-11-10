@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/core/models/movie_item_search_model.dart';
 import 'package:kinopoisk/core/services/dependency_service.dart';
 import 'package:kinopoisk/data/repositories/data_repository.dart';
 
@@ -18,12 +16,11 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
   Stream<SearchState> mapEventToState(SearchEvent event) async* {
     if (event is SearchInitializeEvent) {
       yield SearchInitState();
-      //if (myController.text.length > 2) {}
     } else if (event is BeginSearchEvent) {
       if (event.title.length > 2) {
         yield SearchBusyState();
         _searchResult = await search(event.title);
-        if (_searchResult != null) {
+        if (_searchResult.length != 0) {
           yield SearchLoadedState();
         } else {
           yield SearchEmptyState();
@@ -60,5 +57,3 @@ class SearchInitState extends SearchState {}
 class SearchBusyState extends SearchState {}
 
 class SearchLoadedState extends SearchState {}
-
-class ErrorState extends SearchState {}

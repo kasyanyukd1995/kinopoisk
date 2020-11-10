@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
+import 'package:kinopoisk/core/models/image_model.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/core/models/movie_model.dart';
 import 'package:kinopoisk/core/services/dependency_service.dart';
@@ -9,6 +10,7 @@ import 'package:kinopoisk/data/repositories/data_repository.dart';
 class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
   TitleModel _movie;
   TrailerModel _trailer;
+  List<ImageModel> _images = [];
 
   MovieInfoPageBloc() : super(MovieInfoEmptyState());
 
@@ -20,6 +22,7 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
       yield MovieInfoBusyState();
       _movie = await getTitleDataModel(event.titleId);
       _trailer = await getTrailerDataModel(event.titleId);
+      _images = await getImagesData(event.titleId);
       if (_movie != null) {
         yield MovieInfoLoadedState();
       } else {
@@ -35,6 +38,7 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
   TitleModel get getMovieInfo => _movie;
   TrailerModel get geTrailer => _trailer;
   String get getUrlVideoId => _trailer.videoId;
+  List<ImageModel> get getImages => _images;
 }
 
 abstract class MovieInfoEvent {}
@@ -71,5 +75,3 @@ class MovieInfoInitState extends MovieInfoState {}
 class MovieInfoBusyState extends MovieInfoState {}
 
 class MovieInfoLoadedState extends MovieInfoState {}
-
-class ErrorState extends MovieInfoState {}

@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 import 'package:kinopoisk/core/models/movie_item_search_model.dart';
 
+import 'circular_progress_indicator.dart';
+
 class SearchWidget extends StatelessWidget {
   final MovieItemSearchModel searchItem;
   final Function(MovieItemSearchModel obj) onTapItemFunction;
@@ -27,8 +29,8 @@ class SearchWidget extends StatelessWidget {
                 child: CachedNetworkImage(
                   height: 90,
                   imageUrl: searchItem.image.replaceRange(28, 36, '192x264'),
-                  placeholder: (context, url) => const Center(
-                    child: CircularProgressIndicator(),
+                  placeholder: (context, url) => Center(
+                    child: MyCircularProgressIndicator(),
                   ),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                   fit: BoxFit.fill,

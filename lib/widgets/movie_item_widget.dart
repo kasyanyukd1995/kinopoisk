@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:kinopoisk/core/models/index.dart';
+import 'package:kinopoisk/widgets/index.dart';
 
 class MoveiItemWidget extends StatelessWidget {
   final MovieModel movieItem;
@@ -19,8 +20,19 @@ class MoveiItemWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              gradient: const LinearGradient(
+                begin: Alignment.topCenter,
+                //end: Alignment(0.8, 0.0),
+                colors: [
+                  Colors.white12,
+                  Colors.white30,
+                ],
+              ),
+            ),
             height: 180,
-            color: Colors.white12,
+            //color: Colors.white12,
             child: Column(
               children: [
                 Container(
@@ -34,8 +46,8 @@ class MoveiItemWidget extends StatelessWidget {
                               : movieItem.image
                           : movieItem.image,
                       height: 145,
-                      placeholder: (context, url) => const Center(
-                        child: CircularProgressIndicator(),
+                      placeholder: (context, url) => Center(
+                        child: MyCircularProgressIndicator(),
                       ),
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.error),

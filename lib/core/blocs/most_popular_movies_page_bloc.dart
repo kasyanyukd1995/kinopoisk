@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/core/models/movie_model.dart';
 import 'package:kinopoisk/core/services/dependency_service.dart';
 import 'package:kinopoisk/data/repositories/data_repository.dart';
 
@@ -10,22 +9,22 @@ class MostPopularMoviesBloc
     extends Bloc<MostPopularMoviesEvent, MostPopularMoviesState> {
   List<MovieModel> _movies = [];
 
-  MostPopularMoviesBloc() : super(MoviesEmptyState());
+  MostPopularMoviesBloc() : super(PopularMoviesEmptyState());
 
-  MostPopularMoviesState get initialState => MoviesEmptyState();
+  MostPopularMoviesState get initialState => PopularMoviesEmptyState();
 
   @override
   Stream<MostPopularMoviesState> mapEventToState(
       MostPopularMoviesEvent event) async* {
-    if (event is MoviesInitializeEvent) {
-      yield MoviesBusyState();
+    if (event is PopularMoviesInitializeEvent) {
+      yield PopularMoviesBusyState();
       _movies = await getMostPopularMovies();
       if (_movies != null) {
-        yield MoviesLoadedState();
+        yield PopularMoviesLoadedState();
       } else {
-        yield MoviesEmptyState();
+        yield PopularMoviesEmptyState();
       }
-    } else if (event is TapOnMoviesEvent) {
+    } else if (event is TapOnPopularMoviesEvent) {
       navigationService.navigateTo(Pages.movieInfo, arguments: event.movie);
     }
   }
@@ -35,22 +34,20 @@ class MostPopularMoviesBloc
 
 abstract class MostPopularMoviesEvent {}
 
-class MoviesInitializeEvent extends MostPopularMoviesEvent {}
+class PopularMoviesInitializeEvent extends MostPopularMoviesEvent {}
 
-class TapOnMoviesEvent extends MostPopularMoviesEvent {
+class TapOnPopularMoviesEvent extends MostPopularMoviesEvent {
   final MovieModel movie;
 
-  TapOnMoviesEvent({this.movie});
+  TapOnPopularMoviesEvent({this.movie});
 }
 
 abstract class MostPopularMoviesState {}
 
-class MoviesEmptyState extends MostPopularMoviesState {}
+class PopularMoviesEmptyState extends MostPopularMoviesState {}
 
-class MoviesInitState extends MostPopularMoviesState {}
+class PopularMoviesInitState extends MostPopularMoviesState {}
 
-class MoviesBusyState extends MostPopularMoviesState {}
+class PopularMoviesBusyState extends MostPopularMoviesState {}
 
-class MoviesLoadedState extends MostPopularMoviesState {}
-
-class ErrorState extends MostPopularMoviesState {}
+class PopularMoviesLoadedState extends MostPopularMoviesState {}

@@ -1,6 +1,6 @@
 {
     
-    "homePage": {
+    "shellPage": {
         "bottomNavigation" :{
             "home" : "Home",
             "movies": "Movies",
@@ -21,6 +21,7 @@
         "titleBlock":{
             "directors": "Directors",
             "writers" : "Writers",
+            "images" : "Images",
             "stars" : "Stars",
             "countries" : "Countries",
             "actors" : "Actors",

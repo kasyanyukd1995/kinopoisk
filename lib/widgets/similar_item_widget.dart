@@ -5,6 +5,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import 'package:kinopoisk/core/models/index.dart';
 
+import 'index.dart';
+
 class SimilarItemWidget extends StatelessWidget {
   final MovieModel similarItem;
   final Function(MovieModel obj) onTapMovieFunction;
@@ -30,8 +32,8 @@ class SimilarItemWidget extends StatelessWidget {
                       imageUrl:
                           similarItem.image.replaceRange(28, 36, '384x528'),
                       height: 145,
-                      placeholder: (context, url) => const Center(
-                        child: CircularProgressIndicator(),
+                      placeholder: (context, url) => Center(
+                        child: MyCircularProgressIndicator(),
                       ),
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.error),

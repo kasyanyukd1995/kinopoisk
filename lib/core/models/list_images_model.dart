@@ -1,20 +1,20 @@
-// import 'package:json_annotation/json_annotation.dart';
-// import 'image_model.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'image_model.dart';
 
-// part 'list_image_model.g.dart';
+part 'list_images_model.g.dart';
 
-// @JsonSerializable()
-// class ListImagesModel {
-//   final List<ImageModel> items;
+@JsonSerializable()
+class ListImagesModel {
+  final List<ImageModel> items;
 
-//   const ListImagesModel({
-//     this.items,
-//   });
+  const ListImagesModel({
+    this.items,
+  });
 
-//   static const fromJsonFactory = _$ListImagesModelFromJson;
+  static const fromJsonFactory = _$ListImagesModelFromJson;
 
-//   factory ListImagesModel.fromJson(Map<String, dynamic> json) =>
-//       _$ListImagesModelFromJson(json);
+  factory ListImagesModel.fromJson(Map<String, dynamic> json) =>
+      _$ListImagesModelFromJson(json);
 
-//   Map<String, dynamic> toJson() => _$ListImagesModelToJson(this);
-// }
+  Map<String, dynamic> toJson() => _$ListImagesModelToJson(this);
+}

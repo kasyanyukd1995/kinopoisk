@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/core/models/movie_item_search_model.dart';
 import 'package:kinopoisk/data/apikey.dart';
 
 Future<List<MovieModel>> getMostPopularMovies() async {
@@ -60,12 +58,12 @@ Future<TrailerModel> getTrailerDataModel(String title) async {
   }
 }
 
-Future<TrailerModel> getImagesDataModel(String title, String apikey) async {
+Future<List<ImageModel>> getImagesData(String title) async {
   final response = await http.get(
       'https://imdb-api.com/en/API/Images/' + apikey + '/' + title + '/short');
 
   if (response.statusCode == 200) {
-    return TrailerModel.fromJson(jsonDecode(response.body));
+    return ListImagesModel.fromJson(jsonDecode(response.body)).items;
   } else {
     throw Exception('Failed to load');
   }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/blocs/base_page_state.dart';
 import 'package:kinopoisk/core/blocs/most_popular_movies_page_bloc.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/core/services/dependency_service.dart';
+import 'package:kinopoisk/widgets/circular_progress_indicator.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,7 +18,7 @@ class _MostPopularMovies
   void initState() {
     super.initState();
 
-    bloc.add(MoviesInitializeEvent());
+    bloc.add(PopularMoviesInitializeEvent());
   }
 
   Widget build(BuildContext context) {
@@ -29,15 +29,15 @@ class _MostPopularMovies
           backgroundColor: Colors.black,
           body: Stack(
             children: [
-              if (state is MoviesBusyState)
-                const Center(
-                  child: CircularProgressIndicator(),
+              if (state is PopularMoviesBusyState)
+                Center(
+                  child: MyCircularProgressIndicator(),
                 ),
-              if (state is MoviesEmptyState)
+              if (state is PopularMoviesEmptyState)
                 const Center(
                   child: Text('no movies'),
                 ),
-              if (state is MoviesLoadedState)
+              if (state is PopularMoviesLoadedState)
                 Container(
                   constraints: const BoxConstraints.expand(),
                   child: CarouselSlider.builder(
@@ -54,7 +54,7 @@ class _MostPopularMovies
                       return MostPopularMoviesWidget(
                           moveModel: movie,
                           onTapCityFunction: (movie) {
-                            bloc.add(TapOnMoviesEvent(movie: movie));
+                            bloc.add(TapOnPopularMoviesEvent(movie: movie));
                           });
                     },
                   ),

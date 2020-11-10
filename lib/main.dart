@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_it/get_it.dart';
 import 'package:kinopoisk/core/services/dependency_service.dart';
 import 'package:kinopoisk/generated/i18n.dart';
-import 'package:kinopoisk/pages/home_page.dart';
 import 'package:kinopoisk/pages/index.dart';
-import 'package:kinopoisk/pages/shell_page.dart';
-import 'pages/play_trailer_page.dart';
 
 void main() {
   //DependencyService.registerServices();
