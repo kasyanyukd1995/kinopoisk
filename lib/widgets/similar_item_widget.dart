@@ -2,9 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-
 import 'package:kinopoisk/core/models/index.dart';
-
 import 'index.dart';
 
 class SimilarItemWidget extends StatelessWidget {

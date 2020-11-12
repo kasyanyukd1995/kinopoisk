@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/pages/movies_page.dart';
-import 'package:kinopoisk/widgets/directors_info_widget.dart';
 
 class WritersinfoWidget extends StatelessWidget {
   final TitleModel titleItem;
@@ -14,7 +13,7 @@ class WritersinfoWidget extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Visibility(
-      visible: checkData(titleItem.writers),
+      visible: _checkData(titleItem.writers),
       child: Column(
         children: [
           Align(
@@ -39,5 +38,10 @@ class WritersinfoWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  bool _checkData(String text) {
+    if (text == '') return false;
+    return true;
   }
 }

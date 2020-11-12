@@ -15,7 +15,7 @@
         }
     },
     "searchPage":{
-        "cancel":"Cancel"
+        "textField":"Enter title your movie"
     },
     "movieInfoPage":{
         "titleBlock":{

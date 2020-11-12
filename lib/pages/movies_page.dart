@@ -20,7 +20,6 @@ class MoviesPage extends StatefulWidget {
 }
 
 class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
-  //final moviesRepository = MoviesRepository();
   int countViewMovie = 30;
   @override
   void initState() {

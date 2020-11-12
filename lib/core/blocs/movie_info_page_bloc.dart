@@ -31,7 +31,8 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
     } else if (event is TapOnActorEvent) {
       navigationService.navigateTo(Pages.actorInfo, arguments: event.actor);
     } else if (event is TapOnSimilarMovieEvent) {
-      navigationService.navigateTo(Pages.movieInfo, arguments: event.movie);
+      navigationService.navigateWithReplacementTo(Pages.movieInfo,
+          arguments: event.movie);
     }
   }
 

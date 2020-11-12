@@ -24,7 +24,6 @@ class MoveiItemWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
               gradient: const LinearGradient(
                 begin: Alignment.topCenter,
-                //end: Alignment(0.8, 0.0),
                 colors: [
                   Colors.white12,
                   Colors.white30,
@@ -32,7 +31,6 @@ class MoveiItemWidget extends StatelessWidget {
               ),
             ),
             height: 180,
-            //color: Colors.white12,
             child: Column(
               children: [
                 Container(

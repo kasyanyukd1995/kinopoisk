@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/core/services/dependency_service.dart';
+import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/widgets/index.dart';
 
 class SearchPage extends StatefulWidget {
@@ -91,7 +92,7 @@ class _SearchPageState extends BasePageState<SearchBloc, SearchPage> {
 }
 
 InputDecoration inputDecoration = InputDecoration(
-  hintText: 'Enter title your movie',
+  hintText: const I18n().searchPageTextField,
   prefixIcon: const Icon(
     Icons.search,
     color: Colors.grey,

@@ -44,8 +44,8 @@ class I18n implements WidgetsLocalizations {
   String get moviesPageTitleBlockMostPopularTVsNow => "Most Popular TVs Now";
   /// "Top 250 Movies"
   String get moviesPageTitleBlockTop250Movies => "Top 250 Movies";
-  /// "Cancel"
-  String get searchPageCancel => "Cancel";
+  /// "Enter title your movie"
+  String get searchPageTextField => "Enter title your movie";
   /// "Directors"
   String get movieInfoPageTitleBlockDirectors => "Directors";
   /// "Writers"

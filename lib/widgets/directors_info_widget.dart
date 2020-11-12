@@ -4,11 +4,6 @@ import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/pages/movies_page.dart';
 
-bool checkData(String text) {
-  if (text == '') return false;
-  return true;
-}
-
 class DirectorinfoWidget extends StatelessWidget {
   final TitleModel titleItem;
 
@@ -18,7 +13,7 @@ class DirectorinfoWidget extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Visibility(
-      visible: checkData(titleItem.directors),
+      visible: _checkData(titleItem.directors),
       child: Column(
         children: [
           Align(
@@ -43,5 +38,10 @@ class DirectorinfoWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  bool _checkData(String text) {
+    if (text == '') return false;
+    return true;
   }
 }

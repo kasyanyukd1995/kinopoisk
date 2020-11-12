@@ -1,10 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/core/blocs/base_page_state.dart';
-import 'package:kinopoisk/core/blocs/most_popular_movies_page_bloc.dart';
+import 'package:kinopoisk/core/blocs/index.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/widgets/circular_progress_indicator.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,7 +39,6 @@ class _MostPopularMovies
                 Container(
                   constraints: const BoxConstraints.expand(),
                   child: CarouselSlider.builder(
-                    // carouselController: CarouselController(),
                     itemCount: bloc.getMovies.length,
                     options: CarouselOptions(
                       autoPlay: true,

@@ -13,20 +13,10 @@ import 'package:kinopoisk/core/services/dependency_service.dart';
 import 'package:kinopoisk/data/repositories/data_repository.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kinopoisk/pages/index.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:kinopoisk/widgets/directors_info_widget.dart';
 import 'package:kinopoisk/widgets/index.dart';
-import 'package:kinopoisk/data/apikey.dart';
-import 'package:http/http.dart' as http;
 import 'package:kinopoisk/widgets/writers_info_widget.dart';
-import 'dart:convert';
-import 'dart:async';
-import 'actor_info_page.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
-
-//import 'package:kinopoisk/widgets/video_play.dart';
 
 class MovieInfoPage extends StatefulWidget {
   final String titleId;
