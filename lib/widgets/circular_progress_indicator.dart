@@ -4,6 +4,6 @@ Widget MyCircularProgressIndicator() {
   return const CircularProgressIndicator(
     backgroundColor: Colors.grey,
     valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-    strokeWidth: 5,
+    strokeWidth: 2,
   );
 }

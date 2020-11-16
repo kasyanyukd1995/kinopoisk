@@ -23,7 +23,7 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
       _movie = await getTitleDataModel(event.titleId);
       _trailer = await getTrailerDataModel(event.titleId);
       _images = await getImagesData(event.titleId);
-      if (_movie != null) {
+      if (_movie != null && _trailer != null && _images != null) {
         yield MovieInfoLoadedState();
       } else {
         yield MovieInfoEmptyState();
