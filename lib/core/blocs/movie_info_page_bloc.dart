@@ -5,7 +5,6 @@ import 'package:kinopoisk/core/models/image_model.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/core/models/movie_model.dart';
 import 'package:kinopoisk/core/services/dependency_service.dart';
-import 'package:kinopoisk/data/repositories/data_repository.dart';
 
 class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
   TitleModel _movie;
@@ -20,9 +19,9 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
   Stream<MovieInfoState> mapEventToState(MovieInfoEvent event) async* {
     if (event is MovieInfoInitializeEvent) {
       yield MovieInfoBusyState();
-      _movie = await getTitleDataModel(event.titleId);
-      _trailer = await getTrailerDataModel(event.titleId);
-      _images = await getImagesData(event.titleId);
+      _movie = await dataRepository.getTitleDataModel(event.titleId);
+      _trailer = await dataRepository.getTrailerDataModel(event.titleId);
+      _images = await dataRepository.getImagesData(event.titleId);
       if (_movie != null && _trailer != null && _images != null) {
         yield MovieInfoLoadedState();
       } else {

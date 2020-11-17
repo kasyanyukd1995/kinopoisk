@@ -18,12 +18,22 @@ class SimilarItemWidget extends StatelessWidget {
       child: Row(
         children: [
           Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              gradient: const LinearGradient(
+                begin: Alignment.topCenter,
+                colors: [
+                  Colors.white12,
+                  Colors.white30,
+                ],
+              ),
+            ),
             height: 180,
-            color: Colors.white12,
+            // color: Colors.white12,
             child: Column(
               children: [
                 Container(
-                  width: 130,
+                  width: 120,
                   height: 140,
                   child: Center(
                     child: CachedNetworkImage(
@@ -47,14 +57,14 @@ class SimilarItemWidget extends StatelessWidget {
                   width: 130,
                   padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
                   child: Center(
-                    child: similarItem.title.length > 16
+                    child: similarItem.title.length > 18
                         ? Text(
-                            similarItem.title,
+                            similarItem.title.substring(0, 16) + '...',
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Colors.white70,
-                              fontSize: 9,
-                              fontWeight: FontWeight.w300,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w400,
                             ),
                           )
                         : Text(

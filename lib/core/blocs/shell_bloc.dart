@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
-import 'package:kinopoisk/core/services/dependency_service.dart';
 
 class ShellBloc extends Bloc<ShellEvent, ShellState> {
   final List<Pages> pages = [
