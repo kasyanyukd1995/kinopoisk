@@ -1,0 +1,34 @@
+{
+    
+    "shellPage": {
+        "bottomNavigation" :{
+            "home" : "Home",
+            "movies": "Movies",
+            "search" : "Search"
+        }
+    },
+    "moviesPage" : {
+        "titleBlock":{
+            "mostPopularMoviesNow": "Most Popular Movies Now",
+            "mostPopularTVsNow": "Most Popular TVs Now",
+            "top250Movies": "Top 250 Movies"
+        }
+    },
+    "searchPage":{
+        "textField":"Enter title your movie"
+    },
+    "movieInfoPage":{
+        "titleBlock":{
+            "directors": "Directors",
+            "writers" : "Writers",
+            "images" : "Images",
+            "stars" : "Stars",
+            "countries" : "Countries",
+            "actors" : "Actors",
+            "similars" : "Similars"
+        }
+        
+    }
+    
+    
+}
