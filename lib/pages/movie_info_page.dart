@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,16 +5,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:kinopoisk/core/blocs/base_page_state.dart';
 import 'package:kinopoisk/core/blocs/movie_info_page_bloc.dart';
-import 'package:kinopoisk/core/common/navigation_service.dart';
-import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/core/services/dependency_service.dart';
-import 'package:kinopoisk/data/repositories/data_repository.dart';
-import 'package:kinopoisk/generated/i18n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/widgets/directors_info_widget.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:kinopoisk/widgets/writers_info_widget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
+import '../generated/i18n.dart';
 
 class MovieInfoPage extends StatefulWidget {
   final String titleId;
@@ -156,7 +151,12 @@ class _MovieInfoPageState
                                           borderRadius:
                                               BorderRadius.circular(13.0),
                                           child: catchExceptionForImage(
-                                              bloc.getMovieInfo.image, null),
+                                              bloc.getMovieInfo.image[8] == 'm'
+                                                  ? bloc.getMovieInfo.image
+                                                  : bloc.getMovieInfo.image
+                                                      .replaceRange(
+                                                          28, 36, '150x140'),
+                                              null),
                                         ),
                                       ),
                                       rating != null
@@ -184,7 +184,9 @@ class _MovieInfoPageState
                                     ],
                                   ),
                                 )
-                              : bloc.getMovieInfo.imDbRating != ''
+                              : bloc.getMovieInfo.imDbRating.runtimeType
+                                          is! String &&
+                                      bloc.getMovieInfo.imDbRating != null
                                   ? RatingBar(
                                       initialRating: double.parse(
                                               bloc.getMovieInfo.imDbRating) /

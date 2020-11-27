@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/core/services/dependency_service.dart';
-import 'package:kinopoisk/data/repositories/data_repository.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState> {
   List<MovieItemSearchModel> _searchResult = [];
@@ -19,7 +18,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     } else if (event is BeginSearchEvent) {
       if (event.title.length > 2) {
         yield SearchBusyState();
-        _searchResult = await search(event.title);
+        _searchResult = await dataRepository.search(event.title);
         if (_searchResult.length != 0) {
           yield SearchLoadedState();
         } else {
