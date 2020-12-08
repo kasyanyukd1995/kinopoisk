@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/pages/movies_page.dart';
+import 'package:kinopoisk/pages/movie_info_page.dart';
 
 class DirectorinfoWidget extends StatelessWidget {
   final TitleModel titleItem;
@@ -20,7 +20,7 @@ class DirectorinfoWidget extends StatelessWidget {
             alignment: Alignment.centerLeft,
             child: Text(
               I18n.of(context).movieInfoPageTitleBlockDirectors,
-              style: textStyleForTitle,
+              style: textStyleForTitleBlock,
             ),
           ),
           Align(

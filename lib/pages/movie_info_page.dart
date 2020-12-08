@@ -150,8 +150,28 @@ class _MovieInfoPageState
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(13.0),
-                                          child: catchExceptionForImage(
-                                              bloc.getMovieInfo.image, null),
+                                          child: CachedNetworkImage(
+                                            imageUrl:
+                                                bloc.getMovieInfo.image[8] !=
+                                                        'm'
+                                                    ? bloc.getMovieInfo.image
+                                                        .replaceRange(
+                                                            28, 36, '180x300')
+                                                    : bloc.getMovieInfo.image,
+                                            placeholder: (context, url) => Center(
+                                                child:
+                                                    MyCircularProgressIndicator()),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    const Icon(Icons.error),
+                                            fit: BoxFit.fill,
+                                            fadeInCurve: Curves.easeIn,
+                                            fadeInDuration:
+                                                const Duration(seconds: 2),
+                                            fadeOutCurve: Curves.easeOut,
+                                            fadeOutDuration:
+                                                const Duration(seconds: 2),
+                                          ),
                                         ),
                                       ),
                                       rating != null

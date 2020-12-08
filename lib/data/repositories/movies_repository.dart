@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:kinopoisk/core/models/index.dart';
 
-String apikey = 'k_5L4Q67F4';
-String baseURL = 'https://imdb-api.com/en/API/';
+const String baseURL = 'https://imdb-api.com/en/API/';
+const String apikey = 'k_5L4Q67F4';
 
 class DataRepository {
   Future<List<MovieModel>> getMostPopularMovies() async {
@@ -27,7 +27,7 @@ class DataRepository {
   }
 
   Future<List<MovieModel>> getMostPopularTVs() async {
-    final response = await http.get(baseURL + 'MostPopularTVs/' + apikey);
+    final response = await http.get(baseURL + '/MostPopularTVs/' + apikey);
 
     if (response.statusCode == 200) {
       return ListMovieModel.fromJson(jsonDecode(response.body)).items;
@@ -37,7 +37,7 @@ class DataRepository {
   }
 
   Future<TitleModel> getTitleDataModel(String title) async {
-    final response = await http.get(baseURL + 'Title/' + apikey + '/' + title);
+    final response = await http.get(baseURL + '/Title/' + apikey + '/' + title);
 
     if (response.statusCode == 200) {
       return TitleModel.fromJson(jsonDecode(response.body));
@@ -48,7 +48,7 @@ class DataRepository {
 
   Future<TrailerModel> getTrailerDataModel(String title) async {
     final response =
-        await http.get(baseURL + 'YouTubeTrailer/' + apikey + '/' + title);
+        await http.get(baseURL + '/YouTubeTrailer/' + apikey + '/' + title);
 
     if (response.statusCode == 200) {
       return TrailerModel.fromJson(jsonDecode(response.body));
@@ -59,7 +59,7 @@ class DataRepository {
 
   Future<List<ImageModel>> getImagesData(String title) async {
     final response =
-        await http.get(baseURL + 'Images/' + apikey + '/' + title + '/short');
+        await http.get(baseURL + '/Images/' + apikey + '/' + title + '/short');
 
     if (response.statusCode == 200) {
       return ListImagesModel.fromJson(jsonDecode(response.body)).items;
@@ -71,7 +71,7 @@ class DataRepository {
   Future<List<MovieItemSearchModel>> search(String search) async {
     //await Future.delayed(const Duration(seconds: 3));
     final response =
-        await http.get(baseURL + 'SearchTitle/' + apikey + '/' + search);
+        await http.get(baseURL + '/SearchTitle/' + apikey + '/' + search);
     if (response.statusCode == 200) {
       return SearchResultModel.fromJson(jsonDecode(response.body)).results;
     } else {
