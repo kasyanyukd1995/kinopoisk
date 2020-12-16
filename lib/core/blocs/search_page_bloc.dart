@@ -18,7 +18,7 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
     } else if (event is BeginSearchEvent) {
       if (event.title.length > 2) {
         yield SearchBusyState();
-        _searchResult = await dataRepository.search(event.title);
+        _searchResult = await moviesRepository.search(event.title);
         if (_searchResult.length != 0) {
           yield SearchLoadedState();
         } else {

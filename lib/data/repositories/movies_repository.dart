@@ -1,14 +1,13 @@
 import 'dart:convert';
-import 'package:http/http.dart' as http;
 import 'package:kinopoisk/core/models/index.dart';
+import 'package:kinopoisk/core/services/dependency_service.dart';
 
-const String baseURL = 'https://imdb-api.com/en/API/';
 const String apikey = 'k_5L4Q67F4';
 
-class DataRepository {
+class MoviesRepository {
   Future<List<MovieModel>> getMostPopularMovies() async {
-    final response = await http.get(baseURL + 'MostPopularMovies/' + apikey);
-
+    final response =
+        await getDataWithImdbService.fetchMostPopularMovies(apiKey: apikey);
     if (response.statusCode == 200) {
       return ListMovieModel.fromJson(jsonDecode(response.body)).items;
     } else {
@@ -17,8 +16,8 @@ class DataRepository {
   }
 
   Future<List<MovieModel>> getTop250Movies() async {
-    final response = await http.get(baseURL + 'Top250Movies/' + apikey);
-
+    final response =
+        await getDataWithImdbService.fetchTop250Movies(apiKey: apikey);
     if (response.statusCode == 200) {
       return ListMovieModel.fromJson(jsonDecode(response.body)).items;
     } else {
@@ -27,7 +26,8 @@ class DataRepository {
   }
 
   Future<List<MovieModel>> getMostPopularTVs() async {
-    final response = await http.get(baseURL + '/MostPopularTVs/' + apikey);
+    final response =
+        await getDataWithImdbService.fetchMostPopularTVs(apiKey: apikey);
 
     if (response.statusCode == 200) {
       return ListMovieModel.fromJson(jsonDecode(response.body)).items;
@@ -36,9 +36,9 @@ class DataRepository {
     }
   }
 
-  Future<TitleModel> getTitleDataModel(String title) async {
-    final response = await http.get(baseURL + '/Title/' + apikey + '/' + title);
-
+  Future<TitleModel> getTitleDataModel(String idMovie) async {
+    final response = await getDataWithImdbService.fetchInfoAboutMovie(
+        apiKey: apikey, idMovie: idMovie);
     if (response.statusCode == 200) {
       return TitleModel.fromJson(jsonDecode(response.body));
     } else {
@@ -46,10 +46,9 @@ class DataRepository {
     }
   }
 
-  Future<TrailerModel> getTrailerDataModel(String title) async {
-    final response =
-        await http.get(baseURL + '/YouTubeTrailer/' + apikey + '/' + title);
-
+  Future<TrailerModel> getTrailerDataModel(String idMovie) async {
+    final response = await getDataWithImdbService.fetchTrailerOfMovie(
+        apiKey: apikey, idMovie: idMovie);
     if (response.statusCode == 200) {
       return TrailerModel.fromJson(jsonDecode(response.body));
     } else {
@@ -57,9 +56,9 @@ class DataRepository {
     }
   }
 
-  Future<List<ImageModel>> getImagesData(String title) async {
-    final response =
-        await http.get(baseURL + '/Images/' + apikey + '/' + title + '/short');
+  Future<List<ImageModel>> getImagesData(String idMovie) async {
+    final response = await getDataWithImdbService.fetchImagesOfMovie(
+        apiKey: apikey, idMovie: idMovie);
 
     if (response.statusCode == 200) {
       return ListImagesModel.fromJson(jsonDecode(response.body)).items;
@@ -69,9 +68,8 @@ class DataRepository {
   }
 
   Future<List<MovieItemSearchModel>> search(String search) async {
-    //await Future.delayed(const Duration(seconds: 3));
-    final response =
-        await http.get(baseURL + '/SearchTitle/' + apikey + '/' + search);
+    final response = await getDataWithImdbService.fetchSearchMovie(
+        apiKey: apikey, title: search);
     if (response.statusCode == 200) {
       return SearchResultModel.fromJson(jsonDecode(response.body)).results;
     } else {

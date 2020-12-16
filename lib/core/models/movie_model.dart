@@ -9,7 +9,7 @@ class MovieModel {
   final String image;
   final String imDbRating;
 
-  const MovieModel({
+  MovieModel({
     this.id,
     this.title,
     this.image,
