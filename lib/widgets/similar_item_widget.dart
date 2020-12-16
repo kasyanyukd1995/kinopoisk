@@ -29,7 +29,6 @@ class SimilarItemWidget extends StatelessWidget {
               ),
             ),
             height: 180,
-            // color: Colors.white12,
             child: Column(
               children: [
                 Container(

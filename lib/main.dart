@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kinopoisk/core/services/dependency_service.dart';
+import 'package:kinopoisk/core/common/dependency_service.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/pages/index.dart';
 
 void main() {
-  //DependencyService.registerServices();
   DependencyService.registerServices();
   runApp(MyApp());
 }

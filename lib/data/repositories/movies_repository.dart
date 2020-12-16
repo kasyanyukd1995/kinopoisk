@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/core/services/dependency_service.dart';
+import 'package:kinopoisk/core/common/dependency_service.dart';
 
 const String apikey = 'k_5L4Q67F4';
 

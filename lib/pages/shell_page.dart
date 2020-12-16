@@ -20,7 +20,6 @@ class _ShellPageState extends BasePageState<ShellBloc, ShellPage> {
           builder: (context, state) {
             return Scaffold(
               appBar: AppBarWidget(),
-              //key: const Key(Keys.shellPage),
               backgroundColor: Colors.black,
               body: IndexedStack(
                 index: bloc.selectedItemIndex,

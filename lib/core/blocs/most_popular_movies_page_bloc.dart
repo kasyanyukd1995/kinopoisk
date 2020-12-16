@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/cache/movies_dao.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/core/services/dependency_service.dart';
+import 'package:kinopoisk/core/common/dependency_service.dart';
 
 class MostPopularMoviesBloc
     extends Bloc<MostPopularMoviesEvent, MostPopularMoviesState> {
