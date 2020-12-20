@@ -32,20 +32,20 @@ class _$ImdbApiService extends ImdbApiService {
     return client.send<dynamic, dynamic>($request);
   }
 
-  Future<Response> fetchInfoAboutMovie({String apiKey, String idMovie}) {
-    final $url = 'https://imdb-api.com/API/Title/${apiKey}/${idMovie}';
+  Future<Response> fetchInfoAboutMovie({String apiKey, String movieId}) {
+    final $url = 'https://imdb-api.com/API/Title/${apiKey}/${movieId}';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
-  Future<Response> fetchTrailerOfMovie({String apiKey, String idMovie}) {
-    final $url = 'https://imdb-api.com/API/YouTubeTrailer/${apiKey}/${idMovie}';
+  Future<Response> fetchTrailerOfMovie({String apiKey, String movieId}) {
+    final $url = 'https://imdb-api.com/API/YouTubeTrailer/${apiKey}/${movieId}';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }
 
-  Future<Response> fetchImagesOfMovie({String apiKey, String idMovie}) {
-    final $url = 'https://imdb-api.com/API/Images/${apiKey}/${idMovie}/short';
+  Future<Response> fetchImagesOfMovie({String apiKey, String movieId}) {
+    final $url = 'https://imdb-api.com/API/Images/${apiKey}/${movieId}/short';
     final $request = Request('GET', $url, client.baseUrl);
     return client.send<dynamic, dynamic>($request);
   }

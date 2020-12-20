@@ -22,17 +22,17 @@ abstract class ImdbApiService extends ChopperService {
   @Get(path: '/API/Title/{apiKey}/{id}')
   Future<Response> fetchInfoAboutMovie(
       {@Path('apiKey') @required String apiKey,
-      @Path('id') @required String idMovie});
+      @Path('id') @required String movieId});
 
   @Get(path: '/API/YouTubeTrailer/{apiKey}/{id}')
   Future<Response> fetchTrailerOfMovie(
       {@Path('apiKey') @required String apiKey,
-      @Path('id') @required String idMovie});
+      @Path('id') @required String movieId});
 
   @Get(path: '/API/Images/{apiKey}/{id}/short')
   Future<Response> fetchImagesOfMovie(
       {@Path('apiKey') @required String apiKey,
-      @Path('id') @required String idMovie});
+      @Path('id') @required String movieId});
 
   @Get(path: '/API/SearchTitle/{apiKey}/{title}')
   Future<Response> fetchSearchMovie(
