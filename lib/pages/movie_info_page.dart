@@ -13,6 +13,8 @@ import 'package:kinopoisk/widgets/index.dart';
 import 'package:kinopoisk/widgets/writers_info_widget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import '../generated/i18n.dart';
+
 class MovieInfoPage extends StatefulWidget {
   final String titleId;
   final String rating;
@@ -199,7 +201,9 @@ class _MovieInfoPageState
                                     ],
                                   ),
                                 )
-                              : bloc.getMovieInfo.imDbRating != ''
+                              : bloc.getMovieInfo.imDbRating.runtimeType
+                                          is! String &&
+                                      bloc.getMovieInfo.imDbRating != null
                                   ? RatingBar(
                                       initialRating: double.parse(
                                               bloc.getMovieInfo.imDbRating) /

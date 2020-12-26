@@ -9,6 +9,7 @@ class MoviesRepository {
     final response =
         await getDataWithImdbService.fetchMostPopularMovies(apiKey: apikey);
     if (response.statusCode == 200) {
+      print('success');
       return ListMovieModel.fromJson(jsonDecode(response.body)).items;
     } else {
       throw Exception('Failed to load album');
@@ -19,6 +20,7 @@ class MoviesRepository {
     final response =
         await getDataWithImdbService.fetchTop250Movies(apiKey: apikey);
     if (response.statusCode == 200) {
+      print('success');
       return ListMovieModel.fromJson(jsonDecode(response.body)).items;
     } else {
       throw Exception('Failed to load album');
@@ -30,37 +32,41 @@ class MoviesRepository {
         await getDataWithImdbService.fetchMostPopularTVs(apiKey: apikey);
 
     if (response.statusCode == 200) {
+      print('success');
       return ListMovieModel.fromJson(jsonDecode(response.body)).items;
     } else {
       throw Exception('Failed to load album');
     }
   }
 
-  Future<TitleModel> getTitleDataModel(String idMovie) async {
+  Future<TitleModel> getTitleDataModel(String movieId) async {
     final response = await getDataWithImdbService.fetchInfoAboutMovie(
-        apiKey: apikey, idMovie: idMovie);
+        apiKey: apikey, idMovie: movieId);
     if (response.statusCode == 200) {
+      print('success');
       return TitleModel.fromJson(jsonDecode(response.body));
     } else {
       throw Exception('Failed to load');
     }
   }
 
-  Future<TrailerModel> getTrailerDataModel(String idMovie) async {
+  Future<TrailerModel> getTrailerDataModel(String movieId) async {
     final response = await getDataWithImdbService.fetchTrailerOfMovie(
-        apiKey: apikey, idMovie: idMovie);
+        apiKey: apikey, idMovie: movieId);
     if (response.statusCode == 200) {
+      print('success');
       return TrailerModel.fromJson(jsonDecode(response.body));
     } else {
       throw Exception('Failed to load');
     }
   }
 
-  Future<List<ImageModel>> getImagesData(String idMovie) async {
+  Future<List<ImageModel>> getImagesData(String movieId) async {
     final response = await getDataWithImdbService.fetchImagesOfMovie(
-        apiKey: apikey, idMovie: idMovie);
+        apiKey: apikey, idMovie: movieId);
 
     if (response.statusCode == 200) {
+      print('success');
       return ListImagesModel.fromJson(jsonDecode(response.body)).items;
     } else {
       throw Exception('Failed to load');
@@ -71,6 +77,7 @@ class MoviesRepository {
     final response = await getDataWithImdbService.fetchSearchMovie(
         apiKey: apikey, title: search);
     if (response.statusCode == 200) {
+      print('success');
       return SearchResultModel.fromJson(jsonDecode(response.body)).results;
     } else {
       throw Exception('Failed to load album');

@@ -61,7 +61,7 @@ class NavigationService {
       case Pages.movieInfo:
         final movie = arguments as MovieModel;
         resultPage = MovieInfoPage(
-          rating: movie.imDbRating,
+          rating: movie.imDbRating != '' ? movie.imDbRating : null,
           titleId: movie.id,
         );
         break;
