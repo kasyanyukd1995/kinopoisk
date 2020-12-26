@@ -2,12 +2,11 @@ import 'dart:convert';
 import 'package:kinopoisk/core/common/dependency_service.dart';
 import 'package:kinopoisk/core/models/cache_wrappers/data_cache_wrapper.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/data/repositories/movies_repository.dart';
 
 const String mkey = 'mostPopularMovies';
 
 class MostPopularMoviesRepository {
-  Future<List<MovieModel>> getMostPopularMovies1() async {
+  Future<List<MovieModel>> fetchMostPopularMovies() async {
     final cachedData = await _provideMostPopularMoviesFromCache();
 
     if (cachedData?.movies?.isNotEmpty == true) {
@@ -48,6 +47,5 @@ class MostPopularMoviesRepository {
             lastUpdatedDate: DateTime.now(),
             movies: movies))) as Map<String, dynamic>);
     print(cacheDatabase);
-    print('df');
   }
 }

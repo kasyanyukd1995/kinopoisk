@@ -1,7 +1,4 @@
 import 'dart:async';
-
-import 'package:get_it/get_it.dart';
-import 'package:kinopoisk/core/common/dependency_service.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sembast/sembast.dart';
 import 'package:sembast/sembast_io.dart';
@@ -14,7 +11,6 @@ class CacheDatabase {
     final DatabaseFactory dbFactory = databaseFactoryIo;
     _database = await dbFactory.openDatabase(await _getDbPath());
     print('initialize datadase');
-    //DependencyService.registerBlocs(GetIt.I);
     return _database;
   }
 

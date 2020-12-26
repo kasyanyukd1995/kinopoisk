@@ -30,7 +30,6 @@ class DependencyService {
       },
     );
     _registerBlocs(_ioc);
-    // _registerBlocs(_ioc);
     _ioc.registerLazySingleton(() => NavigationService());
     _ioc.registerLazySingleton(() => MoviesRepository());
     _ioc.registerLazySingleton(() => MostPopularMoviesRepository());
