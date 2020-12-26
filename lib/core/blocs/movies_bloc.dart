@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/core/models/movie_model.dart';
 import 'package:kinopoisk/core/common/dependency_service.dart';
 
 class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {

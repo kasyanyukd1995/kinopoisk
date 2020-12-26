@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/blocs/index.dart';
-import 'package:kinopoisk/core/models/movie_model.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/widgets/index.dart';
