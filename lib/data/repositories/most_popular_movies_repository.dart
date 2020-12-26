@@ -6,6 +6,7 @@ import 'package:kinopoisk/core/models/index.dart';
 const String mkey = 'mostPopularMovies';
 
 class MostPopularMoviesRepository {
+  // ignore: missing_return
   Future<List<MovieModel>> fetchMostPopularMovies() async {
     final cachedData = await _provideMostPopularMoviesFromCache();
 
@@ -23,8 +24,6 @@ class MostPopularMoviesRepository {
     if (remoteMovies != null && remoteMovies.isNotEmpty) {
       _saveMpMoviesToCache(remoteMovies);
     }
-
-    return remoteMovies;
   }
 
   Future<DataCacheWrapper> _provideMostPopularMoviesFromCache() async {
@@ -46,6 +45,5 @@ class MostPopularMoviesRepository {
             key: 'mostPopularMovies',
             lastUpdatedDate: DateTime.now(),
             movies: movies))) as Map<String, dynamic>);
-    print(cacheDatabase);
   }
 }
