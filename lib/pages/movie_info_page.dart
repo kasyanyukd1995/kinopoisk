@@ -3,14 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:kinopoisk/core/blocs/base_page_state.dart';
-import 'package:kinopoisk/core/blocs/movie_info_page_bloc.dart';
-
+import 'package:kinopoisk/core/blocs/index.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kinopoisk/widgets/directors_info_widget.dart';
 import 'package:kinopoisk/widgets/index.dart';
-import 'package:kinopoisk/widgets/writers_info_widget.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class MovieInfoPage extends StatefulWidget {

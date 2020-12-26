@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/core/blocs/base_page_state.dart';
+import 'package:kinopoisk/core/blocs/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kinopoisk/core/blocs/shell_bloc.dart';
 import 'package:kinopoisk/pages/index.dart';
 import 'package:kinopoisk/widgets/app_bar_widget.dart';
 import 'package:kinopoisk/widgets/bottom_navigation_bar_widget.dart';
