@@ -5,6 +5,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:kinopoisk/core/blocs/base_page_state.dart';
 import 'package:kinopoisk/core/blocs/movie_info_page_bloc.dart';
+
+import 'package:kinopoisk/generated/i18n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/widgets/directors_info_widget.dart';
 import 'package:kinopoisk/widgets/index.dart';
@@ -150,13 +152,28 @@ class _MovieInfoPageState
                                         child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(13.0),
-                                          child: catchExceptionForImage(
-                                              bloc.getMovieInfo.image[8] == 'm'
-                                                  ? bloc.getMovieInfo.image
-                                                  : bloc.getMovieInfo.image
-                                                      .replaceRange(
-                                                          28, 36, '150x140'),
-                                              null),
+                                          child: CachedNetworkImage(
+                                            imageUrl:
+                                                bloc.getMovieInfo.image[8] !=
+                                                        'm'
+                                                    ? bloc.getMovieInfo.image
+                                                        .replaceRange(
+                                                            28, 36, '180x300')
+                                                    : bloc.getMovieInfo.image,
+                                            placeholder: (context, url) => Center(
+                                                child:
+                                                    MyCircularProgressIndicator()),
+                                            errorWidget:
+                                                (context, url, error) =>
+                                                    const Icon(Icons.error),
+                                            fit: BoxFit.fill,
+                                            fadeInCurve: Curves.easeIn,
+                                            fadeInDuration:
+                                                const Duration(seconds: 2),
+                                            fadeOutCurve: Curves.easeOut,
+                                            fadeOutDuration:
+                                                const Duration(seconds: 2),
+                                          ),
                                         ),
                                       ),
                                       rating != null

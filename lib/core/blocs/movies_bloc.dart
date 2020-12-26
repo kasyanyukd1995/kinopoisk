@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/core/models/movie_model.dart';
-import 'package:kinopoisk/core/services/dependency_service.dart';
+import 'package:kinopoisk/core/common/dependency_service.dart';
 
 class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   List<MovieModel> _mostPopMovies = [];
@@ -18,9 +18,9 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   Stream<MoviesState> mapEventToState(MoviesEvent event) async* {
     if (event is MoviesInitializeEvent) {
       yield MoviesBusyState();
-      _mostPopMovies = await dataRepository.getMostPopularMovies();
-      _mostPopTvs = await dataRepository.getMostPopularTVs();
-      _top250Movies = await dataRepository.getTop250Movies();
+      _mostPopMovies = await moviesRepository.getMostPopularMovies();
+      _mostPopTvs = await moviesRepository.getMostPopularTVs();
+      _top250Movies = await moviesRepository.getTop250Movies();
 
       if (_mostPopMovies != null &&
           _mostPopTvs != null &&
