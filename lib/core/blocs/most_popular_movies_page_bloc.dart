@@ -1,15 +1,15 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kinopoisk/core/cache/movies_dao.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/core/common/dependency_service.dart';
+import 'package:kinopoisk/core/cache/cache_database.dart';
+import 'package:sembast/sembast.dart';
 
 class MostPopularMoviesBloc
     extends Bloc<MostPopularMoviesEvent, MostPopularMoviesState> {
   List<MovieModel> _movies = [];
-  MoviesDao _moviesDao = MoviesDao();
 
   MostPopularMoviesBloc() : super(PopularMoviesEmptyState());
 
@@ -20,13 +20,17 @@ class MostPopularMoviesBloc
       MostPopularMoviesEvent event) async* {
     if (event is PopularMoviesInitializeEvent) {
       yield PopularMoviesBusyState();
-      _movies = await moviesRepository.getMostPopularMovies();
+      //_movies = await mostPopularMoviesRepository.getMostPopularMovies1();
+      _movies = await mostPopularMoviesRepository.getMostPopularMovies1();
       if (_movies != null) {
         yield PopularMoviesLoadedState();
       } else {
         yield PopularMoviesEmptyState();
       }
     } else if (event is TapOnPopularMoviesEvent) {
+      // final moviesss =
+      //     await mostPopularMoviesRepository.getMostPopularMovies1();
+      // var a = moviesss;
       navigationService.navigateTo(Pages.movieInfo, arguments: event.movie);
     }
   }
@@ -53,7 +57,3 @@ class PopularMoviesInitState extends MostPopularMoviesState {}
 class PopularMoviesBusyState extends MostPopularMoviesState {}
 
 class PopularMoviesLoadedState extends MostPopularMoviesState {}
-
-MovieModel getRandomMovies(List<MovieModel> movies) {
-  return movies[Random().nextInt(movies.length)];
-}

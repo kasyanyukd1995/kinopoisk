@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/core/common/dependency_service.dart';
+import 'package:kinopoisk/core/cache/cache_database.dart';
+
+import 'package:sembast/sembast.dart';
 
 const String apikey = 'k_5L4Q67F4';
 
@@ -39,9 +42,9 @@ class MoviesRepository {
     }
   }
 
-  Future<TitleModel> getTitleDataModel(String idMovie) async {
+  Future<TitleModel> getTitleDataModel(String movieId) async {
     final response = await getDataWithImdbService.fetchInfoAboutMovie(
-        apiKey: apikey, idMovie: idMovie);
+        apiKey: apikey, movieId: movieId);
     if (response.statusCode == 200) {
       print('success');
       return TitleModel.fromJson(jsonDecode(response.body));
@@ -50,9 +53,9 @@ class MoviesRepository {
     }
   }
 
-  Future<TrailerModel> getTrailerDataModel(String idMovie) async {
+  Future<TrailerModel> getTrailerDataModel(String movieId) async {
     final response = await getDataWithImdbService.fetchTrailerOfMovie(
-        apiKey: apikey, idMovie: idMovie);
+        apiKey: apikey, movieId: movieId);
     if (response.statusCode == 200) {
       print('success');
       return TrailerModel.fromJson(jsonDecode(response.body));
@@ -61,9 +64,9 @@ class MoviesRepository {
     }
   }
 
-  Future<List<ImageModel>> getImagesData(String idMovie) async {
+  Future<List<ImageModel>> getImagesData(String movieId) async {
     final response = await getDataWithImdbService.fetchImagesOfMovie(
-        apiKey: apikey, idMovie: idMovie);
+        apiKey: apikey, movieId: movieId);
 
     if (response.statusCode == 200) {
       print('success');

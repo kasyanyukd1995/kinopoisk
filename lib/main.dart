@@ -6,6 +6,7 @@ import 'package:kinopoisk/pages/index.dart';
 
 void main() {
   DependencyService.registerServices();
+  print('end registration');
   runApp(MyApp());
 }
 
