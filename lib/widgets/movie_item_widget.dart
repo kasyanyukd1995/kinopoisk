@@ -61,35 +61,25 @@ class MoveiItemWidget extends StatelessWidget {
                   width: 130,
                   padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
                   child: Center(
-                    child: movieItem.title.length > 45
+                    child: movieItem.title.length > 18
                         ? Text(
+                            movieItem.title.substring(0, 16) + '...',
+                            textAlign: TextAlign.center,
+                            style: const TextStyle(
+                              color: Colors.white70,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          )
+                        : Text(
                             movieItem.title,
                             textAlign: TextAlign.center,
                             style: const TextStyle(
                               color: Colors.white70,
-                              fontSize: 6,
-                              fontWeight: FontWeight.w100,
+                              fontSize: 11,
+                              fontWeight: FontWeight.w400,
                             ),
-                          )
-                        : movieItem.title.length > 16
-                            ? Text(
-                                movieItem.title,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.white70,
-                                  fontSize: 9,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              )
-                            : Text(
-                                movieItem.title,
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Colors.white70,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
+                          ),
                   ),
                 ),
                 movieItem.imDbRating != ''

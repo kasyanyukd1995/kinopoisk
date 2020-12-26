@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kinopoisk/core/common/dependency_service.dart';
 import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/core/services/dependency_service.dart';
 
 class MostPopularMoviesBloc
     extends Bloc<MostPopularMoviesEvent, MostPopularMoviesState> {
@@ -17,7 +17,7 @@ class MostPopularMoviesBloc
       MostPopularMoviesEvent event) async* {
     if (event is PopularMoviesInitializeEvent) {
       yield PopularMoviesBusyState();
-      _movies = await dataRepository.getMostPopularMovies();
+      _movies = await mostPopularMoviesRepository.fetchMostPopularMovies();
       if (_movies != null) {
         yield PopularMoviesLoadedState();
       } else {
