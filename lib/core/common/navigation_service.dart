@@ -12,6 +12,7 @@ enum Pages {
   movieInfo,
   mostPopularMovies,
   actorInfo,
+  favourites,
   search,
 }
 
@@ -22,7 +23,8 @@ class NavigationService {
     Pages.home: 0,
     Pages.mostPopularMovies: 1,
     Pages.movies: 2,
-    Pages.search: 3,
+    Pages.favourites: 3,
+    Pages.search: 4,
   };
 
   Future<dynamic> navigateTo(Pages page, {Object arguments}) {
@@ -49,6 +51,9 @@ class NavigationService {
       case Pages.movies:
         resultPage = MoviesPage();
         break;
+      case Pages.favourites:
+        resultPage = MoviesPage();
+        break;
       case Pages.search:
         resultPage = SearchPage();
         break;
@@ -61,7 +66,7 @@ class NavigationService {
       case Pages.movieInfo:
         final movie = arguments as MovieModel;
         resultPage = MovieInfoPage(
-          rating: movie.imDbRating,
+          rating: movie.imDbRating == '' ? null : movie.imDbRating,
           titleId: movie.id,
         );
         break;

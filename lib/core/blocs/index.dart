@@ -4,3 +4,4 @@ export 'movie_info_page_bloc.dart';
 export 'movies_bloc.dart';
 export 'shell_bloc.dart';
 export 'search_page_bloc.dart';
+export 'favourites_bloc.dart';

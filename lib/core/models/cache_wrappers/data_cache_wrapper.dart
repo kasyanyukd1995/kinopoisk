@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:kinopoisk/core/models/movie_model.dart';
+import 'package:kinopoisk/core/models/index.dart';
 
 part 'data_cache_wrapper.g.dart';
 

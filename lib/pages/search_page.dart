@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/blocs/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kinopoisk/core/common/navigation_service.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/core/common/dependency_service.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/widgets/index.dart';
 
@@ -74,8 +72,7 @@ class _SearchPageState extends BasePageState<SearchBloc, SearchPage> {
                             searchItem: bloc.getSearchResult[index],
                             onTapItemFunction: (obj) {
                               final movie = MovieModel(id: obj.id);
-                              navigationService.navigateTo(Pages.movieInfo,
-                                  arguments: movie);
+                              bloc.add(TapOnItemEvent(movie: movie));
                             },
                           );
                         },

@@ -110,6 +110,13 @@ class _MovieInfoPageState
                                 fontWeight: FontWeight.w100,
                               ),
                             ),
+                            const Spacer(),
+                            ButtonAddToFavouritesWidget(
+                              titleModel: bloc.getMovieInfo,
+                              onTapButtonFunction: (obj) => bloc.add(
+                                  TapOnAddToFavouritesEvent(titleModel: obj)),
+                            ),
+                            const SizedBox(width: 10),
                           ],
                         ),
                       ),

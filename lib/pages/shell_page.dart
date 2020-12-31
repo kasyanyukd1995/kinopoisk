@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/blocs/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/pages/index.dart';
-import 'package:kinopoisk/widgets/app_bar_widget.dart';
-import 'package:kinopoisk/widgets/bottom_navigation_bar_widget.dart';
+import 'package:kinopoisk/widgets/index.dart';
 
 class ShellPage extends StatefulWidget {
   @override
@@ -25,6 +24,7 @@ class _ShellPageState extends BasePageState<ShellBloc, ShellPage> {
                 children: [
                   MostPopularMoviesPage(),
                   MoviesPage(),
+                  FavouritesPage(),
                   SearchPage(),
                 ],
               ),

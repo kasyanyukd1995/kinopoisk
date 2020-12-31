@@ -1,10 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kinopoisk/core/common/navigation_service.dart';
+import 'package:kinopoisk/core/common/index.dart';
 
 class ShellBloc extends Bloc<ShellEvent, ShellState> {
   final List<Pages> pages = [
     Pages.home,
     Pages.movies,
+    Pages.favourites,
     Pages.search,
   ];
 

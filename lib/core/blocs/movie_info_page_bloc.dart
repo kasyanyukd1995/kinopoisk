@@ -1,8 +1,7 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:kinopoisk/core/common/navigation_service.dart';
+import 'package:kinopoisk/core/common/index.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/core/common/dependency_service.dart';
 
 class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
   TitleModel _movie;
@@ -31,6 +30,13 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
     } else if (event is TapOnSimilarMovieEvent) {
       navigationService.navigateWithReplacementTo(Pages.movieInfo,
           arguments: event.movie);
+    } else if (event is TapOnAddToFavouritesEvent) {
+      favouritesMoviesRepository.addMoviesToFavourites(event.titleModel);
+      favouritesService.addItemToFavourites(MovieModel(
+          id: _movie.id,
+          imDbRating: _movie.imDbRating,
+          image: _movie.image,
+          title: _movie.title));
     }
   }
 
@@ -63,6 +69,11 @@ class TapOnPlayTrailerEvent extends MovieInfoEvent {
 class TapOnSimilarMovieEvent extends MovieInfoEvent {
   final MovieModel movie;
   TapOnSimilarMovieEvent({this.movie});
+}
+
+class TapOnAddToFavouritesEvent extends MovieInfoEvent {
+  final TitleModel titleModel;
+  TapOnAddToFavouritesEvent({this.titleModel});
 }
 
 abstract class MovieInfoState {}

@@ -6,13 +6,6 @@ k_5L4Q67F4
 k_AkH52o3p
 flutter packages pub run build_runner build --delete-conflicting-outputs
 
-1. попровить const
-2.1 создать модели нужные
-2.2. сделаьть navigation service
-
-
-3. using Getit 
-4. создать файлы repository, 
 
 
 

@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kinopoisk/core/models/actor_model.dart';
-import 'package:kinopoisk/pages/movie_info_page.dart';
+import 'package:kinopoisk/core/models/index.dart';
+import 'package:kinopoisk/pages/index.dart';
 import 'index.dart';
 
 class ActorWidget extends StatelessWidget {
@@ -19,7 +19,15 @@ class ActorWidget extends StatelessWidget {
         children: <Widget>[
           Container(
             height: 170,
-            color: Colors.white12,
+            decoration: const BoxDecoration(
+              gradient: const LinearGradient(
+                begin: Alignment.bottomCenter,
+                colors: [
+                  Colors.white12,
+                  Colors.white30,
+                ],
+              ),
+            ),
             child: Column(
               children: <Widget>[
                 ClipRRect(

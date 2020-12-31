@@ -36,6 +36,8 @@ class I18n implements WidgetsLocalizations {
   String get shellPageBottomNavigationHome => "Home";
   /// "Movies"
   String get shellPageBottomNavigationMovies => "Movies";
+  /// "Favourites"
+  String get shellPageBottomNavigationFavourites => "Favourites";
   /// "Search"
   String get shellPageBottomNavigationSearch => "Search";
   /// "Most Popular Movies Now"
@@ -46,6 +48,8 @@ class I18n implements WidgetsLocalizations {
   String get moviesPageTitleBlockTop250Movies => "Top 250 Movies";
   /// "Enter title your movie"
   String get searchPageTextField => "Enter title your movie";
+  /// "Add to favourites"
+  String get movieInfoPageTitleBlockAddToFavourites => "Add to favourites";
   /// "Directors"
   String get movieInfoPageTitleBlockDirectors => "Directors";
   /// "Writers"

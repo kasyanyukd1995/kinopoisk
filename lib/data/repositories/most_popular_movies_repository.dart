@@ -1,19 +1,20 @@
 import 'dart:convert';
-import 'package:kinopoisk/core/common/dependency_service.dart';
-import 'package:kinopoisk/core/models/cache_wrappers/data_cache_wrapper.dart';
+import 'package:kinopoisk/core/common/index.dart';
 import 'package:kinopoisk/core/models/index.dart';
 
-const String mkey = 'mostPopularMovies';
-
 class MostPopularMoviesRepository {
+  static const expirationCacheDays = 2;
+  static const String mostPopularMoviesKey = 'mostPopularMovies';
+
   Future<List<MovieModel>> fetchMostPopularMovies() async {
     final cachedData = await _provideMostPopularMoviesFromCache();
 
     if (cachedData?.movies?.isNotEmpty == true) {
-      if (DateTime.now().difference(cachedData.lastUpdatedDate).inDays >= 2) {
+      if (DateTime.now().difference(cachedData.lastUpdatedDate).inDays >=
+          expirationCacheDays) {
         final cacheDb = await cacheDatabase;
 
-        await cacheDb.dropData(mkey);
+        await cacheDb.dropData(mostPopularMoviesKey);
       } else {
         return cachedData.movies;
       }
@@ -30,7 +31,7 @@ class MostPopularMoviesRepository {
   Future<DataCacheWrapper> _provideMostPopularMoviesFromCache() async {
     final cacheDb = await cacheDatabase;
     final mostPopularMoviesWrapper = await cacheDb.getAll(
-        'mostPopularMovies', DataCacheWrapper.fromJsonFactory);
+        mostPopularMoviesKey, DataCacheWrapper.fromJsonFactory);
 
     return mostPopularMoviesWrapper != null &&
             mostPopularMoviesWrapper.isNotEmpty
@@ -41,9 +42,9 @@ class MostPopularMoviesRepository {
   Future _saveMpMoviesToCache(List<MovieModel> movies) async {
     final cacheDb = await cacheDatabase;
     await cacheDb.saveMap(
-        mkey,
+        mostPopularMoviesKey,
         json.decode(json.encode(DataCacheWrapper(
-            key: 'mostPopularMovies',
+            key: mostPopularMoviesKey,
             lastUpdatedDate: DateTime.now(),
             movies: movies))) as Map<String, dynamic>);
     print(cacheDatabase);

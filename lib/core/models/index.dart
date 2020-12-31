@@ -8,3 +8,5 @@ export 'trailer_model.dart';
 export 'movie_item_search_model.dart';
 export 'list_images_model.dart';
 export 'image_model.dart';
+export 'cache_wrappers/data_cache_wrapper.dart';
+export 'favouritesMoviesWrappers/favourites_movies_wrapper.dart';

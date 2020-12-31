@@ -4,6 +4,7 @@
         "bottomNavigation" :{
             "home" : "Home",
             "movies": "Movies",
+            "favourites": "Favourites",
             "search" : "Search"
         }
     },
@@ -19,6 +20,7 @@
     },
     "movieInfoPage":{
         "titleBlock":{
+            "addToFavourites":"Add to favourites",
             "directors": "Directors",
             "writers" : "Writers",
             "images" : "Images",

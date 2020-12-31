@@ -18,9 +18,8 @@ class BottomNavigationBarWidget extends StatefulWidget {
 class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: Colors.black,
-      iconSize: 23,
-      selectedItemColor: Colors.amber,
+      backgroundColor: Colors.transparent,
+      iconSize: 20,
       currentIndex: widget.selectedItem,
       items: [
         bottomNavigationBarItem(
@@ -30,6 +29,10 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
         bottomNavigationBarItem(
             Icons.movie,
             I18n.of(context).shellPageBottomNavigationMovies,
+            widget.onTappedFunction),
+        bottomNavigationBarItem(
+            Icons.favorite_sharp,
+            I18n.of(context).shellPageBottomNavigationFavourites,
             widget.onTappedFunction),
         bottomNavigationBarItem(
             Icons.search,
@@ -54,5 +57,6 @@ BottomNavigationBarItem bottomNavigationBarItem(
       nameItem,
       style: const TextStyle(color: Colors.white),
     ),
+    backgroundColor: Colors.black,
   );
 }
