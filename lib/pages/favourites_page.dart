@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/blocs/index.dart';
+import 'package:kinopoisk/widgets/favourite_item_widget.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,9 +38,28 @@ class _FavouritesPageState
                 ListView.builder(
                   itemBuilder: (context, index) {
                     final movie = bloc.getFavouritesMovies[index];
-                    return Text(
-                      movie.title,
-                      style: const TextStyle(color: Colors.white),
+                    return FavouriteItemWidget(
+                      movieItem: movie,
+                      onTapItemFunction: (obj) => bloc.add(
+                        TapOnFavouritesMoviesEvent(movie: movie),
+                      ),
+                      onTapDeleteMovieFunction: (obj) => bloc
+                          .add(DeleteMovieFromFavourites(movieModel: movie)),
+                    );
+                  },
+                  itemCount: bloc.getFavouritesMovies.length,
+                ),
+              if (state is FavouritesChangeListState)
+                ListView.builder(
+                  itemBuilder: (context, index) {
+                    final movie = bloc.getFavouritesMovies[index];
+                    return FavouriteItemWidget(
+                      movieItem: movie,
+                      onTapItemFunction: (obj) => bloc.add(
+                        TapOnFavouritesMoviesEvent(movie: movie),
+                      ),
+                      onTapDeleteMovieFunction: (obj) => bloc
+                          .add(DeleteMovieFromFavourites(movieModel: movie)),
                     );
                   },
                   itemCount: bloc.getFavouritesMovies.length,

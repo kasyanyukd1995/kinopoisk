@@ -7,6 +7,7 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
   TitleModel _movie;
   TrailerModel _trailer;
   List<ImageModel> _images = [];
+  String _titleAddFavouritesOrNo = 'Add to favourites';
 
   MovieInfoPageBloc() : super(MovieInfoEmptyState());
 
@@ -21,6 +22,11 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
       _trailer = await moviesRepository.getTrailerDataModel(event.titleId);
       _images = await moviesRepository.getImagesData(event.titleId);
       if (_movie != null && _trailer != null && _images != null) {
+        if (favouritesMoviesRepository.checkMovieInFavourites(
+                favouritesMoviesRepository.mapTitleModelToMovieModel(_movie)) ==
+            true) {
+          _titleAddFavouritesOrNo = 'Delete from Favourites';
+        }
         yield MovieInfoLoadedState();
       } else {
         yield MovieInfoEmptyState();
@@ -31,12 +37,17 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
       navigationService.navigateWithReplacementTo(Pages.movieInfo,
           arguments: event.movie);
     } else if (event is TapOnAddToFavouritesEvent) {
-      favouritesMoviesRepository.addMoviesToFavourites(event.titleModel);
-      favouritesService.addItemToFavourites(MovieModel(
-          id: _movie.id,
-          imDbRating: _movie.imDbRating,
-          image: _movie.image,
-          title: _movie.title));
+      if (_titleAddFavouritesOrNo == 'Add to favourites') {
+        favouritesService.addItemToFavourites(
+            favouritesMoviesRepository.mapTitleModelToMovieModel(_movie));
+        _titleAddFavouritesOrNo = 'Delete from Favourites';
+        yield MovieInfoLoadedState(addOrDelete: false);
+      } else {
+        favouritesService.deleteItemFromFavourites(
+            favouritesMoviesRepository.mapTitleModelToMovieModel(_movie));
+        _titleAddFavouritesOrNo = 'Add to favourites';
+        yield MovieInfoLoadedState(addOrDelete: true);
+      }
     }
   }
 
@@ -44,6 +55,7 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
   TrailerModel get geTrailer => _trailer;
   String get getUrlVideoId => _trailer.videoId;
   List<ImageModel> get getImages => _images;
+  String get getTitleAddFavouritesOrNo => _titleAddFavouritesOrNo;
 }
 
 abstract class MovieInfoEvent {}
@@ -84,4 +96,8 @@ class MovieInfoInitState extends MovieInfoState {}
 
 class MovieInfoBusyState extends MovieInfoState {}
 
-class MovieInfoLoadedState extends MovieInfoState {}
+class MovieInfoLoadedState extends MovieInfoState {
+  final bool addOrDelete;
+
+  MovieInfoLoadedState({this.addOrDelete});
+}

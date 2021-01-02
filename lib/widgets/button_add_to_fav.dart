@@ -5,11 +5,15 @@ import 'package:kinopoisk/generated/i18n.dart';
 
 class ButtonAddToFavouritesWidget extends StatelessWidget {
   final TitleModel titleModel;
+  final String titleButton;
+  final bool addOrDelete;
 
   final Function(TitleModel obj) onTapButtonFunction;
   ButtonAddToFavouritesWidget({
     this.titleModel,
     this.onTapButtonFunction,
+    this.titleButton,
+    this.addOrDelete,
   });
 
   Widget build(BuildContext context) {
@@ -28,15 +32,21 @@ class ButtonAddToFavouritesWidget extends StatelessWidget {
         ),
         child: Row(
           children: [
-            const Icon(
-              Icons.add_box,
-              color: Colors.black,
-              size: 30,
-            ),
+            addOrDelete == true
+                ? const Icon(
+                    Icons.add_box_outlined,
+                    color: Colors.black,
+                    size: 20,
+                  )
+                : const Icon(
+                    Icons.delete_outline,
+                    color: Colors.black,
+                    size: 20,
+                  ),
             Text(
-              I18n.of(context).movieInfoPageTitleBlockAddToFavourites,
+              titleButton,
               style: const TextStyle(
-                fontSize: 12.0,
+                fontSize: 10.0,
                 fontWeight: FontWeight.w400,
               ),
             ),

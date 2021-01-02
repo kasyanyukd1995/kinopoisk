@@ -113,10 +113,12 @@ class _MovieInfoPageState
                             const Spacer(),
                             ButtonAddToFavouritesWidget(
                               titleModel: bloc.getMovieInfo,
+                              titleButton: bloc.getTitleAddFavouritesOrNo,
+                              addOrDelete: state.addOrDelete,
                               onTapButtonFunction: (obj) => bloc.add(
                                   TapOnAddToFavouritesEvent(titleModel: obj)),
                             ),
-                            const SizedBox(width: 10),
+                            const SizedBox(width: 7),
                           ],
                         ),
                       ),

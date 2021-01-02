@@ -4,32 +4,55 @@ import 'package:kinopoisk/core/models/index.dart';
 
 class FavouritesMoviesRepository {
   static const String favouritesMoviesKey = 'favouritesMovies';
+  List<MovieModel> _favouritesList = [];
+  FavouritesMoviesWrapper _cachedData;
+  List<MovieModel> get getFavouritesList => _favouritesList;
   Future<List<MovieModel>> fetchFavouritesMovies() async {
-    final cachedData = await _provideFavouritesMoviesFromCache();
-    if (cachedData != null)
-      return cachedData.movies != null && cachedData.movies.isNotEmpty
-          ? cachedData.movies
+    _cachedData = await _provideFavouritesMoviesFromCache();
+    if (_cachedData != null) {
+      _favouritesList = _cachedData.movies;
+      return _cachedData.movies != null && _cachedData.movies.isNotEmpty
+          ? _cachedData.movies
           : null;
+    }
     return null;
   }
 
-  Future addMoviesToFavourites(TitleModel titleModel) async {
-    final movieItem = titleModelmapToMovieModel(titleModel);
-    int count = 0;
-    final cachedData = await _provideFavouritesMoviesFromCache();
-    if (cachedData != null) {
-      for (MovieModel item in cachedData.movies) {
-        if (item.id == movieItem.id) count++;
-      }
-      if (count == 0) {
-        cachedData.movies.add(movieItem);
-        _saveFavouritesMoviesToCache(cachedData.movies);
+  addMoviesToFavourites(MovieModel movieItem) {
+    if (_cachedData != null) {
+      if (checkMovieInFavourites(movieItem) == false) {
+        _favouritesList.add(movieItem);
+        _saveFavouritesMoviesToCache(_favouritesList);
       }
     } else {
-      List<MovieModel> listFavouritesMovies = [];
-      listFavouritesMovies.add(movieItem);
-      _saveFavouritesMoviesToCache(listFavouritesMovies);
+      _favouritesList.add(movieItem);
+      _saveFavouritesMoviesToCache(_favouritesList);
     }
+  }
+
+  deleteMovieFromFavourites(MovieModel movieItem) {
+    _favouritesList.removeWhere((element) => element.id == movieItem.id);
+    _saveFavouritesMoviesToCache(_favouritesList);
+  }
+
+  MovieModel mapTitleModelToMovieModel(TitleModel titleModel) {
+    return MovieModel(
+        id: titleModel.id,
+        imDbRating: titleModel.imDbRating,
+        image: titleModel.image,
+        title: titleModel.title);
+  }
+
+  bool checkMovieInFavourites(MovieModel movieItem) {
+    int count = 0;
+    if (_favouritesList != null) {
+      for (MovieModel item in _favouritesList)
+        if (item.id == movieItem.id) count++;
+    } else {
+      return false;
+    }
+
+    return count == 0 ? false : true;
   }
 
   MovieModel titleModelmapToMovieModel(TitleModel titleModel) {

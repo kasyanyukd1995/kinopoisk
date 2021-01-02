@@ -18,7 +18,6 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
       yield MoviesBusyState();
       _mostPopMovies =
           await mostPopularMoviesRepository.fetchMostPopularMovies();
-
       _mostPopTvs = await mostPopularTVsRepository.fetchMostPopularTVs();
       _top250Movies = await top250MoviesRepository.fetchTop250Movies();
 

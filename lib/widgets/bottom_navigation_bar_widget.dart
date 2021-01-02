@@ -23,15 +23,15 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
       currentIndex: widget.selectedItem,
       items: [
         bottomNavigationBarItem(
-            Icons.home,
+            Icons.home_outlined,
             I18n.of(context).shellPageBottomNavigationHome,
             widget.onTappedFunction),
         bottomNavigationBarItem(
-            Icons.movie,
+            Icons.movie_outlined,
             I18n.of(context).shellPageBottomNavigationMovies,
             widget.onTappedFunction),
         bottomNavigationBarItem(
-            Icons.favorite_sharp,
+            Icons.favorite_outline,
             I18n.of(context).shellPageBottomNavigationFavourites,
             widget.onTappedFunction),
         bottomNavigationBarItem(
@@ -55,7 +55,7 @@ BottomNavigationBarItem bottomNavigationBarItem(
     // ignore: deprecated_member_use
     title: Text(
       nameItem,
-      style: const TextStyle(color: Colors.white),
+      style: const TextStyle(color: Colors.white, fontSize: 10),
     ),
     backgroundColor: Colors.black,
   );
