@@ -49,21 +49,6 @@ class _FavouritesPageState
                   },
                   itemCount: bloc.getFavouritesMovies.length,
                 ),
-              if (state is FavouritesChangeListState)
-                ListView.builder(
-                  itemBuilder: (context, index) {
-                    final movie = bloc.getFavouritesMovies[index];
-                    return FavouriteItemWidget(
-                      movieItem: movie,
-                      onTapItemFunction: (obj) => bloc.add(
-                        TapOnFavouritesMoviesEvent(movie: movie),
-                      ),
-                      onTapDeleteMovieFunction: (obj) => bloc
-                          .add(DeleteMovieFromFavourites(movieModel: movie)),
-                    );
-                  },
-                  itemCount: bloc.getFavouritesMovies.length,
-                ),
             ],
           ),
         );

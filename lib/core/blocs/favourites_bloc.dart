@@ -32,12 +32,12 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
     } else if (event is ChangeFavouritesListEvent) {
       _favouritesMovies = favouritesMoviesRepository.getFavouritesList;
 
-      yield FavouritesChangeListState();
+      yield FavouritesLoadedState();
     } else if (event is DeleteMovieFromFavourites) {
       favouritesMoviesRepository.deleteMovieFromFavourites(event.movieModel);
       _favouritesMovies = favouritesMoviesRepository.getFavouritesList;
 
-      yield FavouritesChangeListState();
+      yield FavouritesLoadedState();
     }
   }
 

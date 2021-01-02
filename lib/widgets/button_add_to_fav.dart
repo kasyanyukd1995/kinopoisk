@@ -1,13 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:kinopoisk/core/blocs/index.dart';
 import 'package:kinopoisk/core/models/index.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 
 class ButtonAddToFavouritesWidget extends StatelessWidget {
   final TitleModel titleModel;
   final String titleButton;
-  final bool addOrDelete;
-
+  final TitleButton addOrDelete;
   final Function(TitleModel obj) onTapButtonFunction;
   ButtonAddToFavouritesWidget({
     this.titleModel,
@@ -32,7 +32,7 @@ class ButtonAddToFavouritesWidget extends StatelessWidget {
         ),
         child: Row(
           children: [
-            addOrDelete == true
+            addOrDelete == TitleButton.add
                 ? const Icon(
                     Icons.add_box_outlined,
                     color: Colors.black,

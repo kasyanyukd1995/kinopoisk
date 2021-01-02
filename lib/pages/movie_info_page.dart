@@ -400,7 +400,9 @@ class _MovieInfoPageState
                                     ],
                                   );
                                 },
-                                itemCount: bloc.getImages.length,
+                                itemCount: bloc.getImages.length > 20
+                                    ? 20
+                                    : bloc.getImages.length,
                               ),
                             ),
                           ),

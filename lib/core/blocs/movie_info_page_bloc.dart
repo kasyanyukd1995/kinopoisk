@@ -3,6 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/index.dart';
 import 'package:kinopoisk/core/models/index.dart';
 
+enum TitleButton {
+  add,
+  delete,
+}
+
 class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
   TitleModel _movie;
   TrailerModel _trailer;
@@ -21,13 +26,15 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
       _movie = await moviesRepository.getTitleDataModel(event.titleId);
       _trailer = await moviesRepository.getTrailerDataModel(event.titleId);
       _images = await moviesRepository.getImagesData(event.titleId);
+
       if (_movie != null && _trailer != null && _images != null) {
         if (favouritesMoviesRepository.checkMovieInFavourites(
                 favouritesMoviesRepository.mapTitleModelToMovieModel(_movie)) ==
             true) {
           _titleAddFavouritesOrNo = 'Delete from Favourites';
-        }
-        yield MovieInfoLoadedState();
+          yield MovieInfoLoadedState(addOrDelete: TitleButton.delete);
+        } else
+          yield MovieInfoLoadedState(addOrDelete: TitleButton.add);
       } else {
         yield MovieInfoEmptyState();
       }
@@ -41,12 +48,12 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
         favouritesService.addItemToFavourites(
             favouritesMoviesRepository.mapTitleModelToMovieModel(_movie));
         _titleAddFavouritesOrNo = 'Delete from Favourites';
-        yield MovieInfoLoadedState(addOrDelete: false);
+        yield MovieInfoLoadedState(addOrDelete: TitleButton.delete);
       } else {
         favouritesService.deleteItemFromFavourites(
             favouritesMoviesRepository.mapTitleModelToMovieModel(_movie));
         _titleAddFavouritesOrNo = 'Add to favourites';
-        yield MovieInfoLoadedState(addOrDelete: true);
+        yield MovieInfoLoadedState(addOrDelete: TitleButton.add);
       }
     }
   }
@@ -97,7 +104,7 @@ class MovieInfoInitState extends MovieInfoState {}
 class MovieInfoBusyState extends MovieInfoState {}
 
 class MovieInfoLoadedState extends MovieInfoState {
-  final bool addOrDelete;
+  final TitleButton addOrDelete;
 
   MovieInfoLoadedState({this.addOrDelete});
 }
