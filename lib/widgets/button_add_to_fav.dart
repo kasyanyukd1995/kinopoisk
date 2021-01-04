@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/blocs/index.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/generated/i18n.dart';
 
 class ButtonAddToFavouritesWidget extends StatelessWidget {
   final TitleModel titleModel;

@@ -50,6 +50,8 @@ class I18n implements WidgetsLocalizations {
   String get searchPageTextField => "Enter title your movie";
   /// "Add to favourites"
   String get movieInfoPageTitleBlockAddToFavourites => "Add to favourites";
+  /// "Delete from favourites"
+  String get movieInfoPageTitleBlockDeleteFromFavourites => "Delete from favourites";
   /// "Directors"
   String get movieInfoPageTitleBlockDirectors => "Directors";
   /// "Writers"
@@ -64,6 +66,8 @@ class I18n implements WidgetsLocalizations {
   String get movieInfoPageTitleBlockActors => "Actors";
   /// "Similars"
   String get movieInfoPageTitleBlockSimilars => "Similars";
+  /// "Favourites"
+  String get favouritesMoviesTitleBlock => "Favourites";
 }
 
 class _I18n_en_US extends I18n {

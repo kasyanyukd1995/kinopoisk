@@ -22,7 +22,7 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
 
       _favouritesMovies =
           await favouritesMoviesRepository.fetchFavouritesMovies();
-      if (_favouritesMovies != null) {
+      if (_favouritesMovies != null && _favouritesMovies.length != 0) {
         yield FavouritesLoadedState();
       } else {
         yield FavouritesEmptyState();

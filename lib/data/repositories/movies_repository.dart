@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:kinopoisk/core/common/index.dart';
 import 'package:kinopoisk/core/models/index.dart';
 
-const String apikey = 'k_AkH52o3p';
+const String apikey = 'k_x3uEl68J';
 
 class MoviesRepository {
   Future<List<MovieModel>> getMostPopularMovies() async {

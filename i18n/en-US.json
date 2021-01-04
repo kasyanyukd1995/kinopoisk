@@ -21,6 +21,7 @@
     "movieInfoPage":{
         "titleBlock":{
             "addToFavourites":"Add to favourites",
+            "deleteFromFavourites":"Delete from favourites",
             "directors": "Directors",
             "writers" : "Writers",
             "images" : "Images",
@@ -30,7 +31,12 @@
             "similars" : "Similars"
         }
         
+    },
+    "favouritesMovies":{
+        "titleBlock":"Favourites"
     }
+        
+    
     
     
 }

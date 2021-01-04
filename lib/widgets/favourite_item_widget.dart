@@ -51,7 +51,7 @@ class FavouriteItemWidget extends StatelessWidget {
                         Text(
                           movieItem.title,
                           style: const TextStyle(
-                              color: Colors.white, fontSize: 13),
+                              color: Colors.white, fontSize: 16),
                         ),
                         movieItem.imDbRating != '' &&
                                 movieItem.imDbRating != null
@@ -69,7 +69,6 @@ class FavouriteItemWidget extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                // color: Colors.blue,
                                 child: Text(
                                   movieItem.imDbRating,
                                   style: TextStyle(

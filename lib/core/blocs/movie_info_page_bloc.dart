@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/core/common/index.dart';
 import 'package:kinopoisk/core/models/index.dart';
+import 'package:kinopoisk/generated/i18n.dart';
 
 enum TitleButton {
   add,
@@ -12,7 +13,9 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
   TitleModel _movie;
   TrailerModel _trailer;
   List<ImageModel> _images = [];
-  String _titleAddFavouritesOrNo = 'Add to favourites';
+
+  String _titleAddFavouritesOrNo =
+      const I18n().movieInfoPageTitleBlockAddToFavourites;
 
   MovieInfoPageBloc() : super(MovieInfoEmptyState());
 
@@ -31,7 +34,8 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
         if (favouritesMoviesRepository.checkMovieInFavourites(
                 favouritesMoviesRepository.mapTitleModelToMovieModel(_movie)) ==
             true) {
-          _titleAddFavouritesOrNo = 'Delete from Favourites';
+          _titleAddFavouritesOrNo =
+              const I18n().movieInfoPageTitleBlockDeleteFromFavourites;
           yield MovieInfoLoadedState(addOrDelete: TitleButton.delete);
         } else
           yield MovieInfoLoadedState(addOrDelete: TitleButton.add);
@@ -44,15 +48,18 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
       navigationService.navigateWithReplacementTo(Pages.movieInfo,
           arguments: event.movie);
     } else if (event is TapOnAddToFavouritesEvent) {
-      if (_titleAddFavouritesOrNo == 'Add to favourites') {
+      if (_titleAddFavouritesOrNo ==
+          const I18n().movieInfoPageTitleBlockAddToFavourites) {
         favouritesService.addItemToFavourites(
             favouritesMoviesRepository.mapTitleModelToMovieModel(_movie));
-        _titleAddFavouritesOrNo = 'Delete from Favourites';
+        _titleAddFavouritesOrNo =
+            const I18n().movieInfoPageTitleBlockDeleteFromFavourites;
         yield MovieInfoLoadedState(addOrDelete: TitleButton.delete);
       } else {
         favouritesService.deleteItemFromFavourites(
             favouritesMoviesRepository.mapTitleModelToMovieModel(_movie));
-        _titleAddFavouritesOrNo = 'Add to favourites';
+        _titleAddFavouritesOrNo =
+            const I18n().movieInfoPageTitleBlockAddToFavourites;
         yield MovieInfoLoadedState(addOrDelete: TitleButton.add);
       }
     }
