@@ -44,7 +44,10 @@ class _FavouritesPageState
                 ),
               if (state is FavouritesEmptyState)
                 const Center(
-                  child: Text('No movies'),
+                  child: Text(
+                    'No movies',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               if (state is FavouritesLoadedState)
                 Padding(

@@ -18,26 +18,18 @@ class MovieInfoPage extends StatefulWidget {
   });
 
   @override
-  _MovieInfoPageState createState() => new _MovieInfoPageState(titleId, rating);
+  _MovieInfoPageState createState() => new _MovieInfoPageState();
 }
 
 class _MovieInfoPageState
     extends BasePageState<MovieInfoPageBloc, MovieInfoPage> {
-  String titleId;
-  String rating;
-
-  _MovieInfoPageState(String titleId, String rating) {
-    this.titleId = titleId;
-    this.rating = rating;
-  }
-
   void initState() {
     super.initState();
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
 
-    bloc.add(MovieInfoInitializeEvent(titleId));
+    bloc.add(MovieInfoInitializeEvent(widget.titleId));
   }
 
   Widget build(BuildContext context) {
@@ -55,7 +47,10 @@ class _MovieInfoPageState
                 ),
               if (state is MovieInfoEmptyState)
                 const Center(
-                  child: Text('no info'),
+                  child: Text(
+                    'no info',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               if (state is MovieInfoLoadedState)
                 SingleChildScrollView(
@@ -179,10 +174,11 @@ class _MovieInfoPageState
                                           ),
                                         ),
                                       ),
-                                      rating != null
+                                      widget.rating != null
                                           ? RatingBar(
                                               initialRating:
-                                                  double.parse(rating) / 2,
+                                                  double.parse(widget.rating) /
+                                                      2,
                                               minRating: 1,
                                               direction: Axis.horizontal,
                                               allowHalfRating: true,

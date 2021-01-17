@@ -41,7 +41,10 @@ class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
                 ),
               if (state is MoviesEmptyState)
                 const Center(
-                  child: Text('no movies'),
+                  child: Text(
+                    'no movies',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               SingleChildScrollView(
                 child: Column(

@@ -33,7 +33,10 @@ class _MostPopularMovies
                 ),
               if (state is PopularMoviesEmptyState)
                 const Center(
-                  child: Text('no movies'),
+                  child: Text(
+                    'no movies',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               if (state is PopularMoviesLoadedState)
                 Container(
