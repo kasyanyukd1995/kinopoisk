@@ -1,3 +1,4 @@
+import 'package:auto_animated/auto_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/blocs/index.dart';
 import 'package:kinopoisk/generated/i18n.dart';
@@ -11,6 +12,13 @@ const TextStyle textStyleForTitle = TextStyle(
   fontSize: 26,
   fontStyle: FontStyle.normal,
   fontWeight: FontWeight.w400,
+);
+
+const SliverGridDelegateWithFixedCrossAxisCount gridDelegate =
+    SliverGridDelegateWithFixedCrossAxisCount(
+  crossAxisCount: 2,
+  crossAxisSpacing: 20.0,
+  childAspectRatio: 1.3,
 );
 
 class MoviesPage extends StatefulWidget {
@@ -59,26 +67,7 @@ class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
                         Expanded(
                           child: SizedBox(
                             height: 380,
-                            child: GridView.builder(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 20.0,
-                                childAspectRatio: 1.3,
-                              ),
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                MovieModel movieItem = bloc.getMovies[index];
-                                return MoveiItemWidget(
-                                  movieItem: movieItem,
-                                  onTapMovieFunction: (movieobj) => bloc
-                                      .add(TapOnMoviesEvent(movie: movieItem)),
-                                );
-                              },
-                              itemCount: bloc.getMovies.length > countViewMovie
-                                  ? countViewMovie
-                                  : bloc.getMovies.length,
-                            ),
+                            child: _gridViewWithAnimation(bloc.getMovies),
                           ),
                         ),
                       ],
@@ -94,26 +83,7 @@ class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
                         Expanded(
                           child: SizedBox(
                             height: 380,
-                            child: GridView.builder(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 20.0,
-                                childAspectRatio: 1.3,
-                              ),
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                MovieModel movieItem = bloc.getTvs[index];
-                                return MoveiItemWidget(
-                                  movieItem: movieItem,
-                                  onTapMovieFunction: (movieobj) => bloc
-                                      .add(TapOnMoviesEvent(movie: movieItem)),
-                                );
-                              },
-                              itemCount: bloc.getTvs.length > countViewMovie
-                                  ? countViewMovie
-                                  : bloc.getTvs.length,
-                            ),
+                            child: _gridViewWithAnimation(bloc.getTvs),
                           ),
                         ),
                       ],
@@ -129,28 +99,7 @@ class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
                         Expanded(
                           child: SizedBox(
                             height: 380,
-                            child: GridView.builder(
-                              gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2,
-                                crossAxisSpacing: 20.0,
-                                childAspectRatio: 1.3,
-                              ),
-                              scrollDirection: Axis.horizontal,
-                              itemBuilder: (context, index) {
-                                MovieModel movieItem =
-                                    bloc.getTop250Movie[index];
-                                return MoveiItemWidget(
-                                  movieItem: movieItem,
-                                  onTapMovieFunction: (movieobj) => bloc
-                                      .add(TapOnMoviesEvent(movie: movieItem)),
-                                );
-                              },
-                              itemCount:
-                                  bloc.getTop250Movie.length > countViewMovie
-                                      ? countViewMovie
-                                      : bloc.getTop250Movie.length,
-                            ),
+                            child: _gridViewWithAnimation(bloc.getTop250Movie),
                           ),
                         ),
                       ],
@@ -164,4 +113,53 @@ class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
       },
     );
   }
+
+  Widget _gridViewWithAnimation(List<MovieModel> listMovie) {
+    return LiveGrid(
+      showItemInterval: const Duration(milliseconds: 50),
+      showItemDuration: const Duration(milliseconds: 150),
+      scrollDirection: Axis.horizontal,
+      visibleFraction: 0.001,
+      itemCount: listMovie.length,
+      gridDelegate: gridDelegate,
+      itemBuilder: _animationItemBuilder((index) {
+        MovieModel movieItem = bloc.getTop250Movie[index];
+        return MoveiItemWidget(
+          movieItem: movieItem,
+          onTapMovieFunction: (movieobj) =>
+              bloc.add(TapOnMoviesEvent(movie: movieItem)),
+        );
+      }),
+    );
+  }
+
+  Widget Function(
+    BuildContext context,
+    int index,
+    Animation<double> animation,
+  ) _animationItemBuilder(
+    Widget Function(int index) child, {
+    EdgeInsets padding = EdgeInsets.zero,
+  }) =>
+      (
+        BuildContext context,
+        int index,
+        Animation<double> animation,
+      ) =>
+          FadeTransition(
+            opacity: Tween<double>(
+              begin: 0,
+              end: 1,
+            ).animate(animation),
+            child: SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(0, -0.1),
+                end: Offset.zero,
+              ).animate(animation),
+              child: Padding(
+                padding: padding,
+                child: child(index),
+              ),
+            ),
+          );
 }

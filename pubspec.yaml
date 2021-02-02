@@ -37,13 +37,14 @@ dependencies:
   meet_network_image: ^0.1.2
   flutter_rating_bar: ^3.0.1
   get_it: ^4.0.2
-  get: ^3.13.2
+  get: ^3.24.0
   equatable: ^1.2.5
   sembast: ^2.4.8
   youtube_player_flutter: ^7.0.0+7
   sticky_headers: ^0.1.8+1
   flutter_slidable: ^0.5.7
   fluttertoast: ^7.1.6
+  auto_animated: ^2.1.0
 
 dev_dependencies:
   flutter_test:
