@@ -31,7 +31,6 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
       navigationService.navigateTo(Pages.movieInfo, arguments: event.movie);
     } else if (event is ChangeFavouritesListEvent) {
       _favouritesMovies = favouritesMoviesRepository.getFavouritesList;
-
       yield FavouritesLoadedState();
     } else if (event is DeleteMovieFromFavourites) {
       favouritesMoviesRepository.deleteMovieFromFavourites(event.movieModel);
@@ -48,9 +47,6 @@ class FavouritesBloc extends Bloc<FavouritesEvent, FavouritesState> {
     await super.close();
     await _streamSubscription?.cancel();
   }
-  // void dispose() {
-  //   streamSubscription?.cancel();
-  // }
 }
 
 abstract class FavouritesEvent {}

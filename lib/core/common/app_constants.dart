@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:kinopoisk/widgets/circular_progress_indicator.dart';
 
 class AppConstants {
+  static const String apikey = 'k_AkH52o3p';
   static Widget imageWidget(double height, String urlImage) {
     return CachedNetworkImage(
       imageUrl: urlImage,

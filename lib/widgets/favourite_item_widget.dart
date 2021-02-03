@@ -31,12 +31,19 @@ class _FavouriteItemWidgetState extends State<FavouriteItemWidget>
       vsync: this,
     );
     _myAnimation = Tween<Offset>(
-      begin: Offset.zero,
+      begin: const Offset(0.0, 0),
       end: const Offset(1.5, 0.0),
     ).animate(CurvedAnimation(
       parent: _controller,
-      curve: Curves.elasticIn,
+      curve: Curves.elasticInOut,
     ));
+    _controller.addStatusListener((status) {
+      print(status);
+      if (status == AnimationStatus.completed) {
+        _controller.reverse();
+        widget.onTapDeleteMovieFunction(widget.movieItem);
+      }
+    });
   }
 
   void dispose() {
@@ -54,7 +61,7 @@ class _FavouriteItemWidgetState extends State<FavouriteItemWidget>
           IconSlideAction(
             caption: 'Share',
             color: Colors.indigo,
-            icon: Icons.share,
+            icon: Icons.share_outlined,
             onTap: () => print('Share'),
           ),
         ],
@@ -62,11 +69,9 @@ class _FavouriteItemWidgetState extends State<FavouriteItemWidget>
           IconSlideAction(
             caption: 'Delete',
             color: Colors.red,
-            icon: Icons.delete,
+            icon: Icons.delete_outlined,
             onTap: () {
-              _deleteMovieFromFavourites();
-              // _controller.forward();
-              // widget.onTapDeleteMovieFunction(widget.movieItem);
+              _controller.forward();
             },
           ),
         ],
@@ -136,28 +141,9 @@ class _FavouriteItemWidgetState extends State<FavouriteItemWidget>
               ),
               onTap: () => widget.onTapItemFunction(widget.movieItem),
             ),
-            const Spacer(),
-            OutlineButton(
-              onPressed: () =>
-                  widget.onTapDeleteMovieFunction(widget.movieItem),
-              child: Row(
-                children: [
-                  const Icon(
-                    Icons.delete_outline,
-                    color: Colors.white,
-                    size: 30,
-                  ),
-                ],
-              ),
-            ),
           ],
         ),
       ),
     );
-  }
-
-  Future _deleteMovieFromFavourites() async {
-    //await _controller.forward();
-    widget.onTapDeleteMovieFunction(widget.movieItem);
   }
 }

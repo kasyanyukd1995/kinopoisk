@@ -30,7 +30,6 @@ class _MovieInfoPageState
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-
     bloc.add(MovieInfoInitializeEvent(widget.titleId));
   }
 

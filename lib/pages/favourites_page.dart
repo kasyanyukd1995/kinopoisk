@@ -60,8 +60,10 @@ class _FavouritesPageState
                         onTapItemFunction: (obj) => bloc.add(
                           TapOnFavouritesMoviesEvent(movie: movie),
                         ),
-                        onTapDeleteMovieFunction: (obj) => bloc
-                            .add(DeleteMovieFromFavourites(movieModel: movie)),
+                        onTapDeleteMovieFunction: (obj) {
+                          bloc.add(
+                              DeleteMovieFromFavourites(movieModel: movie));
+                        },
                       );
                     },
                     itemCount: bloc.getFavouritesMovies.length,
