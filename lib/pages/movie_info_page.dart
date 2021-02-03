@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:kinopoisk/core/blocs/index.dart';
+import 'package:kinopoisk/core/common/app_constants.dart';
 import 'package:kinopoisk/generated/i18n.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kinopoisk/widgets/index.dart';
@@ -178,31 +178,11 @@ class _MovieInfoPageState
                                               child: ClipRRect(
                                                 borderRadius:
                                                     BorderRadius.circular(13.0),
-                                                child: CachedNetworkImage(
-                                                  imageUrl: bloc.getMovieInfo
-                                                              .image[8] !=
-                                                          'm'
-                                                      ? bloc.getMovieInfo.image
-                                                          .replaceRange(
-                                                              28, 36, '180x300')
-                                                      : bloc.getMovieInfo.image,
-                                                  placeholder: (context, url) =>
-                                                      Center(
-                                                          child:
-                                                              MyCircularProgressIndicator()),
-                                                  errorWidget: (context, url,
-                                                          error) =>
-                                                      const Icon(Icons.error),
-                                                  fit: BoxFit.fill,
-                                                  fadeInCurve: Curves.easeIn,
-                                                  fadeInDuration:
-                                                      const Duration(
-                                                          seconds: 2),
-                                                  fadeOutCurve: Curves.easeOut,
-                                                  fadeOutDuration:
-                                                      const Duration(
-                                                          seconds: 2),
-                                                ),
+                                                child: AppConstants.imageWidget(
+                                                    null,
+                                                    AppConstants.checkApiData(
+                                                        bloc.getMovieInfo.image,
+                                                        '180x300')),
                                               ),
                                             ),
                                             widget.rating != null
@@ -411,29 +391,11 @@ class _MovieInfoPageState
                                         final imageItem = bloc.getImages[index];
                                         return Row(
                                           children: [
-                                            CachedNetworkImage(
-                                              imageUrl: imageItem.image[8] ==
-                                                      'm'
-                                                  ? imageItem.image
-                                                  : imageItem.image
-                                                      .replaceRange(
-                                                          28, 36, '300x500'),
-                                              placeholder: (context, url) =>
-                                                  Center(
-                                                child:
-                                                    MyCircularProgressIndicator(),
-                                              ),
-                                              errorWidget:
-                                                  (context, url, error) =>
-                                                      const Icon(Icons.error),
-                                              fit: BoxFit.fill,
-                                              fadeInCurve: Curves.easeIn,
-                                              fadeInDuration:
-                                                  const Duration(seconds: 2),
-                                              fadeOutCurve: Curves.easeOut,
-                                              fadeOutDuration:
-                                                  const Duration(seconds: 2),
-                                            ),
+                                            AppConstants.imageWidget(
+                                                null,
+                                                AppConstants.checkApiData(
+                                                    imageItem.image,
+                                                    '300x500')),
                                             const SizedBox(
                                               width: 5,
                                             )
@@ -518,31 +480,9 @@ class _MovieInfoPageState
 
 Widget catchExceptionForImage(String urlImage, double height) {
   try {
-    return CachedNetworkImage(
-      height: height,
-      imageUrl: urlImage,
-      placeholder: (context, url) =>
-          Center(child: MyCircularProgressIndicator()),
-      errorWidget: (context, url, error) => const Icon(Icons.error),
-      fit: BoxFit.fill,
-      fadeInCurve: Curves.easeIn,
-      fadeInDuration: const Duration(seconds: 2),
-      fadeOutCurve: Curves.easeOut,
-      fadeOutDuration: const Duration(seconds: 2),
-    );
+    return AppConstants.imageWidget(height, urlImage);
   } catch (e) {
-    return CachedNetworkImage(
-      height: height,
-      imageUrl: null,
-      placeholder: (context, url) =>
-          Center(child: MyCircularProgressIndicator()),
-      errorWidget: (context, url, error) => const Icon(Icons.error),
-      fit: BoxFit.fill,
-      fadeInCurve: Curves.easeIn,
-      fadeInDuration: const Duration(seconds: 2),
-      fadeOutCurve: Curves.easeOut,
-      fadeOutDuration: const Duration(seconds: 2),
-    );
+    return AppConstants.imageWidget(height, null);
   }
 }
 

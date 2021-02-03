@@ -1,9 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:kinopoisk/core/common/app_constants.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'index.dart';
 
 class SimilarItemWidget extends StatelessWidget {
   final MovieModel similarItem;
@@ -35,46 +34,15 @@ class SimilarItemWidget extends StatelessWidget {
                   width: 120,
                   height: 140,
                   child: Center(
-                    child: CachedNetworkImage(
-                      imageUrl:
-                          similarItem.image.replaceRange(28, 36, '384x528'),
-                      height: 145,
-                      placeholder: (context, url) => Center(
-                        child: MyCircularProgressIndicator(),
-                      ),
-                      errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
-                      fit: BoxFit.fill,
-                      fadeInCurve: Curves.easeIn,
-                      fadeInDuration: const Duration(seconds: 2),
-                      fadeOutCurve: Curves.easeOut,
-                      fadeOutDuration: const Duration(seconds: 2),
-                    ),
+                    child: AppConstants.imageWidget(
+                        145, similarItem.image.replaceRange(28, 36, '384x528')),
                   ),
                 ),
                 Container(
                   width: 130,
                   padding: const EdgeInsets.fromLTRB(2, 0, 2, 0),
                   child: Center(
-                    child: similarItem.title.length > 18
-                        ? Text(
-                            similarItem.title.substring(0, 16) + '...',
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Colors.white70,
-                              fontSize: 11,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          )
-                        : Text(
-                            similarItem.title,
-                            textAlign: TextAlign.center,
-                            style: const TextStyle(
-                              color: Colors.white70,
-                              fontSize: 11,
-                              fontWeight: FontWeight.w400,
-                            ),
-                          ),
+                    child: _checkLengthName(),
                   ),
                 ),
                 similarItem.imDbRating != ''
@@ -121,5 +89,27 @@ class SimilarItemWidget extends StatelessWidget {
       ),
       onTap: () => onTapMovieFunction(similarItem),
     );
+  }
+
+  Widget _checkLengthName() {
+    return similarItem.title.length > 18
+        ? Text(
+            similarItem.title.substring(0, 16) + '...',
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white70,
+              fontSize: 11,
+              fontWeight: FontWeight.w400,
+            ),
+          )
+        : Text(
+            similarItem.title,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: Colors.white70,
+              fontSize: 11,
+              fontWeight: FontWeight.w400,
+            ),
+          );
   }
 }

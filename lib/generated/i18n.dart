@@ -32,6 +32,8 @@ class I18n implements WidgetsLocalizations {
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
+  /// "No movies"
+  String get emptyNoMovies => "No movies";
   /// "Home"
   String get shellPageBottomNavigationHome => "Home";
   /// "Movies"

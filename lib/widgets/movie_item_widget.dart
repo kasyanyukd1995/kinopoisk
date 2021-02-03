@@ -1,9 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:kinopoisk/core/common/app_constants.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'package:kinopoisk/widgets/index.dart';
 
 class MoveiItemWidget extends StatelessWidget {
   final MovieModel movieItem;
@@ -37,24 +36,8 @@ class MoveiItemWidget extends StatelessWidget {
                   width: 130,
                   height: 140,
                   child: Center(
-                    child: CachedNetworkImage(
-                      imageUrl: indicator == null
-                          ? movieItem.image[8] != 'm'
-                              ? movieItem.image.replaceRange(28, 36, '180x250')
-                              : movieItem.image
-                          : movieItem.image,
-                      height: 145,
-                      placeholder: (context, url) => Center(
-                        child: MyCircularProgressIndicator(),
-                      ),
-                      errorWidget: (context, url, error) =>
-                          const Icon(Icons.error),
-                      fit: BoxFit.fill,
-                      fadeInCurve: Curves.easeIn,
-                      fadeInDuration: const Duration(seconds: 2),
-                      fadeOutCurve: Curves.easeOut,
-                      fadeOutDuration: const Duration(seconds: 2),
-                    ),
+                    child: AppConstants.imageWidget(145,
+                        AppConstants.checkApiData(movieItem.image, '180x250')),
                   ),
                 ),
                 Container(

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kinopoisk/core/blocs/index.dart';
 import 'package:kinopoisk/core/models/index.dart';
+import 'package:kinopoisk/generated/i18n.dart';
 import 'package:kinopoisk/widgets/index.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,10 +33,10 @@ class _MostPopularMovies
                   child: MyCircularProgressIndicator(),
                 ),
               if (state is PopularMoviesEmptyState)
-                const Center(
+                Center(
                   child: Text(
-                    'no movies',
-                    style: TextStyle(color: Colors.white),
+                    const I18n().emptyNoMovies,
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
               if (state is PopularMoviesLoadedState)

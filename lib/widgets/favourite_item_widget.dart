@@ -1,9 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:kinopoisk/core/common/app_constants.dart';
 import 'package:kinopoisk/core/models/index.dart';
-import 'circular_progress_indicator.dart';
 
 class FavouriteItemWidget extends StatefulWidget {
   final MovieModel movieItem;
@@ -84,21 +83,10 @@ class _FavouriteItemWidgetState extends State<FavouriteItemWidget>
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        CachedNetworkImage(
-                          height: 70,
-                          imageUrl: widget.movieItem.image
-                              .replaceRange(28, 36, '185x260'),
-                          placeholder: (context, url) => Center(
-                            child: MyCircularProgressIndicator(),
-                          ),
-                          errorWidget: (context, url, error) =>
-                              const Icon(Icons.error),
-                          fit: BoxFit.fill,
-                          fadeInCurve: Curves.easeIn,
-                          fadeInDuration: const Duration(seconds: 2),
-                          fadeOutCurve: Curves.easeOut,
-                          fadeOutDuration: const Duration(seconds: 2),
-                        ),
+                        AppConstants.imageWidget(
+                            70,
+                            widget.movieItem.image
+                                .replaceRange(28, 36, '185x260')),
                         const SizedBox(
                           width: 5,
                         ),

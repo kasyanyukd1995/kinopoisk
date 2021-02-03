@@ -1,5 +1,7 @@
 {
-    
+    "empty":{
+        "noMovies":"No movies"
+    },
     "shellPage": {
         "bottomNavigation" :{
             "home" : "Home",

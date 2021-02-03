@@ -43,10 +43,10 @@ class _FavouritesPageState
                   child: MyCircularProgressIndicator(),
                 ),
               if (state is FavouritesEmptyState)
-                const Center(
+                Center(
                   child: Text(
-                    'No movies',
-                    style: TextStyle(color: Colors.white),
+                    const I18n().emptyNoMovies,
+                    style: const TextStyle(color: Colors.white),
                   ),
                 ),
               if (state is FavouritesLoadedState)

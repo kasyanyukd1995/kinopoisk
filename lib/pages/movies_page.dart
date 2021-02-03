@@ -13,7 +13,8 @@ const TextStyle textStyleForTitle = TextStyle(
   fontStyle: FontStyle.normal,
   fontWeight: FontWeight.w400,
 );
-
+const Widget sizeBoxAfterBox = SizedBox(height: 20.0);
+const double heighBoxMovies = 380;
 const SliverGridDelegateWithFixedCrossAxisCount gridDelegate =
     SliverGridDelegateWithFixedCrossAxisCount(
   crossAxisCount: 2,
@@ -61,44 +62,44 @@ class _MoviesPageState extends BasePageState<MoviesBloc, MoviesPage> {
                       I18n.of(context).moviesPageTitleBlockMostPopularMoviesNow,
                       style: textStyleForTitle,
                     ),
-                    const SizedBox(height: 20.0),
+                    sizeBoxAfterBox,
                     Row(
                       children: [
                         Expanded(
                           child: SizedBox(
-                            height: 380,
+                            height: heighBoxMovies,
                             child: _gridViewWithAnimation(bloc.getMovies),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20.0),
+                    sizeBoxAfterBox,
                     Text(
                       I18n.of(context).moviesPageTitleBlockMostPopularTVsNow,
                       style: textStyleForTitle,
                     ),
-                    const SizedBox(height: 20.0),
+                    sizeBoxAfterBox,
                     Row(
                       children: [
                         Expanded(
                           child: SizedBox(
-                            height: 380,
+                            height: heighBoxMovies,
                             child: _gridViewWithAnimation(bloc.getTvs),
                           ),
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20.0),
+                    sizeBoxAfterBox,
                     Text(
                       I18n.of(context).moviesPageTitleBlockTop250Movies,
                       style: textStyleForTitle,
                     ),
-                    const SizedBox(height: 20.0),
+                    sizeBoxAfterBox,
                     Row(
                       children: [
                         Expanded(
                           child: SizedBox(
-                            height: 380,
+                            height: heighBoxMovies,
                             child: _gridViewWithAnimation(bloc.getTop250Movie),
                           ),
                         ),
