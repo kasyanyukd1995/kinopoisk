@@ -43,12 +43,10 @@ class DependencyService {
     _ioc.registerLazySingleton(() => MostPopularTVsRepository());
     _ioc.registerLazySingleton(() => Top250MoviesRepository());
     _ioc.registerLazySingleton(() => FavouritesService());
-
     _ioc.registerLazySingleton(() => ChopperClient(
           baseUrl: 'https://imdb-api.com/',
           services: [ImdbApiService.create()],
         ).getService<ImdbApiService>());
-
     return _ioc;
   }
 
@@ -59,7 +57,6 @@ class DependencyService {
     ioc.registerFactory(() => FavouritesBloc());
     ioc.registerFactory(() => MoviesBloc());
     ioc.registerFactory(() => SearchBloc());
-
     print('registred blocs');
   }
 }
