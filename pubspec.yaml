@@ -45,6 +45,8 @@ dependencies:
   flutter_slidable: ^0.5.7
   fluttertoast: ^7.1.6
   auto_animated: ^2.1.0
+  golden_toolkit: ^0.9.0
+  bloc_test:
 
 dev_dependencies:
   flutter_test:
@@ -56,7 +58,7 @@ dev_dependencies:
   flutter_bloc: ^6.0.6
   flutter_launcher_icons: ^0.8.1
   flutter_native_splash: ^0.2.9
-
+  mockito: 
 
 
 

@@ -6,7 +6,7 @@ import 'package:kinopoisk/widgets/circular_progress_indicator.dart';
 class AppConstants {
   static const String imageNotFound =
       'https://zelgorod.ru/uploads/all/d7/22/9e/d7229e901c0025bd64aee3989b15dcf7.png';
-  static const String apikey = 'k_AkH52o3p';
+  static const String apikey = 'k_x3uEl68J';
   static Widget imageWidget(double height, String urlImage) {
     try {
       return CachedNetworkImage(

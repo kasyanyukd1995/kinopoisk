@@ -37,8 +37,9 @@ class MovieInfoPageBloc extends Bloc<MovieInfoEvent, MovieInfoState> {
           _titleAddFavouritesOrNo =
               const I18n().movieInfoPageTitleBlockDeleteFromFavourites;
           yield MovieInfoLoadedState(addOrDelete: TitleButton.delete);
-        } else
+        } else {
           yield MovieInfoLoadedState(addOrDelete: TitleButton.add);
+        }
       } else {
         yield MovieInfoEmptyState();
       }

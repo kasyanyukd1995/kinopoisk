@@ -263,7 +263,7 @@ class _MovieInfoPageState
                                             fontStyle: FontStyle.normal,
                                             fontWeight: FontWeight.w100,
                                           ),
-                                        ),
+                                        ), 
                                       ),
                                       //
                                     ],
